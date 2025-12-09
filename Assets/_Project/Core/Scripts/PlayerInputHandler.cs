@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,7 @@ namespace _Project.Core.Scripts
 
         public event Action JumpEvent;
         public event Action DodgeEvent;
+
         // public bool JumpPressed { get; private set; }
 
         private void Awake()
@@ -53,6 +55,7 @@ namespace _Project.Core.Scripts
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            Move = context.ReadValue<Vector2>();
         }
 
         public void OnJump(InputAction.CallbackContext context)
@@ -64,12 +67,12 @@ namespace _Project.Core.Scripts
 
         public void OnLook(InputAction.CallbackContext context)
         {
+            Look = context.ReadValue<Vector2>();
         }
 
         public void OnDodge(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-
             DodgeEvent?.Invoke();
         }
     }
