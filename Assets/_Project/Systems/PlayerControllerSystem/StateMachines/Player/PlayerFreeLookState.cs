@@ -14,6 +14,7 @@ namespace _Project.Systems.PlayerControllerSystem.StateMachines.Player
         public override void Enter()
         {
             stateMachine.InputHandler.TargetEvent += OnTarget;
+            stateMachine.Animator.Play(stateMachine.FreeLookBlendTreeHash);
         }
 
         private void OnTarget()
@@ -27,7 +28,8 @@ namespace _Project.Systems.PlayerControllerSystem.StateMachines.Player
         {
             Vector3 movement = CalculateMovement();
 
-            stateMachine.Controller.Move(movement * stateMachine.FreeMovementSpeed * deltaTime);
+            Move(movement * stateMachine.FreeMovementSpeed, deltaTime);
+            // stateMachine.Controller.Move(movement * stateMachine.FreeMovementSpeed * deltaTime); without force receiver -gravity
 
             if (stateMachine.InputHandler.Move.sqrMagnitude < 0.001f)
             {

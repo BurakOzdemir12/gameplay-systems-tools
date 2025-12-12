@@ -363,10 +363,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 392728523621335679}
+  - component: {fileID: 1115641391573232173}
+  - component: {fileID: 8654562121580918580}
   - component: {fileID: 4420304006246375576}
   - component: {fileID: 8423167522855743522}
-  - component: {fileID: 8654562121580918580}
-  - component: {fileID: 1115641391573232173}
+  - component: {fileID: 1872583865276099689}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -396,59 +397,6 @@ Transform:
   - {fileID: 960889869181963763}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4420304006246375576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831815202675328790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b5a364892fa2104a8589c002daf5544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.StateMachines.Player.PlayerStateMachine
-  <InputHandler>k__BackingField: {fileID: 8423167522855743522}
-  <Controller>k__BackingField: {fileID: 1115641391573232173}
-  <Animator>k__BackingField: {fileID: 8654562121580918580}
-  <Targeter>k__BackingField: {fileID: 4615167101350776625}
-  locomotionAnimatorDampTime: 0.1
-  rotationDampTime: 5
-  <FreeMovementSpeed>k__BackingField: 4
---- !u!114 &8423167522855743522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831815202675328790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6762150c7b51be1469b84a2ecc2f8bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Core.Scripts.PlayerInputHandler
---- !u!95 &8654562121580918580
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831815202675328790}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e8c192db9410794d86c249cbcce71dc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!143 &1115641391573232173
 CharacterController:
   m_ObjectHideFlags: 0
@@ -473,7 +421,75 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.038
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.88, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!95 &8654562121580918580
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831815202675328790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e8c192db9410794d86c249cbcce71dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4420304006246375576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831815202675328790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5a364892fa2104a8589c002daf5544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.StateMachines.Player.PlayerStateMachine
+  <InputHandler>k__BackingField: {fileID: 8423167522855743522}
+  <Controller>k__BackingField: {fileID: 1115641391573232173}
+  <Animator>k__BackingField: {fileID: 8654562121580918580}
+  <Targeter>k__BackingField: {fileID: 4615167101350776625}
+  <ForceReceiver>k__BackingField: {fileID: 1872583865276099689}
+  locomotionAnimatorDampTime: 0.1
+  rotationDampTime: 5
+  <FreeMovementSpeed>k__BackingField: 4
+  <TargetingMovementSpeed>k__BackingField: 2.5
+--- !u!114 &8423167522855743522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831815202675328790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6762150c7b51be1469b84a2ecc2f8bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Core.Scripts.PlayerInputHandler
+--- !u!114 &1872583865276099689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831815202675328790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e712ff019d504048b3ef3dc8b05e651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.Gravity_Force.ForceReceiver
+  controller: {fileID: 1115641391573232173}
 --- !u!1 &1031656223505270124
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +865,7 @@ Transform:
   m_GameObject: {fileID: 2603632499939857592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0.218, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2955,6 +2971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Targeter
   targets: []
+  cmTargetGroup: {fileID: 0}
+  targetWeight: 1
+  targetRadius: 1
 --- !u!135 &2134167653910349423
 SphereCollider:
   m_ObjectHideFlags: 0
