@@ -11,7 +11,12 @@ public class Targeter : MonoBehaviour
     [SerializeField] private CinemachineTargetGroup cmTargetGroup;
     [SerializeField] private float targetWeight = 1f;
     [SerializeField] private float targetRadius = 1f;
+    [SerializeField] private Camera mainCamera;
 
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,10 +40,36 @@ public class Targeter : MonoBehaviour
     public bool SelectTarget()
     {
         if (targets.Count == 0) return false;
-        SelectedTarget = targets[0];
+
+        Target closestTarget = null;
+        float closestTargetDistance = Mathf.Infinity;
+        foreach (var target in targets)
+        {
+            Vector2 viewPos = mainCamera.WorldToViewportPoint(target.transform.position);
+
+            if (viewPos is not { x: > 0 and < 1, y: > 0 and < 1 })
+            {
+                continue;
+            }
+
+            Vector2 targetToCenter = viewPos - new Vector2(0.5f, 0.5f); // center of screen thats why 0,5f,0,5f
+            if (targetToCenter.sqrMagnitude < closestTargetDistance)
+            {
+                closestTarget = target;
+                closestTargetDistance = targetToCenter.sqrMagnitude;
+            }
+        }
+
+        if (closestTarget == null)
+        {
+            return false;
+        }
+
+        SelectedTarget = closestTarget;
         if (cmTargetGroup == null)
         {
             Debug.LogError("Targeter has no CineMachine Target Group! You need to assing it");
+            return false;
         }
 
         cmTargetGroup.AddMember(SelectedTarget?.transform, targetWeight, targetRadius);
@@ -53,6 +84,7 @@ public class Targeter : MonoBehaviour
         if (cmTargetGroup == null)
         {
             Debug.LogError("Targeter has no CineMachine Target Group! You need to assing it");
+            return;
         }
 
         cmTargetGroup.RemoveMember(SelectedTarget?.transform);
