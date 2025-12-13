@@ -462,7 +462,8 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 4615167101350776625}
   <ForceReceiver>k__BackingField: {fileID: 1872583865276099689}
   locomotionAnimatorDampTime: 0.1
-  rotationDampTime: 5
+  targetingAnimatorDampTime: 0.15
+  rotationDampTime: 5.35
   <FreeMovementSpeed>k__BackingField: 4
   <TargetingMovementSpeed>k__BackingField: 2.5
 --- !u!114 &8423167522855743522

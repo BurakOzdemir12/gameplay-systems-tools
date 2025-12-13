@@ -2308,6 +2308,7 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 0}
   <ForceReceiver>k__BackingField: {fileID: 0}
   locomotionAnimatorDampTime: 0.1
+  targetingAnimatorDampTime: 0.2
   rotationDampTime: 0.1
   <FreeMovementSpeed>k__BackingField: 0
   <TargetingMovementSpeed>k__BackingField: 0

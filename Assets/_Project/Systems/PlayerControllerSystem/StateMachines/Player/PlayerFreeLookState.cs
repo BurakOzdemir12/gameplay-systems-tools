@@ -17,15 +17,16 @@ namespace _Project.Systems.PlayerControllerSystem.StateMachines.Player
             stateMachine.Animator.Play(stateMachine.FreeLookBlendTreeHash);
         }
 
-        private void OnTarget()
-        {
-            if (!stateMachine.Targeter.SelectTarget()) return;
-
-            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
-        }
 
         public override void Tick(float deltaTime)
         {
+            //If you want to attack while free look state even without Targeting use this code
+            if (stateMachine.InputHandler.IsAttacking)
+            {
+                stateMachine.SwitchState(new PlayerAttackingState(stateMachine));
+                return;
+            }
+
             Vector3 movement = CalculateMovement();
 
             Move(movement * stateMachine.FreeMovementSpeed, deltaTime);
@@ -62,6 +63,13 @@ namespace _Project.Systems.PlayerControllerSystem.StateMachines.Player
             // characterTransform.rotation = Quaternion.RotateTowards(
             //     characterTransform.rotation, targetRot, stateMachine.rotationDampTime * deltaTime
             // );
+        }
+
+        private void OnTarget()
+        {
+            if (!stateMachine.Targeter.SelectTarget()) return;
+
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
 
         private Vector3 CalculateMovement()

@@ -15,6 +15,7 @@ namespace _Project.Systems.PlayerControllerSystem.StateMachines.Player
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
 
         [field: SerializeField] public float locomotionAnimatorDampTime = 0.1f;
+        [field: SerializeField] public float targetingAnimatorDampTime = 0.2f;
         [field: SerializeField] public float rotationDampTime = 0.1f;
         [field: SerializeField] public float FreeMovementSpeed { get; private set; }
         [field: SerializeField] public float TargetingMovementSpeed { get; private set; }
@@ -23,7 +24,8 @@ namespace _Project.Systems.PlayerControllerSystem.StateMachines.Player
         public readonly int FreeLookSpeedParam = Animator.StringToHash("FreeLookSpeed");
         public readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
         public readonly int TargetingBlendTreeHash = Animator.StringToHash("TargetingBlendTree");
-
+        public readonly int TargetingForwardSpeedHash = Animator.StringToHash("TargetingForwardSpeed");
+        public readonly int TargetingRightSpeedHash = Animator.StringToHash("TargetingRightSpeed");
         private void Start()
         {
             if (UnityEngine.Camera.main == null) Debug.LogError("No main camera found!");

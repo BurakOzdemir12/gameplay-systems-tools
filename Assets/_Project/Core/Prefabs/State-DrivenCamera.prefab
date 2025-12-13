@@ -309,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 3099342133481601815}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70090926, y: 6.004742e-10, z: -5.900844e-10, w: 0.71325046}
-  m_LocalPosition: {x: 1.36, y: 1.2880001, z: -2.22}
+  m_LocalPosition: {x: 1.36, y: 1.918, z: -2.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -373,11 +373,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1.2, y: 1.2, z: 1.2}
+    PositionDamping: {x: 0.5, y: 0.5, z: 0.5}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 1.07, z: 0}
+  FollowOffset: {x: 0, y: 1.7, z: 0}
 --- !u!114 &9124893452467832698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 4339625639616134060}
   serializedVersion: 2
   m_LocalRotation: {x: -0.17046423, y: -8.295623e-10, z: 1.4351115e-10, w: 0.9853639}
-  m_LocalPosition: {x: 1.1879388e-16, y: -0.018674135, z: 1.0698372}
+  m_LocalPosition: {x: 1.8873792e-16, y: -0.029669166, z: 1.6997411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -569,5 +569,13 @@ MonoBehaviour:
     HashOfParent: 585382737
   - Hash: -479991077
     HashOfParent: 756556552
+  - Hash: -585390472
+    HashOfParent: -479991077
+  - Hash: 641460239
+    HashOfParent: -479991077
+  - Hash: 733949421
+    HashOfParent: -479991077
+  - Hash: 692705905
+    HashOfParent: -479991077
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}
