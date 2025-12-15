@@ -5,8 +5,11 @@ namespace _Project.Systems.PlayerControllerSystem.Gravity_Force
     public class ForceReceiver : MonoBehaviour
     {
         [SerializeField] private CharacterController controller;
+        [SerializeField] private float dragTime = 0.2f;
 
         private float verticalVelocity;
+        private Vector3 impact;
+        private Vector3 dampingVelocity;
 
         private void Start()
         {
@@ -16,7 +19,7 @@ namespace _Project.Systems.PlayerControllerSystem.Gravity_Force
             }
         }
 
-        public Vector3 Movement => Vector3.up * verticalVelocity; // 0,5,0 etc.
+        public Vector3 Movement => impact + Vector3.up * verticalVelocity; // 0,5,0 etc.
 
         void Update()
         {
@@ -28,6 +31,13 @@ namespace _Project.Systems.PlayerControllerSystem.Gravity_Force
             {
                 verticalVelocity += Physics.gravity.y * Time.deltaTime;
             }
+
+            impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, dragTime);
+        }
+
+        public void AddForce(Vector3 force)
+        {
+            impact += force;
         }
     }
 }
