@@ -24,7 +24,7 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
                 return;
             }
 
-            Vector3 movement = CalculateMovement();
+            Vector3 movement = CalculateMovementDirection();
 
             Move(movement * stateMachine.FreeMovementSpeed, deltaTime);
             // stateMachine.Controller.Move(movement * stateMachine.FreeMovementSpeed * deltaTime); without force receiver -gravity
@@ -69,7 +69,7 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
             stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
 
-        private Vector3 CalculateMovement()
+        private Vector3 CalculateMovementDirection()
         {
             Vector3 forward = stateMachine.MainCameraTransform.forward;
             Vector3 right = stateMachine.MainCameraTransform.right;

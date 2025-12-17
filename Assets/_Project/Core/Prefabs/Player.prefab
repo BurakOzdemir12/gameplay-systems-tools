@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 8423167522855743522}
   - component: {fileID: 1872583865276099689}
   - component: {fileID: 603043367125355671}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -462,28 +462,16 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 8654562121580918580}
   <Targeter>k__BackingField: {fileID: 4615167101350776625}
   <ForceReceiver>k__BackingField: {fileID: 1872583865276099689}
+  <WeaponLogic>k__BackingField: {fileID: 1399585571652468552}
   <Attacks>k__BackingField:
-  - <AnimationName>k__BackingField: Sword And Shield Slash
-    <TransitionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.9
-    <AttackForce>k__BackingField: 5
-    <ForceTime>k__BackingField: 0.4
-  - <AnimationName>k__BackingField: Sword And Shield Slash Back
-    <TransitionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: 2
-    <ComboAttackTime>k__BackingField: 0.9
-    <AttackForce>k__BackingField: 9
-    <ForceTime>k__BackingField: 0.4
-  - <AnimationName>k__BackingField: Sword And Shield Attack Tornado
-    <TransitionDuration>k__BackingField: 0.22
-    <ComboStateIndex>k__BackingField: 3
-    <ComboAttackTime>k__BackingField: 1
-    <AttackForce>k__BackingField: 9
-    <ForceTime>k__BackingField: 0.4
+  - {fileID: 11400000, guid: 62d6349fe51764c44ad5d0efd642b0b4, type: 2}
+  - {fileID: 11400000, guid: 4a5499d68c7dcd84cbd28b2edd6c076b, type: 2}
+  - {fileID: 11400000, guid: 2d1602bfa334e8040b14279487e0bb31, type: 2}
+  crossFadeDurationBetweenBlendTrees: 0.4
   locomotionAnimatorDampTime: 0.1
   targetingAnimatorDampTime: 0.15
   rotationDampTime: 5.35
+  rotationDampTimeWhileAttack: 3
   <FreeMovementSpeed>k__BackingField: 4
   <TargetingMovementSpeed>k__BackingField: 2.5
 --- !u!114 &8423167522855743522
@@ -2832,6 +2820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.WeaponHandler.WeaponDamage
   playerOwnCollider: {fileID: 1115641391573232173}
+  attackDamage: 15
 --- !u!1 &8165083148204324317
 GameObject:
   m_ObjectHideFlags: 0

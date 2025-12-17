@@ -24,8 +24,8 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         {
             // Move(deltaTime, attack.AttackForceTargetPos, attack.AttackForce);
             Move(deltaTime);
-            FaceTarget(stateMachine.Targeter.SelectedTarget, deltaTime);
-
+            // FaceTarget(stateMachine.Targeter.SelectedTarget, deltaTime);
+            FaceAttackToLook(deltaTime);
             float normalizedTime = GetNormalizedTime();
             if (normalizedTime >= previousFrameTime && normalizedTime < 1f)
             {
@@ -53,7 +53,6 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
             previousFrameTime = normalizedTime;
         }
-
 
         public override void Exit()
         {

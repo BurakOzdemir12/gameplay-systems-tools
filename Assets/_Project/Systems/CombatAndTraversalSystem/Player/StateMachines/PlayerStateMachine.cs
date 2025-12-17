@@ -34,6 +34,9 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         [field: SerializeField]
         public float rotationDampTime = 0.1f;
 
+        [Tooltip(" The time it takes to rotate towards movement direction")] [field: SerializeField]
+        public float rotationDampTimeWhileAttack = 0.1f;
+
         [Tooltip(" The speed at which the player moves when in free look mode")]
         [field: SerializeField]
         public float FreeMovementSpeed { get; private set; }
