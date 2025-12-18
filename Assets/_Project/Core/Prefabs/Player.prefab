@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 8423167522855743522}
   - component: {fileID: 1872583865276099689}
   - component: {fileID: 603043367125355671}
+  - component: {fileID: 2983816731244449693}
   m_Layer: 16
   m_Name: Player
   m_TagString: Player
@@ -474,6 +475,7 @@ MonoBehaviour:
   rotationDampTimeWhileAttack: 3
   <FreeMovementSpeed>k__BackingField: 4
   <TargetingMovementSpeed>k__BackingField: 2.5
+  attackDamage: 10
 --- !u!114 &8423167522855743522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +514,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63a0ad8ed7808d4ea98fae65047f544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.Combat.WeaponHandler
-  currentWeaponCollider: {fileID: 1124695733006582040}
+  currentWeaponRoot: {fileID: 7355065692999084701}
+--- !u!114 &2983816731244449693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831815202675328790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3088abdb3f4d74ca5dac462694ce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.Core.Health.PlayerHealth
+  maxHealth: 100
 --- !u!1 &1031656223505270124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +1804,38 @@ Transform:
   - {fileID: 5048010868073163233}
   m_Father: {fileID: 1166249805372649949}
   m_LocalEulerAnglesHint: {x: 54.416054, y: 0.05715043, z: 0.111315295}
+--- !u!1 &4465215525257870278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6822303750078832480}
+  m_Layer: 0
+  m_Name: Socket_Weapon_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6822303750078832480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465215525257870278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 342453567636862772}
+  m_Father: {fileID: 3367990711211752447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4708319447992391753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,7 +1935,8 @@ Transform:
   - {fileID: 8609749501526201922}
   - {fileID: 8453957654470636406}
   - {fileID: 4200125466332115758}
-  - {fileID: 1124695733006582040}
+  - {fileID: 6822303750078832480}
+  - {fileID: 2630133477560464264}
   m_Father: {fileID: 4769829218964158330}
   m_LocalEulerAnglesHint: {x: -13.875329, y: 1.5353966, z: -25.412737}
 --- !u!1 &4899347703644605384
@@ -2499,6 +2547,69 @@ Transform:
   - {fileID: 1971563372644047904}
   m_Father: {fileID: 1097900513703556385}
   m_LocalEulerAnglesHint: {x: -16.639936, y: -13.859586, z: -13.683037}
+--- !u!1 &7355065692999084701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342453567636862772}
+  m_Layer: 0
+  m_Name: WeaponRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342453567636862772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355065692999084701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000044323624, y: 0.00000004770117, z: -5.007772e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1124695733006582040}
+  m_Father: {fileID: 6822303750078832480}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7409373914083654813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2630133477560464264}
+  m_Layer: 0
+  m_Name: Weapon Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2630133477560464264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7409373914083654813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3367990711211752447}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7490939110264383819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,12 +2847,12 @@ GameObject:
   - component: {fileID: 821896380847071181}
   - component: {fileID: 1399585571652468552}
   m_Layer: 0
-  m_Name: WeaponLogic
+  m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1124695733006582040
 Transform:
   m_ObjectHideFlags: 0
@@ -2750,12 +2861,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8009844348868889675}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0018189684, y: 0.015601624, z: -0.11578972, w: 0.9931496}
-  m_LocalPosition: {x: -0.44, y: 0.19, z: 0.04}
+  m_LocalRotation: {x: -0.0018189654, y: 0.015601623, z: -0.1157897, w: 0.9931496}
+  m_LocalPosition: {x: -0.43999997, y: 0.1899999, z: 0.039999943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3367990711211752447}
+  m_Father: {fileID: 342453567636862772}
   m_LocalEulerAnglesHint: {x: 0, y: 1.8, z: -13.3}
 --- !u!136 &6499555465860838844
 CapsuleCollider:
@@ -2819,8 +2930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6a4e50e7c22844a1524ef47a3a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.WeaponHandler.WeaponDamage
-  playerOwnCollider: {fileID: 1115641391573232173}
-  attackDamage: 15
+  characterOwnCollider: {fileID: 1115641391573232173}
 --- !u!1 &8165083148204324317
 GameObject:
   m_ObjectHideFlags: 0
