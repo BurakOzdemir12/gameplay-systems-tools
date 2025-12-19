@@ -29778,6 +29778,7 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 850302749901976499}
   <WeaponLogic>k__BackingField: {fileID: 8211597331224621290}
   <Health>k__BackingField: {fileID: 8948619198940738731}
+  <Target>k__BackingField: {fileID: 1489080454529048964}
   moveSpeed: 2
   rotationDampTime: 4
   chaseDetectionRange: 6
