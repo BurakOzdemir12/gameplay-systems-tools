@@ -464,6 +464,7 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 4615167101350776625}
   <ForceReceiver>k__BackingField: {fileID: 1872583865276099689}
   <WeaponLogic>k__BackingField: {fileID: 1399585571652468552}
+  <Health>k__BackingField: {fileID: 2983816731244449693}
   <Attacks>k__BackingField:
   - {fileID: 11400000, guid: 62d6349fe51764c44ad5d0efd642b0b4, type: 2}
   - {fileID: 11400000, guid: 4a5499d68c7dcd84cbd28b2edd6c076b, type: 2}
@@ -473,9 +474,11 @@ MonoBehaviour:
   targetingAnimatorDampTime: 0.15
   rotationDampTime: 5.35
   rotationDampTimeWhileAttack: 3
-  <FreeMovementSpeed>k__BackingField: 4
-  <TargetingMovementSpeed>k__BackingField: 2.5
+  freeMovementSpeed: 4
+  targetingMovementSpeed: 2.5
   attackDamage: 10
+  impactDuration: 1
+  crossFadeDuration: 0.1
 --- !u!114 &8423167522855743522
 MonoBehaviour:
   m_ObjectHideFlags: 0

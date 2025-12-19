@@ -5620,14 +5620,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2737522746775145766, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: attackDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737522746775145766, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: <AttackRange>k__BackingField
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4102740525890604085, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.0821261
@@ -5740,6 +5732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4420304006246375576, guid: 1c80339edd048f1479f0de68cf36db35, type: 3}
+      propertyPath: impactDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4615167101350776625, guid: 1c80339edd048f1479f0de68cf36db35, type: 3}
       propertyPath: cmTargetGroup
       value: 
@@ -5761,6 +5757,18 @@ PrefabInstance:
       propertyPath: AnimatedTarget
       value: 
       objectReference: {fileID: 8338674875282441119}
+    - target: {fileID: 1125115119475553376, guid: 3e10ced69c0ad604eaaacba8f24313b7, type: 3}
+      propertyPath: HashOfParent.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125115119475553376, guid: 3e10ced69c0ad604eaaacba8f24313b7, type: 3}
+      propertyPath: HashOfParent.Array.data[12].Hash
+      value: -141909166
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125115119475553376, guid: 3e10ced69c0ad604eaaacba8f24313b7, type: 3}
+      propertyPath: HashOfParent.Array.data[12].HashOfParent
+      value: 756556552
+      objectReference: {fileID: 0}
     - target: {fileID: 1260166790891054447, guid: 3e10ced69c0ad604eaaacba8f24313b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.03

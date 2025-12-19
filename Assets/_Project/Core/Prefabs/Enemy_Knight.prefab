@@ -29777,24 +29777,27 @@ MonoBehaviour:
   <Agent>k__BackingField: {fileID: 462188476824625444}
   <ForceReceiver>k__BackingField: {fileID: 850302749901976499}
   <WeaponLogic>k__BackingField: {fileID: 8211597331224621290}
-  <MoveSpeed>k__BackingField: 2
-  <RotationDampTime>k__BackingField: 4
-  <ChaseDetectionRange>k__BackingField: 6
+  <Health>k__BackingField: {fileID: 8948619198940738731}
+  moveSpeed: 2
+  rotationDampTime: 4
+  chaseDetectionRange: 6
   bufferMax: 4
   <ChaseDetectionLayers>k__BackingField:
     serializedVersion: 2
     m_Bits: 65536
-  <AttackRange>k__BackingField: 1.7
-  <AttackDetectionLayers>k__BackingField:
+  attackRange: 1.5
+  attackDetectionLayers:
     serializedVersion: 2
     m_Bits: 65536
-  attackDamage: 0
-  <AttackCoolDown>k__BackingField: 1.5
-  <AttackKnockBackForce>k__BackingField: 2
-  <ForceTime>k__BackingField: 0
-  <CrossFadeDuration>k__BackingField: 0.1
-  <CrossFadeDurationCombat>k__BackingField: 0.1
+  attackDamage: 10
+  attackCoolDown: 1.5
+  attackKnockBackForce: 2
+  forceTime: 0
+  locomotionBlendTreeDuration: 0.1
+  crossFadeDurationCombat: 0.1
+  crossFadeDuration: 0.1
   locomotionAnimationDampTime: 0.1
+  impactDuration: 0.75
   buffersForChase: []
   buffersForAttack: []
 --- !u!114 &850302749901976499
@@ -29825,7 +29828,7 @@ NavMeshAgent:
   m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 1.05
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
