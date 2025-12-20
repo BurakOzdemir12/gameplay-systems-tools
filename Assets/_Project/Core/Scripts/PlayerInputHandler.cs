@@ -18,6 +18,7 @@ namespace _Project.Core.Scripts
         public event Action TargetCancelEvent;
 
         public bool IsAttacking { get; private set; }
+        public bool IsBlocking { get; private set; }
 
         // public bool JumpPressed { get; private set; }
 
@@ -110,6 +111,19 @@ namespace _Project.Core.Scripts
             if (context.canceled)
             {
                 IsAttacking = false;
+            }
+        }
+
+        public void OnBlock(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                IsBlocking = true;
+            }
+
+            if (context.canceled)
+            {
+                IsBlocking = false;
             }
         }
     }
