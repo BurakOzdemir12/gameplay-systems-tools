@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846675703560293823}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21417229, y: -0, z: -0, w: 0.9767959}
-  m_LocalPosition: {x: 1.36, y: 2.8453884, z: -5.5312634}
+  m_LocalRotation: {x: 0.2141723, y: -0.00000003254685, z: 0.0000000071362236, w: 0.9767959}
+  m_LocalPosition: {x: 6.759, y: 2.8453884, z: -1.0572631}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ MonoBehaviour:
       Curvature: {x: 2, y: 11}
       BarrelClipping: 0.25
       Anamorphism: 0
-  BlendHint: 0
+  BlendHint: 2
 --- !u!114 &76903803823421591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,8 +308,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3099342133481601815}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023978723, y: 0.7128329, z: -0.70049906, w: 0.024400922}
-  m_LocalPosition: {x: 1.36, y: 1.7, z: -2.22}
+  m_LocalRotation: {x: 0.015948655, y: 0.8842371, z: -0.46578294, w: 0.030276747}
+  m_LocalPosition: {x: 6.759, y: 1.7, z: 2.254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -358,7 +358,7 @@ MonoBehaviour:
       Curvature: {x: 2, y: 11}
       BarrelClipping: 0.25
       Anamorphism: 0
-  BlendHint: 0
+  BlendHint: 2
 --- !u!114 &501477194605343285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 0, y: 0.89, z: 0}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
     Enabled: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineGroupFraming
   FramingMode: 2
-  FramingSize: 0.627
+  FramingSize: 0.42
   CenterOffset: {x: 0, y: 0}
   Damping: 2
   SizeAdjustment: 2
@@ -454,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 4339625639616134060}
   serializedVersion: 2
   m_LocalRotation: {x: -0.17046423, y: -8.295623e-10, z: 1.4351115e-10, w: 0.9853639}
-  m_LocalPosition: {x: -0.0000000055208806, y: -0.025864124, z: 1.4817746}
+  m_LocalPosition: {x: 0, y: -0.8381952, z: 1.2221919}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -541,7 +541,7 @@ MonoBehaviour:
       CustomLookAtTarget: 0
   DefaultBlend:
     Style: 1
-    Time: 0.5
+    Time: 0.25
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -584,6 +584,8 @@ MonoBehaviour:
   - Hash: 75839523
     HashOfParent: 756556552
   - Hash: -617090823
+    HashOfParent: 756556552
+  - Hash: 929870526
     HashOfParent: 756556552
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}
