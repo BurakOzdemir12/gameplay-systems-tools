@@ -2008,7 +2008,15 @@ MonoBehaviour:
   impactDuration: 0.5
   crossFadeDuration: 0.1
   blockingLayerChangeSpeed: 5
-  blockLayerWeight: 0
+  dodgeSpeed: 8
+  dodgeCooldownTime: 2
+  dodgeAnimStartTime: 0.126
+  dodgeAnimEndTime: 0.617
+  rollSpeed: 4
+  rollCooldownTime: 1
+  rollAnimStartTime: 0.151
+  rollAnimEndTime: 0.771
+  blockLayerWeight: 1
 --- !u!114 &5933198991457523035
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ namespace _Project.Core.Scripts
 
         public event Action JumpEvent;
         public event Action DodgeEvent;
+        public event Action RollEvent;
         public event Action TargetEvent;
         public event Action TargetCancelEvent;
 
@@ -125,6 +126,13 @@ namespace _Project.Core.Scripts
             {
                 IsBlocking = false;
             }
+        }
+
+        public void OnRoll(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            RollEvent?.Invoke();
         }
     }
 }
