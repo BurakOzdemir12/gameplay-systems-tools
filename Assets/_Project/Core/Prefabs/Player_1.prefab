@@ -2001,7 +2001,8 @@ MonoBehaviour:
   locomotionAnimatorDampTime: 0.1
   targetingAnimatorDampTime: 0.15
   rotationDampTime: 5.35
-  rotationDampTimeWhileAttack: 3
+  rotationDampTimeWhileAttack: 2
+  rotationDampTimeWhileRoll: 2
   freeMovementSpeed: 4
   targetingMovementSpeed: 2.5
   attackDamage: 80
@@ -2012,11 +2013,12 @@ MonoBehaviour:
   dodgeCooldownTime: 2
   dodgeAnimStartTime: 0.126
   dodgeAnimEndTime: 0.617
-  rollSpeed: 4
-  rollCooldownTime: 1
-  rollAnimStartTime: 0.151
+  rollSpeed: 6
+  rollCooldownTime: 2
+  rollAnimStartTime: 0.085
   rollAnimEndTime: 0.771
   blockLayerWeight: 1
+  workWithRootMotion: 0
 --- !u!114 &5933198991457523035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5359,7 +5361,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6.45
+  m_Radius: 9.18
   m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!54 &8514580674714754938
 Rigidbody:
