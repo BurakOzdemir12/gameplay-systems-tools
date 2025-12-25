@@ -18,6 +18,11 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
         public override void Enter()
         {
+            //TODO Roll will be different, In Alert mode and in Safety mode
+
+            //TODO Get attack direction of enemy and, Roll accordingly prevent get damage While enemy attack
+            //TODO with different enemy types, some will damage
+
             isTargeting = stateMachine.PreviousState is PlayerTargetingState;
             useRootMotion = stateMachine.workWithRootMotion;
 

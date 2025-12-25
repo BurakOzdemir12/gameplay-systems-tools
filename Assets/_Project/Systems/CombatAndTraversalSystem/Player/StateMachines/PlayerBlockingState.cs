@@ -19,9 +19,9 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
         public override void Tick(float deltaTime)
         {
-            float rollDampTime = stateMachine.RotationDampTimeWhileRoll;
+            float rollDampTime = stateMachine.RotationDampTimeWhileBlock;
 
-            RotateFaceToLook(deltaTime,rollDampTime);
+            RotateFaceToLook(deltaTime, rollDampTime);
             Move(deltaTime);
             float target = stateMachine.InputHandler.IsBlocking ? 1f : 0f;
             float normalizedTime = GetNormalizedTime(stateMachine.Animator, 1, BLOCK_TAG);

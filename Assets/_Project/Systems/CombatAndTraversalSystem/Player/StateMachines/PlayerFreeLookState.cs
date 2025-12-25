@@ -37,12 +37,13 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
             if (stateMachine.InputHandler.Move.sqrMagnitude < 0.001f)
             {
-                stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParam, 0,
+                stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParamHash, 0,
                     stateMachine.LocomotionAnimatorDampTime, deltaTime);
                 return;
             }
 
-            stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParam, 1, stateMachine.LocomotionAnimatorDampTime,
+            stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParamHash, 1,
+                stateMachine.LocomotionAnimatorDampTime,
                 deltaTime);
 
             RotatePlayerTowardsMovement(movement, deltaTime);
@@ -54,7 +55,7 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
             stateMachine.InputHandler.TargetEvent -= OnTarget;
             stateMachine.InputHandler.DodgeEvent -= OnDodge;
             stateMachine.InputHandler.RollEvent -= OnRoll;
-            
+            stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParamHash, 0);
         }
 
         private void RotatePlayerTowardsMovement(Vector3 movement, float deltaTime)
