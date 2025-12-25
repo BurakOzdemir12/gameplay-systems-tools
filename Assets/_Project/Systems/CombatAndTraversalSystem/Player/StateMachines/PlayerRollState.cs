@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines.SuperStates;
+using UnityEngine;
 
 namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 {
@@ -13,8 +14,9 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         private Vector3 direction;
         private float normalizedTime;
 
-        private bool isTargeting; 
+        private bool isTargeting;
         private bool useRootMotion;
+        private PlayerGroundedState GroundedParent => GetSuperState() as PlayerGroundedState;
 
         public override void Enter()
         {
@@ -23,7 +25,9 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
             //TODO Get attack direction of enemy and, Roll accordingly prevent get damage While enemy attack
             //TODO with different enemy types, some will damage
 
-            isTargeting = stateMachine.PreviousState is PlayerTargetingState;
+            // isTargeting = stateMachine.PreviousState is PlayerTargetingState;
+            isTargeting = stateMachine.PreviousLeafState is PlayerTargetingState;
+
             useRootMotion = stateMachine.workWithRootMotion;
 
             Vector2 input = stateMachine.InputHandler.Move;
@@ -41,7 +45,17 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
             if (normalizedTime >= 1f)
             {
-                stateMachine.DecideTargetOrLocomotion();
+                if (stateMachine.Targeter.SelectedTarget != null)
+                {
+                    GroundedParent?.SwitchSubState(new PlayerTargetingState(stateMachine));
+                }
+                else
+                {
+                    GroundedParent?.SwitchSubState(new PlayerFreeLookState(stateMachine));
+                }
+
+                // if you dont want to work with super state, you can use this line
+                // stateMachine.DecideTargetOrLocomotion();
                 return;
             }
 

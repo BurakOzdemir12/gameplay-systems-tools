@@ -1,6 +1,7 @@
 using System;
 using _Project.Core.Scripts;
 using _Project.Systems.CombatAndTraversalSystem.Player.Combat;
+using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines.SuperStates;
 using _Project.Systems.CombatAndTraversalSystem.Targeting;
 using _Project.Systems.Core.GravityForce;
 using _Project.Systems.Core.Health;
@@ -160,11 +161,27 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
         public float RollAnimEndTime => rollAnimEndTime;
 
+        [Header("Jump Settings")] [Tooltip("Jump Cooldown")] [SerializeField]
+        private float jumpCooldownTime = 2f;
+
+        public float JumpCooldownTime => jumpCooldownTime;
+
+        [Tooltip("Previous time of roll animation")]
+        private float previousJumpTime;
+
+        public float PreviousJumpTime
+        {
+            get =>  previousJumpTime;
+            set =>  previousJumpTime = value;
+        }
 
         [Tooltip("İf Your animations works with the root motion, set this to true")] [SerializeField]
         public bool workWithRootMotion = false;
 
-        // TODO Create scriptableobject or seperated static class for stock animator hashes
+        [Tooltip("In Combat or alert mode, its gonna roll but in normal mode jump will work ")] [SerializeField]
+        public bool inAlertMode = false;
+
+        // TODO Create scriptable object or seperated static class for stock animator hashes
 
         public readonly int FreeLookSpeedParamHash = Animator.StringToHash("FreeLookSpeed");
         public readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
@@ -181,9 +198,16 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         public readonly int RollBackwardHash = Animator.StringToHash("Roll Backward");
         public readonly int RollRightHash = Animator.StringToHash("Roll Right");
         public readonly int RollLeftHash = Animator.StringToHash("Roll Left");
+        public readonly int IdleToJumpHash = Animator.StringToHash("Idle Jump");
         public int BlockingLayerIndex { get; private set; }
 
         public Transform MainCameraTransform { get; private set; }
+
+        private PlayerGroundedState CurrentGrounded => CurrentState as PlayerGroundedState;
+        public State CurrentSubState => (CurrentState as State)?.GetSubState();
+
+        private float groundedGrace = 0.1f;
+        public float GroundedGrace => groundedGrace;
 
         private void Awake()
         {
@@ -201,28 +225,40 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         {
             if (UnityEngine.Camera.main == null) Debug.LogError("No main camera found!");
             if (UnityEngine.Camera.main != null) MainCameraTransform = UnityEngine.Camera.main.transform;
-            SwitchState(new PlayerFreeLookState(this));
+            
+            SwitchState(new PlayerGroundedState(this));
         }
 
-        public void DecideTargetOrLocomotion()
-        {
-            if (Targeter.SelectedTarget != null)
-            {
-                SwitchState(new PlayerTargetingState(this));
-            }
-            else
-            {
-                SwitchState(new PlayerFreeLookState(this));
-            }
-        }
+        // public void DecideTargetOrLocomotion()
+        // {
+        //     if (Targeter.SelectedTarget != null)
+        //     {
+        //         
+        //         CurrentGrounded.SwitchSubState(new PlayerTargetingState(this));
+        //         // SwitchState(new PlayerTargetingState(this));
+        //     }
+        //     else
+        //     {
+        //         CurrentGrounded.SwitchSubState(new PlayerFreeLookState(this));
+        //
+        //         // SwitchState(new PlayerFreeLookState(this));
+        //     }
+        // }
 
         private void HandleTakeDamage()
         {
+            //Override States dont use switchSubstate
+
+            // CurrentGrounded.SwitchSubState(new PlayerImpactState(this));
+
             SwitchState(new PlayerImpactState(this));
         }
 
         private void HandleDeath()
         {
+            //Override States dont use switchSubstate
+            // CurrentGrounded.SwitchSubState(new PlayerDeadState(this));
+
             SwitchState(new PlayerDeadState(this));
         }
 

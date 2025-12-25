@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines.SuperStates;
+using UnityEngine;
 
 namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 {
@@ -10,6 +11,7 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
         private float blockLayerWeight;
         private const string BLOCK_TAG = "Block";
+        private PlayerGroundedState GroundParent => GetSuperState() as PlayerGroundedState;
 
         public override void Enter()
         {
@@ -35,7 +37,15 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
                 if (normalizedTime >= 1f)
                 {
-                    stateMachine.DecideTargetOrLocomotion();
+                    if (stateMachine.Targeter.SelectedTarget != null)
+                    {
+                        GroundParent.SwitchSubState(new PlayerTargetingState(stateMachine));
+                    }
+                    else
+                    {
+                        GroundParent.SwitchSubState(new PlayerFreeLookState(stateMachine));
+                    }
+                    // stateMachine.DecideTargetOrLocomotion();
                 }
 
                 return;
