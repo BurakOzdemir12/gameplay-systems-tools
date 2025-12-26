@@ -86,6 +86,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RollOrJump",
+                    "type": "Button",
+                    "id": "8b405b56-3679-4d14-8baf-29c3c8627b96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -213,7 +222,7 @@
                 {
                     "name": "",
                     "id": "05624811-0c19-4885-8c87-8d10d35ed945",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Mouse & Keyboard",
@@ -422,7 +431,7 @@
                 {
                     "name": "",
                     "id": "3877fe91-a2a8-4182-9d66-a7e6f45ac321",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Mouse & Keyboard",
@@ -438,6 +447,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6da4cadc-dcec-41f2-8925-d05d0ded877c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse & Keyboard",
+                    "action": "RollOrJump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

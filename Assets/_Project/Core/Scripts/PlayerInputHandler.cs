@@ -17,6 +17,7 @@ namespace _Project.Core.Scripts
         public event Action RollEvent;
         public event Action TargetEvent;
         public event Action TargetCancelEvent;
+        public event Action RollOrJumpEvent;
 
         public bool IsAttacking { get; private set; }
         public bool IsBlocking { get; private set; }
@@ -133,6 +134,13 @@ namespace _Project.Core.Scripts
             if (!context.performed) return;
 
             RollEvent?.Invoke();
+        }
+
+        public void OnRollOrJump(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            RollOrJumpEvent?.Invoke();
         }
     }
 }

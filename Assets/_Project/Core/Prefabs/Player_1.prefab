@@ -1950,7 +1950,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.97, z: 0}
+  m_Center: {x: 0, y: 1.08, z: 0}
 --- !u!95 &1114697309460393456
 Animator:
   serializedVersion: 7
@@ -2001,24 +2001,34 @@ MonoBehaviour:
   locomotionAnimatorDampTime: 0.1
   targetingAnimatorDampTime: 0.15
   rotationDampTime: 5.35
-  rotationDampTimeWhileAttack: 2
-  rotationDampTimeWhileRoll: 2
   freeMovementSpeed: 4
   targetingMovementSpeed: 2.5
   attackDamage: 80
+  rotationDampTimeWhileAttack: 2
   impactDuration: 0.5
   crossFadeDuration: 0.1
   blockingLayerChangeSpeed: 5
+  blockLayerWeight: 1
+  rotationDampTimeWhileBlock: 2
   dodgeSpeed: 8
+  rotationDampTimeWhileDodge: 2
   dodgeCooldownTime: 2
   dodgeAnimStartTime: 0.126
   dodgeAnimEndTime: 0.617
-  rollSpeed: 6
+  rollSpeed: 4
+  rotationDampTimeWhileRoll: 1
   rollCooldownTime: 2
   rollAnimStartTime: 0.085
   rollAnimEndTime: 0.771
-  blockLayerWeight: 1
+  jumpForce: 4
+  jumpCooldownTime: 2
+  fallingHeightThreshold: 1
+  landingHeightThreshold: 0.8
+  landingHardHeightThreshold: 1.6
+  landingStateExitTime: 0.694
   workWithRootMotion: 0
+  inAlertMode: 0
+  groundedGrace: 0.2
 --- !u!114 &5933198991457523035
 MonoBehaviour:
   m_ObjectHideFlags: 0
