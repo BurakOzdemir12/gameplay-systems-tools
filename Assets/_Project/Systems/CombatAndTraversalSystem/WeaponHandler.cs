@@ -1,8 +1,7 @@
-using System;
 using _Project.Systems.Core.WeaponLogic;
 using UnityEngine;
 
-namespace _Project.Systems.CombatAndTraversalSystem.Player.Combat
+namespace _Project.Systems.CombatAndTraversalSystem
 {
     public class WeaponHandler : MonoBehaviour
     {

@@ -2022,7 +2022,8 @@ MonoBehaviour:
   rollAnimEndTime: 0.771
   jumpForce: 4
   jumpCooldownTime: 2
-  fallingHeightThreshold: 1
+  fallingVelocityThreshold: -0.1
+  airborneHeightThreshold: 1
   landingHeightThreshold: 0.8
   landingHardHeightThreshold: 1.6
   landingStateExitTime: 0.694
