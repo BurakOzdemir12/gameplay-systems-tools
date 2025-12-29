@@ -2374,7 +2374,7 @@ Transform:
   m_GameObject: {fileID: 378408700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 2, z: 5}
+  m_LocalPosition: {x: 6, y: 2.044, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2615,11 +2615,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &627527536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-  m_PrefabInstance: {fileID: 5945324169093147246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &680846904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2634,37 +2629,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: df7ad4e484dc01f4e9cfb5f3667cfb83, type: 3}
   m_ActionId: 800feb84-6d4d-41b7-b26e-2e71300bff33
---- !u!1 &724873958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 724873959}
-  m_Layer: 16
-  m_Name: EyeLevel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &724873959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724873958}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.648, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7592064798264560447}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &941806094
 GameObject:
   m_ObjectHideFlags: 0
@@ -7614,6 +7578,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659125055065736114, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: testRagdoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114697309460393456, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1382339109780263433, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.578015
@@ -7655,13 +7627,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: <LedgeDetector>k__BackingField
-      value: 
+      propertyPath: jumpCooldownTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: <LedgeValidator>k__BackingField
-      value: 
-      objectReference: {fileID: 7592064798264560455}
+      propertyPath: crossFadeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: PendingJumpVariant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: autoClimbMaxHeight
+      value: 1.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: <IsFreeFlowClimb>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2630160139611918405, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: cmTargetGroup
       value: 
@@ -7672,14 +7656,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1382339109780263433, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 724873959}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7592064798264560455}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
 --- !u!1001 &7124573781807309121
 PrefabInstance:
@@ -7848,36 +7826,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1382339109780263433, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
   m_PrefabInstance: {fileID: 5945324169093147246}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7592064798264560455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627527536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01a9befd858009b43b6dd9a8718d6a80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LedgeValidator
-  eyeLevel: {fileID: 724873959}
-  ledgeDetectionForwardMax: 0.98
-  ledgeInwardOffset: 0.53
-  playerMaxClimbHeight: 3
-  minClimbHeight: 1
-  climbableObjectLayers:
-    serializedVersion: 2
-    m_Bits: 540672
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 1040
-  characterRadius: 0.55
-  characterHeight: 2
-  fitDetectionLayers:
-    serializedVersion: 2
-    m_Bits: 525312
-  canClimbLedge: 0
-  detectedHeight: 0
 --- !u!4 &8338674875282441117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 392728523621335679, guid: 1c80339edd048f1479f0de68cf36db35, type: 3}

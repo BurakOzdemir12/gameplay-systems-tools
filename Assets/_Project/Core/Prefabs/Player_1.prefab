@@ -1899,6 +1899,7 @@ GameObject:
   - component: {fileID: 1696577841307748841}
   - component: {fileID: 4012206463086136716}
   - component: {fileID: 659125055065736114}
+  - component: {fileID: 2906043314014877526}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -1919,6 +1920,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3436463692542737634}
   - {fileID: 4810940226795561500}
   - {fileID: 7182841040576562229}
   - {fileID: 8895673549144615789}
@@ -1993,6 +1995,7 @@ MonoBehaviour:
   <WeaponLogic>k__BackingField: {fileID: 1606055726470352400}
   <Health>k__BackingField: {fileID: 4012206463086136716}
   <Ragdoll>k__BackingField: {fileID: 659125055065736114}
+  <LedgeValidator>k__BackingField: {fileID: 2906043314014877526}
   <Attacks>k__BackingField:
   - {fileID: 11400000, guid: 62d6349fe51764c44ad5d0efd642b0b4, type: 2}
   - {fileID: 11400000, guid: 4a5499d68c7dcd84cbd28b2edd6c076b, type: 2}
@@ -2097,6 +2100,36 @@ MonoBehaviour:
   animator: {fileID: 1114697309460393456}
   controller: {fileID: 9114488106413501971}
   testRagdoll: 0
+--- !u!114 &2906043314014877526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a9befd858009b43b6dd9a8718d6a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LedgeValidator
+  eyeLevel: {fileID: 3436463692542737634}
+  ledgeDetectionForwardMax: 0.98
+  ledgeInwardOffset: 0.53
+  playerMaxClimbHeight: 3
+  minClimbHeight: 1
+  climbableObjectLayers:
+    serializedVersion: 2
+    m_Bits: 540672
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 1040
+  characterRadius: 0.5
+  characterHeight: 2
+  fitDetectionLayers:
+    serializedVersion: 2
+    m_Bits: 525312
+  canClimbLedge: 0
+  detectedHeight: 0
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4921,6 +4954,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 992308127124267309}
+  m_Father: {fileID: 1382339109780263433}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6660092873999490159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3436463692542737634}
+  m_Layer: 16
+  m_Name: EyeLevel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3436463692542737634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660092873999490159}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.648, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 1382339109780263433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6672123736770387756
