@@ -1900,6 +1900,7 @@ GameObject:
   - component: {fileID: 4012206463086136716}
   - component: {fileID: 659125055065736114}
   - component: {fileID: 2906043314014877526}
+  - component: {fileID: 5642012791297687812}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -1995,11 +1996,14 @@ MonoBehaviour:
   <WeaponLogic>k__BackingField: {fileID: 1606055726470352400}
   <Health>k__BackingField: {fileID: 4012206463086136716}
   <Ragdoll>k__BackingField: {fileID: 659125055065736114}
-  <LedgeValidator>k__BackingField: {fileID: 2906043314014877526}
+  <ClimbController>k__BackingField: {fileID: 5642012791297687812}
   <Attacks>k__BackingField:
   - {fileID: 11400000, guid: 62d6349fe51764c44ad5d0efd642b0b4, type: 2}
   - {fileID: 11400000, guid: 4a5499d68c7dcd84cbd28b2edd6c076b, type: 2}
   - {fileID: 11400000, guid: 2d1602bfa334e8040b14279487e0bb31, type: 2}
+  <ClimbTypeDataSet>k__BackingField:
+  - {fileID: 11400000, guid: 677542daeb13651478cc76041545835e, type: 2}
+  - {fileID: 11400000, guid: cab1541b9ece86d43ae5315410797f52, type: 2}
   crossFadeDurationBetweenBlendTrees: 0.4
   locomotionAnimatorDampTime: 0.1
   targetingAnimatorDampTime: 0.15
@@ -2024,15 +2028,19 @@ MonoBehaviour:
   rollAnimStartTime: 0.085
   rollAnimEndTime: 0.771
   jumpForce: 4
-  jumpCooldownTime: 2
+  jumpCooldownTime: 0.5
   fallingVelocityThreshold: -0.1
   airborneHeightThreshold: 1
-  landingHeightThreshold: 0.8
-  landingHardHeightThreshold: 1.6
+  landingHeightThreshold: 1.5
+  landingHardHeightThreshold: 3
   landingStateExitTime: 0.694
+  autoClimbMaxHeight: 1.76
+  climbRotationSpeed: 10
+  <IsFreeFlowClimb>k__BackingField: 0
+  stepUpClimbCrossFadeDuration: 0.1
   workWithRootMotion: 0
   inAlertMode: 0
-  groundedGrace: 0.2
+  groundedGrace: 0.15
 --- !u!114 &5933198991457523035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2112,24 +2120,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a9befd858009b43b6dd9a8718d6a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LedgeValidator
-  eyeLevel: {fileID: 3436463692542737634}
-  ledgeDetectionForwardMax: 0.98
-  ledgeInwardOffset: 0.53
-  playerMaxClimbHeight: 3
-  minClimbHeight: 1
-  climbableObjectLayers:
+  obstacleLayers:
     serializedVersion: 2
-    m_Bits: 540672
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 1040
-  characterRadius: 0.5
-  characterHeight: 2
-  fitDetectionLayers:
-    serializedVersion: 2
-    m_Bits: 525312
-  canClimbLedge: 0
-  detectedHeight: 0
+    m_Bits: 1048576
+  forwardRayLength: 1
+  rayOriginOffset: {x: -0.06, y: 0.25, z: 0}
+  heightRayLength: 4
+  heightOriginOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &5642012791297687812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d03bb6cc13840e9a2b96fe8d7349d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.ClimbingSystem.LedgeClimbing.ClimbController
+  <LedgeValidator>k__BackingField: {fileID: 2906043314014877526}
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0

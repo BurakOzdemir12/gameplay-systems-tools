@@ -1,10 +1,16 @@
-﻿using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines.SuperStates;
+﻿using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines;
+using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines.RootStates;
+using UnityEngine;
 
-namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
+namespace _Project.Systems.ClimbingSystem.States
 {
     public class PlayerClimbUpState : PlayerBaseState
     {
         private const string CLIMB_UP_TAG = "ClimbUp";
+        private Vector3 surfacePoint;
+        private Vector3 groundPoint;
+        private Vector3 finalStandPos;
+
 
         public PlayerClimbUpState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
@@ -14,6 +20,7 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         //     FreeHangClimbHash
         public override void Enter()
         {
+
             if (stateMachine.IsFreeFlowClimb)
             {
                 stateMachine.Animator.CrossFadeInFixedTime(stateMachine.BracedHangToCrouchClimbHash,
@@ -26,8 +33,13 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
         public override void Tick(float deltaTime)
         {
-            // var tag =
-                float normalisedTime = GetNormalizedTime(stateMachine.Animator, 0, CLIMB_UP_TAG);
+            stateMachine.transform.position =
+                Vector3.Slerp(stateMachine.transform.position, finalStandPos, 2f * deltaTime);
+            float normalisedTime = GetNormalizedTime(stateMachine.Animator, 0, CLIMB_UP_TAG);
+            if (normalisedTime > 1f)
+            {
+                SwitchRootState(new PlayerGroundedState(stateMachine));
+            }
         }
 
         public override void Exit()

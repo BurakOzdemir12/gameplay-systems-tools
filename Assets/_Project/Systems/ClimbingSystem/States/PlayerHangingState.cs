@@ -1,6 +1,7 @@
-﻿using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines.SuperStates;
+﻿using _Project.Systems.ClimbingSystem.States.RootStates;
+using _Project.Systems.CombatAndTraversalSystem.Player.StateMachines;
 
-namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
+namespace _Project.Systems.ClimbingSystem.States
 {
     public class PlayerHangingState : PlayerBaseState
     {
@@ -21,6 +22,7 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
 
         public override void Tick(float deltaTime)
         {
+            
             if (stateMachine.InputHandler.Move.y > 0)
             {
                 ClimbParent?.SwitchSubState(new PlayerClimbUpState(stateMachine));
