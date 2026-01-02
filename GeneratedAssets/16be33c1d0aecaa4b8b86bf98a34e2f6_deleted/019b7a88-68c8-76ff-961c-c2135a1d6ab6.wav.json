@@ -1,0 +1,13 @@
+{
+    "asset": "16be33c1d0aecaa4b8b86bf98a34e2f6",
+    "fileName": "019b7a88-68c8-76ff-961c-c2135a1d6ab6.wav",
+    "prompt": "whistle",
+    "negativePrompt": "",
+    "model": "5de0686a-fb27-40e5-9df0-28ae810d70ca",
+    "modelName": "ElevenLabs Sound Effects V2",
+    "customSeed": -1,
+    "w3CTraceId": "1d4cdf7a0c002153d925c13ff63a371c",
+    "duration": 3.0,
+    "autoTrim": true,
+    "hasReference": false
+}
