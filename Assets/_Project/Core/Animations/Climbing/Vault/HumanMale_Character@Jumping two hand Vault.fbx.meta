@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b7c19801cd0fe944280f13ce9d985814
+guid: 504f860b14ede7041ae80e738b9120be
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: StepUpJumping
+      name: Two Hand Vault
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 41
+      lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
