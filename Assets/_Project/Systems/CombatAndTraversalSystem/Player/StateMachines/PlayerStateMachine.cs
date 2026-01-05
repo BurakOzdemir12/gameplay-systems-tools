@@ -224,9 +224,9 @@ namespace _Project.Systems.CombatAndTraversalSystem.Player.StateMachines
         public bool IsFreeFlowClimb { get; private set; }
 
         [Tooltip("Step up Climb animations crossfade duration")] [SerializeField]
-        private float stepUpClimbCrossFadeDuration = 0.1f;
+        private float climbCrossFadeDuration = 0.1f;
 
-        public float StepUpClimbCrossFadeDuration => stepUpClimbCrossFadeDuration;
+        public float ClimbCrossFadeDuration => climbCrossFadeDuration;
 
         // [Tooltip("Landing Animation Start Time")] [Range(0f, 2f)] [SerializeField]
         // private float landingAnimStartTime;

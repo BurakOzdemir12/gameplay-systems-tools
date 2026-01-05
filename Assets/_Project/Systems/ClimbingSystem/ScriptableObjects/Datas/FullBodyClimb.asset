@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a26408fcb155189418e945e4436a9e9f, type: 3}
-  m_Name: StrongStepUpClimb
+  m_Name: FullBodyClimb
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.ClimbingSystem.ScriptableObjects.ParkourControllerSo
   actionType: 0
-  animName: StrongJumpClimb
-  animHash: 503746793
+  priority: 20
+  animName: JumpUpClimb
+  animHash: 1861815802
   animTag: Climb
-  minObstacleHeight: 1.5
-  maxObstacleHeight: 2.99
-  rotateToObstacle: 0
+  minObstacleHeight: 2.99
+  maxObstacleHeight: 4
+  rotateToObstacle: 1
   rotationSpeed: 360
   enableTargetMatching: 1
-  matchedBodyPart: 3
-  matchStartTime: 0.15
+  matchedBodyPart: 5
+  matchStartTime: 0.07
   matchTargetTime: 0.28
-  matchPosWeight: {x: 0, y: 1, z: 1}
+  matchPosWeight: {x: 0, y: 1, z: 2}

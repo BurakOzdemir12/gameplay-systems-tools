@@ -53,23 +53,22 @@ namespace _Project.Systems.ClimbingSystem.States.RootStates
 
             selectedSo = null;
             selectedDecision = ParkourDecision.Invalid;
-
-            Vector3 playerPos = stateMachine.transform.position;
-            Vector3 playerRight = stateMachine.transform.right;
+            int bestPriority = int.MinValue;
 
             foreach (var so in stateMachine.ClimbTypeDataSet)
             {
                 if (so is null) continue;
                 if (!so.MatchesActionType(desiredType)) continue;
-                var decision = so.Evaluate(height, hit, playerPos, playerRight);
+
+                var decision = so.Evaluate(height, hit);
                 if (!decision.IsValid) continue;
 
-                // if (so.CheckLedgeHeight(height, hit))
-                // {
-                selectedSo = so;
-                selectedDecision = decision;
-                break;
-                // }
+                if (so.Priority > bestPriority)
+                {
+                    bestPriority = so.Priority;
+                    selectedSo = so;
+                    selectedDecision = decision;
+                }
             }
 
             if (selectedSo is null)

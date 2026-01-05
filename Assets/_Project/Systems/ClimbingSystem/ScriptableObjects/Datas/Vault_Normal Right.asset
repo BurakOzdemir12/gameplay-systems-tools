@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3345a0c017344df89731bd0beed5579, type: 3}
-  m_Name: FastVaultCustom
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.ClimbingSystem.ScriptableObjects.VaultDataSo
+  m_Name: Vault_Normal Right
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.ClimbingSystem.ScriptableObjects.NormalVaultDataSo
   actionType: 1
+  priority: 0
   animName: SpinVault
   animHash: -712700247
   animTag: Vault
   minObstacleHeight: 0.4
   maxObstacleHeight: 1.5
-  rotateToObstacle: 0
-  rotationSpeed: 150
+  rotateToObstacle: 1
+  rotationSpeed: 360
   enableTargetMatching: 1
   matchedBodyPart: 5
-  matchStartTime: 0.13
-  matchTargetTime: 0.26
-  matchPosWeight: {x: 0, y: 0.75, z: 0}
+  matchStartTime: 0.05
+  matchTargetTime: 0.15
+  matchPosWeight: {x: 0, y: 2, z: 1}
+  centerThreshold: 0.25
