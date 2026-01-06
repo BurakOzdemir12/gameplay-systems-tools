@@ -27,7 +27,7 @@ namespace _Project.Systems.MovementSystem.Player.States
             normalisedTime = GetNormalizedTime(stateMachine.Animator, 0, LANDING_TAG);
 
 
-            if (normalisedTime >= stateMachine.LandingStateExitTime)
+            if (normalisedTime >= stateMachine.PlayerConfigSo.FallLandData.LandingStateExitTime)
             {
                 SwitchRootState(new PlayerGroundedState(stateMachine));
             }

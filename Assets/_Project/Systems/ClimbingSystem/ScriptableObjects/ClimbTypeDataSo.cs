@@ -60,11 +60,16 @@ namespace _Project.Systems.ClimbingSystem.ScriptableObjects
             return this.actionType == type;
         }
 
+        [Tooltip("Step up Climb animations crossfade duration")] [SerializeField]
+        private float climbCrossFadeDuration = 0.1f;
+
+        public float ClimbCrossFadeDuration => climbCrossFadeDuration;
+
         public virtual ParkourDecision Evaluate(float height, in LedgeHitData hit)
         {
             bool valid = hit.IsValidLedge && height >= minObstacleHeight && height <= maxObstacleHeight;
             return valid
-                ? new ParkourDecision(true, isCenter: false, mirror: false,  matchedBodyPart)
+                ? new ParkourDecision(true, isCenter: false, mirror: false, matchedBodyPart)
                 : ParkourDecision.Invalid;
         }
 

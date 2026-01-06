@@ -40,7 +40,7 @@ namespace _Project.Systems.ClimbingSystem.States
 
             stateMachine.Animator.SetBool(stateMachine.Mirror, decision.Mirror);
 
-            stateMachine.Animator.CrossFadeInFixedTime(so.AnimHash, stateMachine.ClimbCrossFadeDuration);
+            stateMachine.Animator.CrossFadeInFixedTime(so.AnimHash, so.ClimbCrossFadeDuration);
             hasMatchedTarget = false;
         }
 

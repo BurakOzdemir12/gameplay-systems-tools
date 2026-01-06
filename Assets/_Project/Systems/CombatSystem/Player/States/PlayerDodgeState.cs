@@ -63,9 +63,9 @@ namespace _Project.Systems.CombatSystem.Player.States
             if (!IsDodgeMoveWindowActive()) return;
 
             Vector3 dodgeDirection = direction.normalized;
-            Vector3 movement = dodgeDirection * stateMachine.DodgeSpeed;
+            Vector3 movement = dodgeDirection * stateMachine.PlayerConfigSo.DodgeData.DodgeSpeed;
 
-            float dodgeDamptime = stateMachine.RotationDampTimeWhileDodge;
+            float dodgeDamptime = stateMachine.PlayerConfigSo.DodgeData.RotationDampTimeWhileDodge;
 
             RotateFaceToLook(deltaTime, dodgeDamptime);
             if (direction.sqrMagnitude < 0.0001f)
@@ -74,7 +74,7 @@ namespace _Project.Systems.CombatSystem.Player.States
                 backward.y = 0f;
                 backward.Normalize();
 
-                Move(backward * stateMachine.DodgeSpeed, deltaTime);
+                Move(backward * stateMachine.PlayerConfigSo.DodgeData.DodgeSpeed, deltaTime);
             }
             else
             {
@@ -89,8 +89,8 @@ namespace _Project.Systems.CombatSystem.Player.States
 
         private bool IsDodgeMoveWindowActive()
         {
-            return normalizedTime >= stateMachine.DodgeAnimStartTime &&
-                   normalizedTime <= stateMachine.DodgeAnimEndTime;
+            return normalizedTime >= stateMachine.PlayerConfigSo.DodgeData.DodgeAnimStartTime &&
+                   normalizedTime <= stateMachine.PlayerConfigSo.DodgeData.DodgeAnimEndTime;
         }
 
         private int GetDodgeHash(Vector2 input, bool targeting, bool rootMotion)

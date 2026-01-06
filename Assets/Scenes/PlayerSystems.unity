@@ -9179,6 +9179,10 @@ PrefabInstance:
       propertyPath: groundedSnapDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: <PlayerConfigSo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
     - target: {fileID: 2630160139611918405, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: cmTargetGroup
       value: 

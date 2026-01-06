@@ -83,7 +83,7 @@ namespace _Project.Systems.MovementSystem.Player.States.RootStates
 
         private void OnDodge()
         {
-            if (Time.time - stateMachine.PreviousDodgeTime < stateMachine.DodgeCooldownTime)
+            if (Time.time - stateMachine.PreviousDodgeTime < stateMachine.PlayerConfigSo.DodgeData.DodgeCooldownTime)
             {
                 return;
             }
@@ -97,7 +97,7 @@ namespace _Project.Systems.MovementSystem.Player.States.RootStates
         {
             if (!stateMachine.IsInAlertMode) return;
 
-            if (Time.time - stateMachine.PreviousRollTime < stateMachine.RollCooldownTime)
+            if (Time.time - stateMachine.PreviousRollTime < stateMachine.PlayerConfigSo.RollData.RollCooldownTime)
             {
                 return;
             }
@@ -110,7 +110,7 @@ namespace _Project.Systems.MovementSystem.Player.States.RootStates
         private void OnJump()
         {
             if (stateMachine.IsInAlertMode) return;
-            if (Time.time - stateMachine.PreviousJumpTime < stateMachine.JumpCooldownTime)
+            if (Time.time - stateMachine.PreviousJumpTime < stateMachine.PlayerConfigSo.JumpData.JumpCooldownTime)
             {
                 return;
             }
@@ -125,7 +125,7 @@ namespace _Project.Systems.MovementSystem.Player.States.RootStates
         {
             if (!stateMachine.IsInAlertMode)
             {
-                if (Time.time - stateMachine.PreviousJumpTime < stateMachine.JumpCooldownTime)
+                if (Time.time - stateMachine.PreviousJumpTime < stateMachine.PlayerConfigSo.JumpData.JumpCooldownTime)
                 {
                     return;
                 }
@@ -143,7 +143,7 @@ namespace _Project.Systems.MovementSystem.Player.States.RootStates
             }
             else
             {
-                if (Time.time - stateMachine.PreviousRollTime < stateMachine.RollCooldownTime)
+                if (Time.time - stateMachine.PreviousRollTime < stateMachine.PlayerConfigSo.RollData.RollCooldownTime)
                 {
                     return;
                 }

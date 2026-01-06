@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.Player.Combat
+namespace _Project.Systems.CombatSystem.ScriptableObjects.Combat
 {
     [CreateAssetMenu(fileName = "NewAttackDataSo",
-        menuName = "Scriptable Objects/_Project/Player Controller System/Combat/Attack Data",
+        menuName = "Scriptable Objects/Combat/Attack Data",
         order = 0)]
     public class AttackDataSo : ScriptableObject
     {

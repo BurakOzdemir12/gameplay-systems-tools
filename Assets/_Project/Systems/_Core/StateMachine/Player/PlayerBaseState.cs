@@ -74,7 +74,7 @@ namespace _Project.Systems._Core.StateMachine.Player
             targetLookPos.y = 0; //if the player above or below the target we dont care..
             Quaternion targetRotation = stateMachine.transform.rotation = Quaternion.LookRotation(targetLookPos);
             Quaternion.Slerp(stateMachine.transform.rotation, targetRotation,
-                (stateMachine.RotationDampTime * deltaTime));
+                (stateMachine.PlayerConfigSo.MovementData.RotationDampTime * deltaTime));
         }
 
         private Vector3 CalculateLookDirection()
@@ -117,7 +117,7 @@ namespace _Project.Systems._Core.StateMachine.Player
             stateMachine.blockLayerWeight = Mathf.MoveTowards(
                 stateMachine.blockLayerWeight,
                 target,
-                deltaTime * stateMachine.BlockingLayerChangeSpeed
+                deltaTime * stateMachine.PlayerConfigSo.CombatData.BlockingLayerChangeSpeed
             );
 
             stateMachine.Animator.SetLayerWeight(
@@ -125,7 +125,7 @@ namespace _Project.Systems._Core.StateMachine.Player
                 stateMachine.blockLayerWeight
             );
         }
-        
+
         //  If you want to block state by itself use Changing state code
         // protected bool TrySwitchToBlockState() 
         // {
@@ -134,7 +134,5 @@ namespace _Project.Systems._Core.StateMachine.Player
         //     stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
         //     return true;
         // }
-
-      
     }
 }

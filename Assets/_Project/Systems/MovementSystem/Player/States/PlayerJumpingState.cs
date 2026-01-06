@@ -25,7 +25,7 @@ namespace _Project.Systems.MovementSystem.Player.States
         {
             // jumpType = JumpVariant.Normal;
 
-            stateMachine.ForceReceiver.ApplyJumpForce(stateMachine.JumpForce);
+            stateMachine.ForceReceiver.ApplyJumpForce(stateMachine.PlayerConfigSo.JumpData.JumpForce);
             momentum = stateMachine.Controller.velocity;
             momentum.y = 0;
 
@@ -38,7 +38,7 @@ namespace _Project.Systems.MovementSystem.Player.States
             Move(momentum, deltaTime);
 
             float normalizedTime = GetNormalizedTime(stateMachine.Animator, 0, JUMP_TAG);
-            if (stateMachine.GroundChecker.DistanceToGround >= stateMachine.FallingHeightThreshold &&
+            if (stateMachine.GroundChecker.DistanceToGround >= stateMachine.PlayerConfigSo.FallLandData.FallingHeightThreshold &&
                 normalizedTime >= 0.4f)
             {
                 AirborneParent?.SwitchSubState(new PlayerFallingState(stateMachine));

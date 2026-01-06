@@ -1,5 +1,6 @@
 using _Project.Systems._Core.StateMachine.Player;
-using _Project.Systems.CombatSystem.Player.Combat;
+using _Project.Systems.CombatSystem.ScriptableObjects;
+using _Project.Systems.CombatSystem.ScriptableObjects.Combat;
 using _Project.Systems.MovementSystem.Player.States;
 using _Project.Systems.MovementSystem.Player.States.RootStates;
 
@@ -15,14 +16,14 @@ namespace _Project.Systems.CombatSystem.Player.States
 
         public PlayerAttackingState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
         {
-            attack = stateMachine.Attacks[attackIndex];
+            attack = stateMachine.PlayerConfigSo.AttackTypeDataSet[attackIndex];
         }
 
         public override void Enter()
         {
             // stateMachine.WeaponLogic.SetAttackAttributes(attack.DamageMultiplier, attack.KnockBackForce,
             //     stateMachine.attackDamage);
-            float finalDamage = stateMachine.AttackDamage * attack.DamageMultiplier;
+            float finalDamage = stateMachine.PlayerConfigSo.CombatData.AttackDamage * attack.DamageMultiplier;
             float finalKnockbackForce = attack.KnockBackForce;
 
             stateMachine.WeaponLogic.BeginAttack(finalDamage, finalKnockbackForce);
@@ -36,7 +37,7 @@ namespace _Project.Systems.CombatSystem.Player.States
             Move(deltaTime);
             // FaceTarget(stateMachine.Targeter.SelectedTarget, deltaTime);
 
-            float attackDampTime = stateMachine.RotationDampTimeWhileAttack;
+            float attackDampTime = stateMachine.PlayerConfigSo.CombatData.RotationDampTimeWhileAttack;
 
             RotateFaceToLook(deltaTime, attackDampTime);
 

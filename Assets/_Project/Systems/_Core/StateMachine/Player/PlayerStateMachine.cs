@@ -1,13 +1,16 @@
 using _Project.Core.Scripts;
+using _Project.Data.ScriptableObjects.Characters;
 using _Project.Systems._Core.GravityForce;
 using _Project.Systems._Core.GroundCheck;
 using _Project.Systems._Core.Health;
 using _Project.Systems.ClimbingSystem.LedgeClimbing;
 using _Project.Systems.ClimbingSystem.ScriptableObjects;
-using _Project.Systems.CombatSystem.Player.Combat;
 using _Project.Systems.CombatSystem.Player.States;
+using _Project.Systems.CombatSystem.ScriptableObjects;
+using _Project.Systems.CombatSystem.ScriptableObjects.Combat;
 using _Project.Systems.CombatSystem.Targeting;
 using _Project.Systems.MovementSystem.Player.States.RootStates;
+using _Project.Systems.MovementSystem.ScriptableObjects;
 using UnityEngine;
 
 namespace _Project.Systems._Core.StateMachine.Player
@@ -24,87 +27,21 @@ namespace _Project.Systems._Core.StateMachine.Player
         [field: SerializeField] public Ragdoll.Ragdoll Ragdoll { get; private set; }
         [field: SerializeField] public ClimbController ClimbController { get; private set; }
         [field: SerializeField] public GroundChecker GroundChecker { get; private set; }
-        [field: SerializeField] public AttackDataSo[] Attacks { get; private set; }
-        [field: SerializeField] public ClimbTypeDataSo[] ClimbTypeDataSet { get; private set; }
 
+        [field: SerializeField] public PlayerConfigSo PlayerConfigSo { get; private set; }
+       
         // [Header("Weapon Transforms")] [Tooltip("Sword Holder Transform")] [field: SerializeField]
         // public Transform swordHolderR;
 
-        [Header("Animation")] [Tooltip("The duration of the crossfade between the two blend trees")] [SerializeField]
-        private float crossFadeDurationBetweenBlendTrees = 0.1f;
-
-        public float CrossFadeDurationBetweenBlendTrees => crossFadeDurationBetweenBlendTrees;
-
-        [Tooltip(" The damp time of the animator parameters")] [SerializeField]
-        private float locomotionAnimatorDampTime = 0.1f;
-
-        public float LocomotionAnimatorDampTime => locomotionAnimatorDampTime;
-
-        [Tooltip(" The damp time of the animator parameters")] [SerializeField]
-        private float targetingAnimatorDampTime = 0.2f;
-
-        public float TargetingAnimatorDampTime => targetingAnimatorDampTime;
-
-        [Header("Movement")] [Tooltip(" The time it takes to rotate towards movement direction")] [SerializeField]
-        private float rotationDampTime = 0.1f;
-
-        public float RotationDampTime => rotationDampTime;
-
-        [Tooltip(" The speed at which the player moves when in free look mode")] [SerializeField]
-        private float freeMovementSpeed;
-
-        public float FreeMovementSpeed => freeMovementSpeed;
-
-        [Tooltip(" The speed at which the player moves when in targeting mode")] [SerializeField]
-        public float targetingMovementSpeed;
-
-        public float TargetingMovementSpeed => targetingMovementSpeed;
-
-
-        [Header("Attack settings")] [Tooltip(" Attack damage")] [SerializeField]
-        private float attackDamage = 20f;
-
-        public float AttackDamage => attackDamage;
-
-        [Tooltip(" The time it takes to rotate towards movement direction")] [SerializeField]
-        private float rotationDampTimeWhileAttack = 0.1f;
-
-        public float RotationDampTimeWhileAttack => rotationDampTimeWhileAttack;
-
-        [Header("Impact Settings")] [Tooltip(" Impact duration")] [SerializeField]
-        private float impactDuration = 0.1f;
-
-        public float ImpactDuration => impactDuration;
+        [Header("Blocking Settings")] [field: SerializeField]
+        public float blockLayerWeight = 1;
 
         [Header("Animation Settings")] [Tooltip("The duration time of the locomotion blend tree ")] [SerializeField]
         private float crossFadeDuration = 0.1f;
 
         public float CrossFadeDuration => crossFadeDuration;
 
-        [Header("Blocking Settings")] [Tooltip("The Blocking layer Change speed ")] [SerializeField]
-        private float blockingLayerChangeSpeed = 0.1f;
-
-        public float BlockingLayerChangeSpeed => blockingLayerChangeSpeed;
-
-        [field: SerializeField] public float blockLayerWeight = 1;
-
-        [Tooltip(" The time it takes to rotate towards movement direction when Block")] [SerializeField]
-        private float rotationDampTimeWhileBlock = 2f;
-
-        public float RotationDampTimeWhileBlock => rotationDampTimeWhileBlock;
-
-        [Header("Dodge Settings")] [Tooltip("Dodge speed")] [SerializeField]
-        private float dodgeSpeed = 10f;
-
-        public float DodgeSpeed => dodgeSpeed;
-
-        [Tooltip(" The time it takes to rotate towards movement direction")] [SerializeField]
-        private float rotationDampTimeWhileDodge = 2f;
-
-        public float RotationDampTimeWhileDodge => rotationDampTimeWhileDodge;
-
-
-        [Tooltip("Dodge Press Previous Time ")]
+        [Header("Dodge Settings")] [Tooltip("Dodge Press Previous Time ")]
         private float previousDodgeTime;
 
         public float PreviousDodgeTime
@@ -112,37 +49,6 @@ namespace _Project.Systems._Core.StateMachine.Player
             get => previousDodgeTime;
             set => previousDodgeTime = value;
         }
-
-        [Tooltip("Dodge Cooldown Time")] [SerializeField]
-        private float dodgeCooldownTime = 2f;
-
-        public float DodgeCooldownTime => dodgeCooldownTime;
-
-
-        [Tooltip("Dodge Animation Start Time")] [Range(0f, 1f)] [SerializeField]
-        private float dodgeAnimStartTime;
-
-        public float DodgeAnimStartTime => dodgeAnimStartTime;
-
-        [Tooltip("Dodge Animation End Time")] [Range(0f, 1f)] [SerializeField]
-        private float dodgeAnimEndTime;
-
-        public float DodgeAnimEndTime => dodgeAnimEndTime;
-
-        [Header("Roll Settings")] [Tooltip("Roll Speed")] [SerializeField]
-        private float rollSpeed = 2f;
-
-        public float RollSpeed => rollSpeed;
-
-        [Tooltip(" The time it takes to rotate towards movement direction while Roll")] [SerializeField]
-        private float rotationDampTimeWhileRoll = 2f;
-
-        public float RotationDampTimeWhileRoll => rotationDampTimeWhileRoll;
-
-        [Tooltip("Roll Cooldown")] [SerializeField]
-        private float rollCooldownTime = 2f;
-
-        public float RollCooldownTime => rollCooldownTime;
 
         [Tooltip("Previous time of roll animation")]
         private float previousRollTime;
@@ -153,26 +59,7 @@ namespace _Project.Systems._Core.StateMachine.Player
             set => previousRollTime = value;
         }
 
-        [Tooltip("Roll Animation Start Time")] [Range(0f, 1f)] [SerializeField]
-        private float rollAnimStartTime;
-
-        public float RollAnimStartTime => rollAnimStartTime;
-
-        [Tooltip("Roll Animation End Time")] [Range(0f, 1f)] [SerializeField]
-        private float rollAnimEndTime;
-
-        public float RollAnimEndTime => rollAnimEndTime;
-
-        [Header("Jump Settings")] [Tooltip("Jump Force")] [SerializeField]
-        private float jumpForce = 10f;
-
-        public float JumpForce => jumpForce;
-
-        [Tooltip("Jump Cooldown")] [SerializeField]
-        private float jumpCooldownTime = 2f;
-
-        public float JumpCooldownTime => jumpCooldownTime;
-
+        [Header("Jump Settings")]
         [field: Tooltip("Previous time of jump animation")]
         public bool PendingJump { get; private set; }
 
@@ -184,42 +71,10 @@ namespace _Project.Systems._Core.StateMachine.Player
             set => previousJumpTime = value;
         }
 
-        [Header("Falling - Landing Settings")] [Tooltip("Falling State Start Velocity")] [SerializeField]
-        private float fallingHeightThreshold;
-
-        public float FallingHeightThreshold => fallingHeightThreshold;
-
-
-        [Tooltip("Landing State Start Heightens")] [SerializeField]
-        private float landingHeightThreshold;
-
-        public float LandingHeightThreshold => landingHeightThreshold;
-
-        [Tooltip("Hard Landing  Start Heightens")] [SerializeField]
-        private float landingHardHeightThreshold;
-
-        public float LandingHardHeightThreshold => landingHardHeightThreshold;
-
-        [Tooltip("Landing Animation Start Time")] [Range(0f, 2f)] [SerializeField]
-        private float landingStateExitTime;
-
-        public float LandingStateExitTime => landingStateExitTime;
-
-        [Header("Ledge Climbing")] 
-
-        [Tooltip("Climb Rotation Speed")] [SerializeField]
-        private float climbRotationSpeed = 5f;
-
-        public float ClimbRotationSpeed => climbRotationSpeed;
-
         [Tooltip("is Climbing Free Flow")]
         [field: SerializeField]
         public bool IsFreeFlowClimb { get; private set; }
 
-        [Tooltip("Step up Climb animations crossfade duration")] [SerializeField]
-        private float climbCrossFadeDuration = 0.1f;
-
-        public float ClimbCrossFadeDuration => climbCrossFadeDuration;
 
         [Tooltip("İf Your animations works with the root motion, set this to true")] [SerializeField]
         public bool workWithRootMotion = false;
@@ -227,7 +82,11 @@ namespace _Project.Systems._Core.StateMachine.Player
         [Tooltip("In Combat or alert mode, its gonna roll but in normal mode jump will work ")] [SerializeField]
         private bool inAlertMode = false;
 
-        public bool IsInAlertMode => inAlertMode;
+        public bool IsInAlertMode
+        {
+            get => inAlertMode;
+            set => inAlertMode = value;
+        }
 
         // TODO Create scriptable object or seperated static class for stock animator hashes
 

@@ -15,7 +15,7 @@ namespace _Project.Systems.CombatSystem.Player.States
 
         public override void Enter()
         {
-            remainingImpactTime = stateMachine.ImpactDuration;
+            remainingImpactTime = stateMachine.PlayerConfigSo.CombatData.ImpactDuration;
 
             stateMachine.Animator.CrossFadeInFixedTime(stateMachine.LightImpactHash,
                 stateMachine.CrossFadeDuration);

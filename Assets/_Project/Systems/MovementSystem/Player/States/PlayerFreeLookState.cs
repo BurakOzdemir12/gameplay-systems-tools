@@ -1,12 +1,15 @@
 ﻿using _Project.Systems._Core.StateMachine.Player;
 using _Project.Systems.CombatSystem.Player.States;
 using _Project.Systems.MovementSystem.Player.States.RootStates;
+using _Project.Systems.MovementSystem.ScriptableObjects;
 using UnityEngine;
 
 namespace _Project.Systems.MovementSystem.Player.States
 {
     public class PlayerFreeLookState : PlayerBaseState
     {
+        private MovementDataSo data;
+
         public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
         }
@@ -15,10 +18,11 @@ namespace _Project.Systems.MovementSystem.Player.States
 
         public override void Enter()
         {
+            data = stateMachine.PlayerConfigSo.MovementData;
 
             stateMachine.InputHandler.TargetEvent += OnTarget;
             stateMachine.Animator.CrossFadeInFixedTime(stateMachine.FreeLookBlendTreeHash,
-                stateMachine.CrossFadeDurationBetweenBlendTrees);
+                data.CrossFadeDurationBetweenBlendTrees);
         }
 
         public override void Tick(float deltaTime)
@@ -36,18 +40,18 @@ namespace _Project.Systems.MovementSystem.Player.States
 
             Vector3 movement = CalculateMovementDirection();
 
-            Move(movement * stateMachine.FreeMovementSpeed, deltaTime);
+            Move(movement * data.FreeMovementSpeed, deltaTime);
             // stateMachine.Controller.Move(movement * stateMachine.FreeMovementSpeed * deltaTime); without force receiver -gravity
 
             if (stateMachine.InputHandler.Move.sqrMagnitude < 0.001f)
             {
                 stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParamHash, 0,
-                    stateMachine.LocomotionAnimatorDampTime, deltaTime);
+                    data.LocomotionAnimatorDampTime, deltaTime);
                 return;
             }
 
             stateMachine.Animator.SetFloat(stateMachine.FreeLookSpeedParamHash, 1,
-                stateMachine.LocomotionAnimatorDampTime,
+                data.LocomotionAnimatorDampTime,
                 deltaTime);
 
             RotatePlayerTowardsMovement(movement, deltaTime);
@@ -66,7 +70,7 @@ namespace _Project.Systems.MovementSystem.Player.States
 
             Transform characterTransform = stateMachine.Controller.transform;
             characterTransform.rotation = Quaternion.Slerp(characterTransform.rotation, targetRot,
-                stateMachine.RotationDampTime * deltaTime);
+                data.RotationDampTime * deltaTime);
 
             // We can use RotateToward and Lerp either.
             // characterTransform.rotation = Quaternion.RotateTowards(
@@ -81,6 +85,5 @@ namespace _Project.Systems.MovementSystem.Player.States
 
             // stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
-
     }
 }

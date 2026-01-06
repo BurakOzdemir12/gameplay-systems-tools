@@ -23,7 +23,7 @@ namespace _Project.Systems.CombatSystem.Player.States
 
         public override void Tick(float deltaTime)
         {
-            float rollDampTime = stateMachine.RotationDampTimeWhileBlock;
+            float rollDampTime = stateMachine.PlayerConfigSo.CombatData.RotationDampTimeWhileBlock;
 
             RotateFaceToLook(deltaTime, rollDampTime);
             Move(deltaTime);
@@ -34,7 +34,7 @@ namespace _Project.Systems.CombatSystem.Player.States
             {
                 stateMachine.Animator.SetBool(stateMachine.IsBlockingBoolHash, false);
                 blockLayerWeight =
-                    Mathf.MoveTowards(blockLayerWeight, target, deltaTime * stateMachine.BlockingLayerChangeSpeed);
+                    Mathf.MoveTowards(blockLayerWeight, target, deltaTime * stateMachine.PlayerConfigSo.CombatData.BlockingLayerChangeSpeed);
                 stateMachine.Animator.SetLayerWeight(stateMachine.BlockingLayerIndex, blockLayerWeight);
 
                 if (normalizedTime >= 1f)
@@ -54,7 +54,7 @@ namespace _Project.Systems.CombatSystem.Player.States
             }
 
             blockLayerWeight =
-                Mathf.MoveTowards(blockLayerWeight, target, deltaTime * stateMachine.BlockingLayerChangeSpeed);
+                Mathf.MoveTowards(blockLayerWeight, target, deltaTime * stateMachine.PlayerConfigSo.CombatData.BlockingLayerChangeSpeed);
             stateMachine.Animator.SetLayerWeight(stateMachine.BlockingLayerIndex, blockLayerWeight);
         }
 

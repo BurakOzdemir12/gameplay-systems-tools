@@ -1,12 +1,15 @@
 using _Project.Systems._Core.StateMachine.Player;
 using _Project.Systems.MovementSystem.Player.States;
 using _Project.Systems.MovementSystem.Player.States.RootStates;
+using _Project.Systems.MovementSystem.ScriptableObjects;
 using UnityEngine;
 
 namespace _Project.Systems.CombatSystem.Player.States
 {
     public class PlayerTargetingState : PlayerBaseState
     {
+        private MovementDataSo data;
+
         public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
         }
@@ -15,9 +18,11 @@ namespace _Project.Systems.CombatSystem.Player.States
 
         public override void Enter()
         {
+            stateMachine.IsInAlertMode = true;
+            data = stateMachine.PlayerConfigSo.MovementData;
             stateMachine.InputHandler.TargetCancelEvent += OnTargetCancel;
             stateMachine.Animator.CrossFadeInFixedTime(stateMachine.TargetingBlendTreeHash,
-                stateMachine.CrossFadeDurationBetweenBlendTrees);
+                data.CrossFadeDurationBetweenBlendTrees);
         }
 
 
@@ -40,13 +45,14 @@ namespace _Project.Systems.CombatSystem.Player.States
             HandleBlocking(deltaTime, true);
 
             Vector3 movement = CalculateMovement();
-            Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
+            Move(movement * data.TargetingMovementSpeed, deltaTime);
             UpdateAnimator(deltaTime);
             FaceLockOnTarget(stateMachine.Targeter.SelectedTarget, deltaTime);
         }
 
         public override void Exit()
         {
+            stateMachine.IsInAlertMode = false;
             stateMachine.InputHandler.TargetCancelEvent -= OnTargetCancel;
         }
 
@@ -73,25 +79,25 @@ namespace _Project.Systems.CombatSystem.Player.States
             if (movement.y == 0)
             {
                 stateMachine.Animator.SetFloat(stateMachine.TargetingForwardSpeedHash, 0,
-                    stateMachine.TargetingAnimatorDampTime, deltaTime);
+                    data.TargetingAnimatorDampTime, deltaTime);
             }
             else
             {
                 float value = movement.y > 0f ? 1f : -1f;
                 stateMachine.Animator.SetFloat(stateMachine.TargetingForwardSpeedHash, value,
-                    stateMachine.TargetingAnimatorDampTime, deltaTime);
+                    data.TargetingAnimatorDampTime, deltaTime);
             }
 
             if (movement.x == 0)
             {
                 stateMachine.Animator.SetFloat(stateMachine.TargetingRightSpeedHash, 0,
-                    stateMachine.TargetingAnimatorDampTime, deltaTime);
+                    data.TargetingAnimatorDampTime, deltaTime);
             }
             else
             {
                 float value = movement.x > 0 ? 1f : -1f;
                 stateMachine.Animator.SetFloat(stateMachine.TargetingRightSpeedHash, value,
-                    stateMachine.TargetingAnimatorDampTime, deltaTime);
+                    data.TargetingAnimatorDampTime, deltaTime);
             }
 
             if (movement.sqrMagnitude < 0.001f)

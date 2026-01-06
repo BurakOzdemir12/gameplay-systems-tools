@@ -55,7 +55,7 @@ namespace _Project.Systems.ClimbingSystem.States.RootStates
             selectedDecision = ParkourDecision.Invalid;
             int bestPriority = int.MinValue;
 
-            foreach (var so in stateMachine.ClimbTypeDataSet)
+            foreach (var so in stateMachine.PlayerConfigSo.ClimbTypeDataSet)
             {
                 if (so is null) continue;
                 if (!so.MatchesActionType(desiredType)) continue;

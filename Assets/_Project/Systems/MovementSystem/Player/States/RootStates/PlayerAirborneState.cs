@@ -40,14 +40,14 @@ namespace _Project.Systems.MovementSystem.Player.States.RootStates
             if (!stateMachine.IsGrounded) return;
             fallDistance = startY - stateMachine.transform.position.y;
 
-            if (!fromJumping && fallDistance < stateMachine.LandingHeightThreshold)
+            if (!fromJumping && fallDistance < stateMachine.PlayerConfigSo.FallLandData.LandingHeightThreshold)
             {
                 SwitchRootState(new PlayerGroundedState(stateMachine));
                 return;
             }
 
 
-            LandingType landingType = (fallDistance >= stateMachine.LandingHardHeightThreshold)
+            LandingType landingType = (fallDistance >= stateMachine.PlayerConfigSo.FallLandData.LandingHardHeightThreshold)
                 ? LandingType.Heavy
                 : LandingType.Light;
 

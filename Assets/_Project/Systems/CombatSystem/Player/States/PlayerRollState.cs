@@ -1,9 +1,9 @@
 ﻿using _Project.Systems._Core.StateMachine.Player;
-using _Project.Systems.CombatSystem.Player.States;
+using _Project.Systems.MovementSystem.Player.States;
 using _Project.Systems.MovementSystem.Player.States.RootStates;
 using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.Player.States
+namespace _Project.Systems.CombatSystem.Player.States
 {
     public class PlayerRollState : PlayerBaseState
     {
@@ -66,9 +66,9 @@ namespace _Project.Systems.MovementSystem.Player.States
             if (!IsRollMoveWindowActive()) return;
 
             Vector3 rollDir = direction.normalized;
-            Vector3 movement = rollDir * stateMachine.RollSpeed;
+            Vector3 movement = rollDir * stateMachine.PlayerConfigSo.RollData.RollSpeed;
 
-            float rollDampTime = stateMachine.RotationDampTimeWhileRoll;
+            float rollDampTime = stateMachine.PlayerConfigSo.RollData.RotationDampTimeWhileRoll;
 
             if (movement.sqrMagnitude < 0.0001f)
             {
@@ -76,7 +76,7 @@ namespace _Project.Systems.MovementSystem.Player.States
                 backward.y = 0f;
                 backward.Normalize();
 
-                Move(backward * stateMachine.RollSpeed, deltaTime);
+                Move(backward * stateMachine.PlayerConfigSo.RollData.RollSpeed, deltaTime);
             }
             else
             {
@@ -92,8 +92,8 @@ namespace _Project.Systems.MovementSystem.Player.States
 
         private bool IsRollMoveWindowActive()
         {
-            return normalizedTime >= stateMachine.RollAnimStartTime &&
-                   normalizedTime <= stateMachine.RollAnimEndTime;
+            return normalizedTime >= stateMachine.PlayerConfigSo.RollData.RollAnimStartTime &&
+                   normalizedTime <= stateMachine.PlayerConfigSo.RollData.RollAnimEndTime;
         }
 
         private int GetRollHash(Vector2 input, bool targeting, bool rootMotion)
