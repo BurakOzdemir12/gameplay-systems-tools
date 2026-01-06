@@ -8994,14 +8994,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 683239997657024839, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_Center.y
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399500102797626306, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4102740525890604085, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.67
@@ -9175,46 +9167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: groundedSnapDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: <PlayerConfigSo>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
     - target: {fileID: 2630160139611918405, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: cmTargetGroup
       value: 
       objectReference: {fileID: 4436071052899432263}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: offset.y
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: useCapsule
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: maxSlopeAngle
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: groundNormal.z
-      value: 0.0000003973643
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: distanceToGround
-      value: 0.1599998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: groundCheckRadius
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: m_Name
       value: Player_1

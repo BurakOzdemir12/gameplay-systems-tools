@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98596cd616eeb144fbfc42ae6b29dfe4, type: 3}
-  m_Name: SlashBackAttackDataSo
+  m_Name: TornadoAttackData
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.Combat.AttackData
-  <AnimationName>k__BackingField: Sword And Shield Slash Back
-  <TransitionDuration>k__BackingField: 0.2
-  <ComboStateIndex>k__BackingField: 2
-  <ComboAttackTime>k__BackingField: 0.9
-  <AttackForce>k__BackingField: 5
+  <AnimationName>k__BackingField: Sword And Shield Attack Tornado
+  <TransitionDuration>k__BackingField: 0.22
+  <ComboStateIndex>k__BackingField: 3
+  <ComboAttackTime>k__BackingField: 1
+  <AttackForce>k__BackingField: 9
   <ForceTime>k__BackingField: 0.4
-  <DamageMultiplier>k__BackingField: 1
-  <KnockBackForce>k__BackingField: 5
+  <DamageMultiplier>k__BackingField: 1.25
+  <KnockBackForce>k__BackingField: 10

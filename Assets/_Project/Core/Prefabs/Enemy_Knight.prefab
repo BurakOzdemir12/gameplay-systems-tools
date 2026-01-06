@@ -30672,7 +30672,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.08, z: 0}
 --- !u!114 &8948619198940738731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30718,26 +30718,8 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 8948619198940738731}
   <Target>k__BackingField: {fileID: 1489080454529048964}
   <Ragdoll>k__BackingField: {fileID: 6220000539674333914}
-  moveSpeed: 2
-  rotationDampTime: 4
-  chaseDetectionRange: 6
+  <EnemyConfigSo>k__BackingField: {fileID: 11400000, guid: 8be944500e5f5404d83dfb2b4abb5035, type: 2}
   bufferMax: 4
-  <ChaseDetectionLayers>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 65536
-  attackRange: 1.5
-  attackDetectionLayers:
-    serializedVersion: 2
-    m_Bits: 65536
-  attackDamage: 50
-  attackCoolDown: 1.5
-  attackKnockBackForce: 2
-  forceTime: 0
-  locomotionBlendTreeDuration: 0.1
-  crossFadeDurationCombat: 0.1
-  crossFadeDuration: 0.1
-  locomotionAnimationDampTime: 0.1
-  impactDuration: 0.75
   buffersForChase: []
   buffersForAttack: []
 --- !u!114 &850302749901976499
@@ -30768,6 +30750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.Core.Ragdoll.Ragdoll
   animator: {fileID: 1399500102797626306}
   controller: {fileID: 683239997657024839}
+  testRagdoll: 0
 --- !u!195 &462188476824625444
 NavMeshAgent:
   m_ObjectHideFlags: 0

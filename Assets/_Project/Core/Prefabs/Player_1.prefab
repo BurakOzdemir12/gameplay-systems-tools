@@ -1999,53 +1999,14 @@ MonoBehaviour:
   <Ragdoll>k__BackingField: {fileID: 659125055065736114}
   <ClimbController>k__BackingField: {fileID: 5642012791297687812}
   <GroundChecker>k__BackingField: {fileID: 2893544232811707756}
-  <Attacks>k__BackingField:
-  - {fileID: 11400000, guid: 62d6349fe51764c44ad5d0efd642b0b4, type: 2}
-  - {fileID: 11400000, guid: 4a5499d68c7dcd84cbd28b2edd6c076b, type: 2}
-  - {fileID: 11400000, guid: 2d1602bfa334e8040b14279487e0bb31, type: 2}
-  <ClimbTypeDataSet>k__BackingField:
-  - {fileID: 11400000, guid: 677542daeb13651478cc76041545835e, type: 2}
-  - {fileID: 11400000, guid: d546fadce18b8a148b7c4def11f324fc, type: 2}
-  - {fileID: 11400000, guid: 6f0fd97d48a7ad24a8ff72a07a52d6e8, type: 2}
-  - {fileID: 11400000, guid: cab1541b9ece86d43ae5315410797f52, type: 2}
-  - {fileID: 11400000, guid: 250d398e448d0764f994b33737d683ad, type: 2}
-  crossFadeDurationBetweenBlendTrees: 0.4
-  locomotionAnimatorDampTime: 0.1
-  targetingAnimatorDampTime: 0.15
-  rotationDampTime: 5.35
-  freeMovementSpeed: 4
-  targetingMovementSpeed: 2.5
-  attackDamage: 80
-  rotationDampTimeWhileAttack: 2
-  impactDuration: 0.5
-  crossFadeDuration: 0.1
-  blockingLayerChangeSpeed: 5
+  <PlayerConfigSo>k__BackingField: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
   blockLayerWeight: 1
-  rotationDampTimeWhileBlock: 2
-  dodgeSpeed: 8
-  rotationDampTimeWhileDodge: 2
-  dodgeCooldownTime: 2
-  dodgeAnimStartTime: 0.126
-  dodgeAnimEndTime: 0.617
-  rollSpeed: 4
-  rotationDampTimeWhileRoll: 1
-  rollCooldownTime: 2
-  rollAnimStartTime: 0.085
-  rollAnimEndTime: 0.771
-  jumpForce: 4
-  jumpCooldownTime: 0.5
-  fallingHeightThreshold: 2
-  landingHeightThreshold: 1.5
-  landingHardHeightThreshold: 3
-  landingStateExitTime: 0.694
-  autoClimbMaxHeight: 1.76
-  climbRotationSpeed: 10
+  crossFadeDuration: 0.1
   <IsFreeFlowClimb>k__BackingField: 0
-  climbCrossFadeDuration: 0.1
   workWithRootMotion: 0
   inAlertMode: 0
   groundedGrace: 0.15
-  groundedSnapDistance: 2
+  groundedSnapDistance: 1
 --- !u!114 &5933198991457523035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,15 +2118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79379c1727a938046bddad86a7a25b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatAndTraversalSystem.Player.GroundChecker
-  groundCheckDistance: 0.32
+  groundCheckDistance: 0.4
   groundCheckRadius: 0.3
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  offset: {x: 0, y: 0.45, z: 0}
+  offset: {x: 0, y: 0.38, z: 0}
   isGrounded: 1
-  distanceToGround: 0.15999973
-  groundNormal: {x: 0, y: 1, z: 0}
+  distanceToGround: 0.1599998
+  groundNormal: {x: 0, y: 1, z: 0.0000003973643}
+  useCapsule: 0
   maxSlopeAngle: 45
 --- !u!1 &3275251072340694737
 GameObject:
