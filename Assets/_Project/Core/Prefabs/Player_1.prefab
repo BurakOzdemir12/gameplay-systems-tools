@@ -1902,6 +1902,9 @@ GameObject:
   - component: {fileID: 2906043314014877526}
   - component: {fileID: 5642012791297687812}
   - component: {fileID: 2893544232811707756}
+  - component: {fileID: 1832478404789337025}
+  - component: {fileID: 6661661102894597408}
+  - component: {fileID: 1134900172414046068}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -1928,6 +1931,7 @@ Transform:
   - {fileID: 8895673549144615789}
   - {fileID: 7189200354987705044}
   - {fileID: 2867926391521273885}
+  - {fileID: 8207432434482931319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &9114488106413501971
@@ -2129,6 +2133,51 @@ MonoBehaviour:
   groundNormal: {x: 0, y: 1, z: 0.0000003973643}
   useCapsule: 0
   maxSlopeAngle: 45
+--- !u!114 &1832478404789337025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01d0293ea574a19ac475ab0a209ebf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Feedback.CharacterFeedbackProfileHolder
+  profile: {fileID: 11400000, guid: 901f65f56c35457429e220be519664d4, type: 2}
+--- !u!114 &6661661102894597408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45abb4aec6f035747be4f0eceadded72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Feedback.CharacterFeedbackBroadcaster
+  rFoot: {fileID: 0}
+  lFoot: {fileID: 0}
+--- !u!114 &1134900172414046068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a2f964a2e14dab8ce5fb5940d4c7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDetection
+  surfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  rayDistance: 1.2
+  upOffset: 0.2
+  fallback: 0
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0
@@ -5721,6 +5770,37 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &7725444878215461804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8207432434482931319}
+  m_Layer: 16
+  m_Name: Vfx_Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8207432434482931319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725444878215461804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1382339109780263433}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7727904921762514368
 GameObject:
   m_ObjectHideFlags: 0

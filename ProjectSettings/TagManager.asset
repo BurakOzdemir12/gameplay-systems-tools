@@ -32,11 +32,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Grass
+  - Dirt
+  - Metal
+  - Snow
+  - Water
   - 
   - 
   m_SortingLayers:
