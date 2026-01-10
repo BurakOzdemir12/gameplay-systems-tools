@@ -1,6 +1,6 @@
 namespace _Project.Systems._Core.Enums
 {
-    public enum InteractionType
+    public enum TraversalType
     {
         Footstep,
         Land,

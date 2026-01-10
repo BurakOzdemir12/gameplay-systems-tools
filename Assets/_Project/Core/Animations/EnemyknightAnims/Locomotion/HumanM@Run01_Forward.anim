@@ -55414,15 +55414,15 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.033333335
-    functionName: OnAnimEvent
-    data: Footstep:Run
+    functionName: OnTraversalAnimEvent
+    data: Footstep:Run:Left
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: OnAnimEvent
-    data: Footstep:Run
+    functionName: OnTraversalAnimEvent
+    data: Footstep:Run:Right
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

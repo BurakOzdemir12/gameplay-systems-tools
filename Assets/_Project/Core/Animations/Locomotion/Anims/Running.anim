@@ -37264,14 +37264,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.26666668
-    functionName: OnInteractionAnimEvent
+    functionName: OnTraversalAnimEvent
     data: Footstep:Run:Left
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
-    functionName: OnInteractionAnimEvent
+    functionName: OnTraversalAnimEvent
     data: Footstep:Run:Right
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

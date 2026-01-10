@@ -1,9 +1,11 @@
 ﻿namespace _Project.Systems._Core.Enums
 {
-    public enum ActionType
+    public enum CombatActionType
     {
         Attack,
         GetHit,
-        Pair
+        Pair,
+        UseTool,
+        CastSpell
     }
 }
