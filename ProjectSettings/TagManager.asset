@@ -22,10 +22,10 @@ TagManager:
   - 
   - 
   - Wall
-  - 
+  - Hitbox
   - Player
   - Ragdoll
-  - 
+  - Targeter
   - Ledge
   - Climbable
   - 
