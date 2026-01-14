@@ -1192,7 +1192,7 @@ GameObject:
   - component: {fileID: 175990179423282254}
   - component: {fileID: 6155302161540997994}
   - component: {fileID: 3230147036981596509}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: HitBox (Logic)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,10 +1260,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.29
-  m_Height: 0.24
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.44, z: 0}
+  m_Radius: 0.11
+  m_Height: 0.65
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3230147036981596509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,6 +2107,8 @@ GameObject:
   - component: {fileID: 6661661102894597408}
   - component: {fileID: 1134900172414046068}
   - component: {fileID: 4139987776407903548}
+  - component: {fileID: 8042790108091311836}
+  - component: {fileID: 846696441787821084}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -2200,10 +2202,11 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 2630160139611918405}
   <ForceReceiver>k__BackingField: {fileID: 4366494916609573205}
   <WeaponLogic>k__BackingField: {fileID: 1606055726470352400}
-  <ToolLogic>k__BackingField: {fileID: 0}
+  <ToolLogic>k__BackingField: {fileID: 3230147036981596509}
   <Health>k__BackingField: {fileID: 4012206463086136716}
   <Ragdoll>k__BackingField: {fileID: 659125055065736114}
   <ClimbController>k__BackingField: {fileID: 5642012791297687812}
+  <GatheringController>k__BackingField: {fileID: 8042790108091311836}
   <GroundChecker>k__BackingField: {fileID: 2893544232811707756}
   <PlayerConfigSo>k__BackingField: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
   blockLayerWeight: 1
@@ -2406,6 +2409,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDefinition
   surfaceType: 6
+--- !u!114 &8042790108091311836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8848ab23634541e7b054a41662a630db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.GatheringSystem.Detector_Controller.GatheringController
+  <GatheringValidator>k__BackingField: {fileID: 846696441787821084}
+--- !u!114 &846696441787821084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf621b7d786f45f8a77336b096ff191e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.GatheringSystem.Detector_Controller.GatheringValidator
+  resourcesLayerMask:
+    serializedVersion: 2
+    m_Bits: 138412032
+  rayDistance: 1.97
+  rayRadius: 2.05
+  rayOffset: {x: 0, y: 0.06, z: 0}
+  maxBuff: 3
+  mainCamera: {fileID: 0}
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0

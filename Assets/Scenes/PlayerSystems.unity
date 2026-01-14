@@ -7437,17 +7437,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!114 &1407012231 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3230147036981596509, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-  m_PrefabInstance: {fileID: 5945324169093147246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a44d55644c4ec6b2809e7cb87826c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.ToolLogic.ToolLogic
 --- !u!1 &1423368009
 GameObject:
   m_ObjectHideFlags: 0
@@ -8864,12 +8853,12 @@ GameObject:
   - component: {fileID: 1694313433}
   - component: {fileID: 1694313434}
   m_Layer: 22
-  m_Name: Sphere
+  m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &1694313427
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8957,11 +8946,11 @@ Transform:
   m_GameObject: {fileID: 1694313426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.71, y: 1.204, z: -12.65}
+  m_LocalPosition: {x: -29.536589, y: 1.204, z: -14.61718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1768840416}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1694313433
 MonoBehaviour:
@@ -9335,7 +9324,6 @@ Transform:
   m_Children:
   - {fileID: 1692038493}
   - {fileID: 1423368010}
-  - {fileID: 1694313430}
   - {fileID: 877753747}
   - {fileID: 627500165}
   m_Father: {fileID: 0}
@@ -12703,11 +12691,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 612864509}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2118893633 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-  m_PrefabInstance: {fileID: 5945324169093147246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4795111400295502
 GameObject:
   m_ObjectHideFlags: 0
@@ -12961,6 +12944,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 846696441787821084, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rayRadius
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 846696441787821084, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 493942653}
+    - target: {fileID: 846696441787821084, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rayDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 846696441787821084, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rayOffset.y
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1382339109780263433, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.541706
@@ -13001,40 +13000,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2109740785845553052, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: <ToolLogic>k__BackingField
-      value: 
-      objectReference: {fileID: 1407012231}
-    - target: {fileID: 2175726675044405936, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2630160139611918405, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: cmTargetGroup
       value: 
       objectReference: {fileID: 4436071052899432263}
-    - target: {fileID: 2705856750866624498, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: m_Name
       value: Player_1
       objectReference: {fileID: 0}
-    - target: {fileID: 8617503237521739478, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7592064798264560464}
-    - targetCorrespondingSourceObject: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7592064798264560463}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
 --- !u!1001 &7124573781807309121
 PrefabInstance:
@@ -13211,39 +13188,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1382339109780263433, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
   m_PrefabInstance: {fileID: 5945324169093147246}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7592064798264560463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118893633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf621b7d786f45f8a77336b096ff191e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.GatheringSystem.Detector_Controller.GatheringValidator
-  resourcesLayerMask:
-    serializedVersion: 2
-    m_Bits: 138412032
-  rayDistance: 1.97
-  rayRadius: 2.05
-  rayOffset: {x: 0, y: 0.06, z: 0}
-  maxBuff: 3
-  mainCamera: {fileID: 493942653}
---- !u!114 &7592064798264560464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118893633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8848ab23634541e7b054a41662a630db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.GatheringSystem.Detector_Controller.GatheringController
-  <GatheringValidator>k__BackingField: {fileID: 7592064798264560463}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -13260,3 +13204,4 @@ SceneRoots:
   - {fileID: 1507862620}
   - {fileID: 1514801325}
   - {fileID: 3125067133725106188}
+  - {fileID: 1694313430}

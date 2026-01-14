@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "69b908c5-e4df-4f7d-a5fd-39c5b7cf4722",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -458,6 +467,17 @@
                     "processors": "",
                     "groups": ";Mouse & Keyboard",
                     "action": "RollOrJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40a0fa5f-1e57-46ec-a708-c624cdfdc10c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse & Keyboard",
+                    "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
