@@ -190,6 +190,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DrawSheath"",
+                    ""type"": ""Button"",
+                    ""id"": ""e78fe6a6-aa91-4e7e-8c72-ec76b9595b9a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -566,6 +575,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b8f7478-2505-467c-a791-403c848e755f"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Mouse & Keyboard"",
+                    ""action"": ""DrawSheath"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -613,6 +633,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_RollOrJump = m_Player.FindAction("RollOrJump", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_DrawSheath = m_Player.FindAction("DrawSheath", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -704,6 +725,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_RollOrJump;
     private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_DrawSheath;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -759,6 +781,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Interaction".
         /// </summary>
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/DrawSheath".
+        /// </summary>
+        public InputAction @DrawSheath => m_Wrapper.m_Player_DrawSheath;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -818,6 +844,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
+            @DrawSheath.started += instance.OnDrawSheath;
+            @DrawSheath.performed += instance.OnDrawSheath;
+            @DrawSheath.canceled += instance.OnDrawSheath;
         }
 
         /// <summary>
@@ -862,6 +891,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
+            @DrawSheath.started -= instance.OnDrawSheath;
+            @DrawSheath.performed -= instance.OnDrawSheath;
+            @DrawSheath.canceled -= instance.OnDrawSheath;
         }
 
         /// <summary>
@@ -1005,5 +1037,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteraction(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DrawSheath" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDrawSheath(InputAction.CallbackContext context);
     }
 }

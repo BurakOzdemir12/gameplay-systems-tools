@@ -19,6 +19,7 @@ namespace _Project.Core.Scripts
         public event Action TargetCancelEvent;
         public event Action RollOrJumpEvent;
         public event Action InteractEvent;
+        public event Action DrawSheathEvent;
         public bool IsAttacking { get; private set; }
         public bool IsBlocking { get; private set; }
 
@@ -146,8 +147,15 @@ namespace _Project.Core.Scripts
         public void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            
+
             InteractEvent?.Invoke();
+        }
+
+        public void OnDrawSheath(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            DrawSheathEvent?.Invoke();
         }
     }
 }

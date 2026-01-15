@@ -104,6 +104,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DrawSheath",
+                    "type": "Button",
+                    "id": "e78fe6a6-aa91-4e7e-8c72-ec76b9595b9a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -478,6 +487,17 @@
                     "processors": "",
                     "groups": ";Mouse & Keyboard",
                     "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b8f7478-2505-467c-a791-403c848e755f",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse & Keyboard",
+                    "action": "DrawSheath",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
