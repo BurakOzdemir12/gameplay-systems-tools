@@ -1,3 +1,5 @@
+using _Project.Systems._Core.StateMachine.Player;
+using _Project.Systems._Core.WeaponLogic.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,11 +18,9 @@ namespace _Project.Systems._Core.Weapon_Tool_Handlers
         private WeaponLogic.WeaponLogic currentWeaponLogic;
         public WeaponLogic.WeaponLogic CurrentWeaponLogic => currentWeaponLogic;
 
-        [SerializeField] private GameObject weaponSheatHolderBack;
-        [SerializeField] private GameObject weaponHolderRightHand;
+        [SerializeField] private WeaponDataSo currentWeaponData;
+        public WeaponDataSo CurrentWeaponDataSo => currentWeaponData;
 
-        private GameObject currentWeaponInHand;
-        private GameObject currentWeaponInSheath;
 
         private void Start()
         {
@@ -31,7 +31,6 @@ namespace _Project.Systems._Core.Weapon_Tool_Handlers
                 Debug.LogError($"{name}: WeaponLogic couldn't find in the children!", this);
                 return;
             }
-
 
             currentWeaponLogic = weaponLogic;
             currentWeaponHitbox = weaponLogic.gameObject;
@@ -52,23 +51,14 @@ namespace _Project.Systems._Core.Weapon_Tool_Handlers
             // currentWeaponHitbox.SetActive(false);
         }
 
-        public void DrawWeapon()
+        public void SwitchWeapon(WeaponDataSo weaponDataSo)
         {
-            currentWeaponInHand = Instantiate(currentWeaponLogic.WeaponData.weaponPrefab,
-                weaponHolderRightHand.transform);
-            currentWeaponInHand.transform.localPosition = Vector3.zero;
-            Destroy(currentWeaponInSheath);
+            WeaponLogic.WeaponLogic newWeaponLogic = Instantiate(weaponDataSo.weaponPrefab, currentWeaponRoot.transform)
+                .GetComponentInChildren<WeaponLogic.WeaponLogic>();
+
+            currentWeaponData = weaponDataSo;
+            currentWeaponLogic = newWeaponLogic;
+            currentWeaponHitbox = newWeaponLogic.gameObject;
         }
-
-        public void SheathWeapon()
-        {
-            currentWeaponInSheath =
-                Instantiate(currentWeaponLogic.WeaponData.weaponPrefab,
-                    weaponSheatHolderBack.transform);
-            currentWeaponInSheath.transform.localPosition = Vector3.zero;
-
-            Destroy(currentWeaponInHand);
-        }
-
     }
 }

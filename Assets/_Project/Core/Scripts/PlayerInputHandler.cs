@@ -22,6 +22,7 @@ namespace _Project.Core.Scripts
         public event Action DrawSheathEvent;
         public bool IsAttacking { get; private set; }
         public bool IsBlocking { get; private set; }
+        public bool IsSprinting { get; private set; }
 
         // public bool JumpPressed { get; private set; }
 
@@ -156,6 +157,18 @@ namespace _Project.Core.Scripts
             if (!context.performed) return;
 
             DrawSheathEvent?.Invoke();
+        }
+
+        public void OnSprint(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                IsSprinting = true;
+            }
+            if (context.canceled)
+            {
+                IsSprinting = false;
+            }
         }
     }
 }

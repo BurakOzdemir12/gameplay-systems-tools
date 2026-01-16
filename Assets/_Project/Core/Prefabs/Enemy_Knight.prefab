@@ -5898,7 +5898,7 @@ GameObject:
   - component: {fileID: 3280113694007865376}
   - component: {fileID: 689632693717557740}
   - component: {fileID: 8211597331224621290}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5982,7 +5982,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6a4e50e7c22844a1524ef47a3a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.WeaponHandler.WeaponDamage
+  weaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
   characterOwnCollider: {fileID: 683239997657024839}
+  useNormalRaycast: 1
+  normalRayDistance: 0.25
+  normalRayMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2054253028339922034
 GameObject:
   m_ObjectHideFlags: 0
@@ -30600,6 +30606,10 @@ GameObject:
   - component: {fileID: 6220000539674333914}
   - component: {fileID: 462188476824625444}
   - component: {fileID: 8289068019230873502}
+  - component: {fileID: 2730870844075521475}
+  - component: {fileID: 1010129521132057559}
+  - component: {fileID: 5453145863899602284}
+  - component: {fileID: 7309553998514586212}
   m_Layer: 0
   m_Name: Enemy_Knight
   m_TagString: Untagged
@@ -30786,6 +30796,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatAndTraversalSystem.Player.Combat.WeaponHandler
   currentWeaponRoot: {fileID: 6071552481850001027}
+  currentWeaponData: {fileID: 0}
+--- !u!114 &2730870844075521475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620151814516302203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45abb4aec6f035747be4f0eceadded72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Feedback.CharacterFeedbackBroadcaster
+  rFoot: {fileID: 5523182284858341458}
+  lFoot: {fileID: 7055063810798341688}
+  surfaceDetection: {fileID: 0}
+  weaponHandler: {fileID: 0}
+  toolHandler: {fileID: 0}
+--- !u!114 &1010129521132057559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620151814516302203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a2f964a2e14dab8ce5fb5940d4c7e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDetection
+  surfaceMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  rayDistance: 1.2
+  upOffset: 0.2
+  fallback: 0
+--- !u!114 &5453145863899602284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620151814516302203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01d0293ea574a19ac475ab0a209ebf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Feedback.CharacterFeedbackProfileHolder
+  profile: {fileID: 11400000, guid: 0ea88e1c84cf5124283bef3a19a6aa0d, type: 2}
+--- !u!114 &7309553998514586212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620151814516302203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e8e9c4eaca49b4b05b78775b319208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDefinition
+  surfaceType: 6
 --- !u!1 &8675428455682325627
 GameObject:
   m_ObjectHideFlags: 0

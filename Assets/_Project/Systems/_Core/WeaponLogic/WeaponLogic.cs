@@ -6,12 +6,13 @@ using _Project.Systems._Core.EventBus;
 using _Project.Systems._Core.EventBus.Events;
 using _Project.Systems._Core.GravityForce.Interfaces;
 using _Project.Systems._Core.Health.Interfaces;
+using _Project.Systems._Core.Pickup_Drop.Interfaces;
 using _Project.Systems._Core.WeaponLogic.ScriptableObjects;
 using UnityEngine;
 
 namespace _Project.Systems._Core.WeaponLogic
 {
-    public class WeaponLogic : MonoBehaviour
+    public class WeaponLogic : MonoBehaviour, IPickupable
     {
         [Header("Weapon Data")] [SerializeField]
         private WeaponDataSo weaponData;
@@ -47,7 +48,7 @@ namespace _Project.Systems._Core.WeaponLogic
 
         public void Initialize(Collider ownerCollider) => characterOwnCollider = ownerCollider;
 
-        
+
         public void SetupAttack(float finalDamage, float finalKnockbackForce,
             string impactTag)
         {
@@ -55,7 +56,7 @@ namespace _Project.Systems._Core.WeaponLogic
             currentKnockbackForce = finalKnockbackForce;
             currentAttackType = impactTag;
         }
-        
+
         public void PerformAttack()
         {
             hitColliders.Clear();
@@ -63,6 +64,7 @@ namespace _Project.Systems._Core.WeaponLogic
 
             gameObject.SetActive(true);
         }
+
         public void EndAttack()
         {
             hitWindowActive = false;
@@ -77,11 +79,12 @@ namespace _Project.Systems._Core.WeaponLogic
             if (other == characterOwnCollider) return;
             if (!hitColliders.Add(other)) return;
 
-            Debug.Log("Hit collider " + other.name +": Tag:"+ other.tag);
+            Debug.Log("Hit collider " + other.name + ": Tag:" + other.tag);
 
             ApplyDamageAndKnockback(other);
             PublishImpactEvent(other);
         }
+
 
         #region Apply Damage And Knockback
 
@@ -106,7 +109,6 @@ namespace _Project.Systems._Core.WeaponLogic
 
         private void PublishImpactEvent(Collider other)
         {
-
             Vector3 weaponPos = transform.position;
             Vector3 hitPoint = other.ClosestPoint(weaponPos);
 
@@ -154,6 +156,12 @@ namespace _Project.Systems._Core.WeaponLogic
         }
 
         #endregion
+
+
+        public void PickUp()
+        {
+            Destroy(this.gameObject);
+        }
 
         private void OnDrawGizmos()
         {
