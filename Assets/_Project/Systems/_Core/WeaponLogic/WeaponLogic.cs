@@ -30,7 +30,6 @@ namespace _Project.Systems._Core.WeaponLogic
         [SerializeField] private float normalRayDistance = 0.25f;
         [SerializeField] private LayerMask normalRayMask = ~0;
 
-
         private bool hitWindowActive;
         private float currentDamage;
         private float currentKnockbackForce;
@@ -61,7 +60,6 @@ namespace _Project.Systems._Core.WeaponLogic
         {
             hitColliders.Clear();
             hitWindowActive = true;
-
             gameObject.SetActive(true);
         }
 

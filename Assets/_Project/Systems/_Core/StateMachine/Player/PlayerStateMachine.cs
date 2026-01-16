@@ -5,6 +5,7 @@ using _Project.Systems._Core.GroundCheck;
 using _Project.Systems._Core.Health;
 using _Project.Systems._Core.ScriptableObjects.Characters;
 using _Project.Systems._Core.Weapon_Tool_Handlers;
+using _Project.Systems.CameraShaker;
 using _Project.Systems.ClimbingSystem.LedgeClimbing;
 using _Project.Systems.ClimbingSystem.ScriptableObjects;
 using _Project.Systems.CombatSystem.Player.States;
@@ -33,7 +34,6 @@ namespace _Project.Systems._Core.StateMachine.Player
         [field: SerializeField] public ClimbController ClimbController { get; private set; }
         [field: SerializeField] public GatheringController GatheringController { get; private set; }
         [field: SerializeField] public GroundChecker GroundChecker { get; private set; }
-
         [field: SerializeField] public PlayerConfigSo PlayerConfigSo { get; private set; }
 
         // [Header("Weapon Transforms")] [Tooltip("Sword Holder Transform")] [field: SerializeField]
