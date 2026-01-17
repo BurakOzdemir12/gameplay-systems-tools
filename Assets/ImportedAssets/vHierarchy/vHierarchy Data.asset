@@ -24,6 +24,11 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-8620151814516302203-2353344019068429505
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-3265072938367938632-5945324169093147246
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-446903094-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-409343395-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1507862614-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1514801321-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-4795111400295502-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1694313426-0
         values:
         - colorIndex: 0
           iconNameOrGuid: Settings Icon
@@ -47,6 +52,26 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: NavMeshData Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 1
+          iconNameOrGuid: 
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

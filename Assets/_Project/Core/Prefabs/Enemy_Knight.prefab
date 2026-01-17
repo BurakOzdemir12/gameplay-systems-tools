@@ -1632,7 +1632,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9221840519962958610}
   m_Father: {fileID: 3412043237921609975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &585766338534927074
@@ -5897,7 +5898,7 @@ GameObject:
   - component: {fileID: 9221840519962958610}
   - component: {fileID: 3280113694007865376}
   - component: {fileID: 689632693717557740}
-  - component: {fileID: 8211597331224621290}
+  - component: {fileID: 375502346440158002}
   m_Layer: 15
   m_Name: Hitbox
   m_TagString: Untagged
@@ -5913,12 +5914,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043444418423765708}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 1.0164392e-20, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3412043237921609975}
+  m_Father: {fileID: 6133006221901593118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3280113694007865376
 Rigidbody:
@@ -5970,7 +5971,7 @@ CapsuleCollider:
   m_Height: 1.06
   m_Direction: 1
   m_Center: {x: 0, y: 0.57, z: 0}
---- !u!114 &8211597331224621290
+--- !u!114 &375502346440158002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20457,7 +20458,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6133006221901593118}
-  - {fileID: 9221840519962958610}
   m_Father: {fileID: 2241805956777645789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6139286742635439264
@@ -30724,7 +30724,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1399500102797626306}
   <Agent>k__BackingField: {fileID: 462188476824625444}
   <ForceReceiver>k__BackingField: {fileID: 850302749901976499}
-  <WeaponLogic>k__BackingField: {fileID: 8211597331224621290}
+  <WeaponLogic>k__BackingField: {fileID: 0}
   <Health>k__BackingField: {fileID: 8948619198940738731}
   <Target>k__BackingField: {fileID: 1489080454529048964}
   <Ragdoll>k__BackingField: {fileID: 6220000539674333914}

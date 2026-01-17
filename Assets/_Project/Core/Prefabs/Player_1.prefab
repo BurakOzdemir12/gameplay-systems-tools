@@ -3987,7 +3987,7 @@ GameObject:
   - component: {fileID: 8995353438205386534}
   - component: {fileID: 7415837192303328031}
   - component: {fileID: 7244761300072925340}
-  - component: {fileID: 2973357471575813289}
+  - component: {fileID: 914570499528586303}
   m_Layer: 15
   m_Name: HitBox (Logic)
   m_TagString: Untagged
@@ -4060,7 +4060,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2973357471575813289
+--- !u!114 &914570499528586303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

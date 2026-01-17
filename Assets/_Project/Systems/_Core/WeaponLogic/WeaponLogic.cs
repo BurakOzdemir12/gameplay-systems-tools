@@ -15,6 +15,9 @@ namespace _Project.Systems._Core.WeaponLogic
     public class WeaponLogic : MonoBehaviour, IPickupable
     {
         [Header("Weapon Data")] [SerializeField]
+        private GameObject weaponModel;
+
+        [Header("Weapon Data")] [SerializeField]
         private WeaponDataSo weaponData;
 
         public WeaponDataSo WeaponData => weaponData;
@@ -156,9 +159,9 @@ namespace _Project.Systems._Core.WeaponLogic
         #endregion
 
 
-        public void PickUp()
+        public void PickUp(ScriptableObject context)
         {
-            Destroy(this.gameObject);
+            // Destroy(weaponModel);
         }
 
         private void OnDrawGizmos()
