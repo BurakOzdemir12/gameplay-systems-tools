@@ -2012,6 +2012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6a4e50e7c22844a1524ef47a3a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.Core.WeaponLogic.WeaponLogic
+  weaponModel: {fileID: 0}
   weaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
   characterOwnCollider: {fileID: 9114488106413501971}
   useNormalRaycast: 1
@@ -2110,6 +2111,7 @@ GameObject:
   - component: {fileID: 8042790108091311836}
   - component: {fileID: 846696441787821084}
   - component: {fileID: 9209191874352922218}
+  - component: {fileID: 1161334348759645509}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -2210,6 +2212,8 @@ MonoBehaviour:
   <GatheringController>k__BackingField: {fileID: 8042790108091311836}
   <GroundChecker>k__BackingField: {fileID: 2893544232811707756}
   <PlayerConfigSo>k__BackingField: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
+  <Inventory>k__BackingField: {fileID: 0}
+  <PickupController>k__BackingField: {fileID: 1161334348759645509}
   isWeaponEquipped: 0
   upperBodyLayerWeight: 1
   armedLayerWeight: 1
@@ -2464,6 +2468,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Weapon_Tool_Handlers.TrailSystem
   weaponHandler: {fileID: 1696577841307748841}
   toolHandler: {fileID: 3241780020237557232}
+--- !u!114 &1161334348759645509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a956e012540b482f868bade91986e483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Pickup_Drop.PickupController
+  <Inventory>k__BackingField: {fileID: 0}
+  pickUpRange: 3
+  pickupableLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +4015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8995353438205386534
 Transform:
   m_ObjectHideFlags: 0
@@ -4030,7 +4051,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.14
-  m_Height: 1.02
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.58, z: 0}
 --- !u!54 &7244761300072925340
@@ -4072,6 +4093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6a4e50e7c22844a1524ef47a3a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.Core.WeaponLogic.WeaponLogic
+  weaponModel: {fileID: 210080244209902667}
   weaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
   characterOwnCollider: {fileID: 9114488106413501971}
   useNormalRaycast: 1

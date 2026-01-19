@@ -21,6 +21,8 @@ namespace _Project.Systems.InventorySystem
         private Image iconImage;
         private TextMeshProUGUI amountText;
 
+        [SerializeField] private GameObject selectedHotbarHighlight;
+
         private void Awake()
         {
             iconImage = transform.GetChild(0).GetComponent<Image>();
@@ -36,6 +38,12 @@ namespace _Project.Systems.InventorySystem
 
         public void RefreshSlot()
         {
+            if (iconImage == null)
+            {
+                iconImage = transform.GetChild(0).GetComponent<Image>();
+                amountText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            }
+
             if (storedItem != null)
             {
                 iconImage.enabled = true;
@@ -71,7 +79,7 @@ namespace _Project.Systems.InventorySystem
             return itemAmount;
         }
 
-        private void ClearSlot()
+        public void ClearSlot()
         {
             storedItem = null;
             itemAmount = 0;
@@ -79,6 +87,12 @@ namespace _Project.Systems.InventorySystem
         }
 
         public bool HasItem => storedItem != null;
+
+        public void SetSelected(bool selected)
+        {
+            if (selectedHotbarHighlight != null)
+                selectedHotbarHighlight.SetActive(selected);
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {

@@ -20,9 +20,27 @@ namespace _Project.Core.Scripts
         public event Action RollOrJumpEvent;
         public event Action InteractEvent;
         public event Action DrawSheathEvent;
+        public event Action InventoryEvent;
         public bool IsAttacking { get; private set; }
         public bool IsBlocking { get; private set; }
         public bool IsSprinting { get; private set; }
+
+        #region Hotbars
+
+        public event Action<int> HotbarSelectEvent;
+        public event Action<int> HotbarScrollEvent;
+
+        // public event Action Hotbar1Event;
+        // public event Action Hotbar2Event;
+        // public event Action Hotbar3Event;
+        // public event Action Hotbar4Event;
+        // public event Action Hotbar5Event;
+        // public event Action Hotbar6Event;
+        // public event Action Hotbar7Event;
+        // public event Action Hotbar8Event;
+        // public event Action Hotbar9Event;
+        // public event Action Hotbar00Event;
+        #endregion
 
         // public bool JumpPressed { get; private set; }
 
@@ -165,10 +183,96 @@ namespace _Project.Core.Scripts
             {
                 IsSprinting = true;
             }
+
             if (context.canceled)
             {
                 IsSprinting = false;
             }
+        }
+
+        public void OnInventory(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            InventoryEvent?.Invoke();
+        }
+
+        public void OnHotbar1(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar1Event?.Invoke();
+            HotbarSelectEvent?.Invoke(0);
+        }
+
+        public void OnHotbar2(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar2Event?.Invoke();
+            HotbarSelectEvent?.Invoke(1);
+        }
+
+        public void OnHotbar3(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar3Event?.Invoke();
+            HotbarSelectEvent?.Invoke(2);
+        }
+
+        public void OnHotbar4(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar4Event?.Invoke();
+            HotbarSelectEvent?.Invoke(3);
+        }
+
+        public void OnHotbar5(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar5Event?.Invoke();
+            HotbarSelectEvent?.Invoke(4);
+        }
+
+        public void OnHotbar6(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar6Event?.Invoke();
+            HotbarSelectEvent?.Invoke(5);
+        }
+
+        public void OnHotbar7(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar7Event?.Invoke();
+            HotbarSelectEvent?.Invoke(6);
+        }
+
+        public void OnHotbar8(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar8Event?.Invoke();
+            HotbarSelectEvent?.Invoke(7);
+        }
+
+        public void OnHotbar9(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar9Event?.Invoke();
+            HotbarSelectEvent?.Invoke(8);
+        }
+
+        public void OnHotbar10(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            // Hotbar00Event?.Invoke();
+            HotbarSelectEvent?.Invoke(9);
+        }
+
+        public void OnMouseWheel(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            
+            float value = context.ReadValue<float>();
+            if (Mathf.Abs(value) < 0.01f) return;
+            HotbarScrollEvent?.Invoke(value > 0 ? -1 : +1);
         }
     }
 }
