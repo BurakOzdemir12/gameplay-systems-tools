@@ -2431,6 +2431,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
   m_PrefabInstance: {fileID: 1724015851}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &293812564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1888735232530561482, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &293812569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293812564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1001 &299176194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4615,6 +4632,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.ClimbingSystem.ObstacleScripts.ParkourObstacle
   actionType: 0
+--- !u!1 &402049344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7574876958921931880, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &402049349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402049344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &409343395
 GameObject:
   m_ObjectHideFlags: 0
@@ -7209,6 +7243,23 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &737868216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7613603533881505631, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &737868221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737868216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!114 &739993052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7466,6 +7517,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
   m_PrefabInstance: {fileID: 2043022099}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &784084289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9204366508996343204, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &784084294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784084289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!43 &784340940
 Mesh:
   m_ObjectHideFlags: 0
@@ -8318,6 +8386,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDefinition
   surfaceType: 5
+--- !u!1 &899008011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 377782395071247785, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &899008016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899008011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &899314447
 GameObject:
   m_ObjectHideFlags: 0
@@ -8420,8 +8505,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -595.19995, y: -169.90002}
-  m_SizeDelta: {x: 570, y: 125}
+  m_AnchoredPosition: {x: -606.65, y: -164.5}
+  m_SizeDelta: {x: 543.7, y: 112.1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &903350278
 CanvasRenderer:
@@ -9183,6 +9268,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
+--- !u!1 &999398198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6779225032913379998, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &999398203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999398198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!224 &1003023223 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
@@ -10441,6 +10543,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242267989}
   m_CullTransparentMesh: 1
+--- !u!1 &1248171989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5015715021702418458, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1248171994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248171989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &1261559074
 GameObject:
   m_ObjectHideFlags: 0
@@ -10937,6 +11056,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 612864509}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1267987665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3324903455694181200, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1267987670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267987665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1001 &1278230030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11044,6 +11180,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
   m_PrefabInstance: {fileID: 1108823918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1293426896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5887479520720858507, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1293426901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293426896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!43 &1293800603
 Mesh:
   m_ObjectHideFlags: 0
@@ -11222,6 +11375,23 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1309769430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4146339475921602605, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1309769435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309769430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1001 &1321340271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11319,6 +11489,40 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
+--- !u!1 &1329097595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4657964779956508848, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1329097600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329097595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
+--- !u!1 &1331599717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9055819321284939040, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331599722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331599717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &1388528368
 GameObject:
   m_ObjectHideFlags: 0
@@ -11396,6 +11600,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388528368}
   m_CullTransparentMesh: 1
+--- !u!1 &1394684044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3399369626553992131, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1394684049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394684044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &1422608974
 GameObject:
   m_ObjectHideFlags: 0
@@ -12087,6 +12308,23 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1470757591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8856530649655520255, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1470757596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470757591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!114 &1478866056 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 375502346440158002, guid: bb76e20fe84a62d458e817d029307798, type: 3}
@@ -13318,6 +13556,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1801928137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1541977429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7245862052587060622, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1541977434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541977429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1001 &1549267647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13629,6 +13884,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
   m_PrefabInstance: {fileID: 22169704}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1625514115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3124080437628707236, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1625514120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625514115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!224 &1633086876 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
@@ -13736,6 +14008,23 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
   m_PrefabInstance: {fileID: 1437136871}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1654385572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8069652006242169480, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1654385577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654385572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!224 &1659810539 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
@@ -14839,6 +15128,23 @@ Transform:
   - {fileID: 627500165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1789404417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2951998650391908604, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789404422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789404417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1001 &1795052828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15511,6 +15817,23 @@ Transform:
   - {fileID: 1023350771}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1876577865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8066254759106072053, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+  m_PrefabInstance: {fileID: 2353344019068429505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1876577870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876577865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!224 &1877555344 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
@@ -17329,6 +17652,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.ClimbingSystem.ObstacleScripts.ParkourObstacle
   actionType: 0
+--- !u!1 &2016984181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 22097336762724300, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2016984186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016984181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1001 &2041487236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18792,12 +19132,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8620151814516302203, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7574876958921931880, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 402049349}
+    - targetCorrespondingSourceObject: {fileID: 8066254759106072053, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1876577870}
+    - targetCorrespondingSourceObject: {fileID: 6779225032913379998, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 999398203}
+    - targetCorrespondingSourceObject: {fileID: 3399369626553992131, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1394684049}
+    - targetCorrespondingSourceObject: {fileID: 9055819321284939040, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1331599722}
+    - targetCorrespondingSourceObject: {fileID: 4657964779956508848, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1329097600}
+    - targetCorrespondingSourceObject: {fileID: 7245862052587060622, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1541977434}
+    - targetCorrespondingSourceObject: {fileID: 2951998650391908604, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1789404422}
+    - targetCorrespondingSourceObject: {fileID: 377782395071247785, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 899008016}
+    - targetCorrespondingSourceObject: {fileID: 4146339475921602605, guid: bb76e20fe84a62d458e817d029307798, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1309769435}
   m_SourcePrefab: {fileID: 100100000, guid: bb76e20fe84a62d458e817d029307798, type: 3}
 --- !u!4 &3125067133725106188
 Transform:
@@ -18935,6 +19305,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 542930307309833523, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: m_Radius
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 542930307309833523, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: m_Center.y
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 846696441787821084, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: mainCamera
       value: 
@@ -18999,6 +19377,10 @@ PrefabInstance:
       propertyPath: cmTargetGroup
       value: 
       objectReference: {fileID: 4436071052899432263}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: offset.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: m_Name
       value: Player_1
@@ -19006,7 +19388,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9204366508996343204, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 784084294}
+    - targetCorrespondingSourceObject: {fileID: 3324903455694181200, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1267987670}
+    - targetCorrespondingSourceObject: {fileID: 1888735232530561482, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 293812569}
+    - targetCorrespondingSourceObject: {fileID: 7613603533881505631, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 737868221}
+    - targetCorrespondingSourceObject: {fileID: 3124080437628707236, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1625514120}
+    - targetCorrespondingSourceObject: {fileID: 5887479520720858507, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1293426901}
+    - targetCorrespondingSourceObject: {fileID: 8856530649655520255, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1470757596}
+    - targetCorrespondingSourceObject: {fileID: 22097336762724300, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2016984186}
+    - targetCorrespondingSourceObject: {fileID: 8069652006242169480, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1654385577}
+    - targetCorrespondingSourceObject: {fileID: 5015715021702418458, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1248171994}
   m_SourcePrefab: {fileID: 100100000, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
 --- !u!1001 &6736387789085805542
 PrefabInstance:
