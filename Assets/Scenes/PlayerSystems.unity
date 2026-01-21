@@ -396,6 +396,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
+--- !u!4 &20548315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4932053319364266276, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &22169704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18980,6 +18985,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2829902465860245625, guid: b42abb2452bd7a44385a61f08e4b14c1, type: 3}
   m_PrefabInstance: {fileID: 6736387789085805542}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2146399016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7622455845694629989, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+  m_PrefabInstance: {fileID: 5945324169093147246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4795111400295502
 GameObject:
   m_ObjectHideFlags: 0
@@ -19132,7 +19142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8620151814516302203, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19378,12 +19388,68 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4436071052899432263}
     - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: leftFoot
+      value: 
+      objectReference: {fileID: 20548315}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: offset.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rightFoot
+      value: 
+      objectReference: {fileID: 2146399016}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: useCapsule
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: leftOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: leftOffset.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: leftOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rightOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rightOffset.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: rightOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: groundNormal.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: distanceToGround
+      value: 0.10622072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2893544232811707756, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: groundCheckDistance
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3265072938367938632, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: m_Name
       value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114488106413501971, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
+      propertyPath: m_Height
+      value: 1.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
