@@ -1483,6 +1483,7 @@ GameObject:
   - component: {fileID: 3173520035962893529}
   - component: {fileID: 6189164361593928900}
   - component: {fileID: 432115891452789383}
+  - component: {fileID: 4035139644531970068}
   m_Layer: 17
   m_Name: upperleg_r
   m_TagString: Ragdoll
@@ -1602,6 +1603,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &4035139644531970068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377782395071247785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &392948452706774330
 GameObject:
   m_ObjectHideFlags: 0
@@ -5905,7 +5918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9221840519962958610
 Transform:
   m_ObjectHideFlags: 0
@@ -5983,6 +5996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d6a4e50e7c22844a1524ef47a3a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.PlayerControllerSystem.WeaponHandler.WeaponDamage
+  weaponModel: {fileID: 0}
   weaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
   characterOwnCollider: {fileID: 683239997657024839}
   useNormalRaycast: 1
@@ -9264,6 +9278,7 @@ GameObject:
   - component: {fileID: 7693341306155623144}
   - component: {fileID: 4300437239432221892}
   - component: {fileID: 4097795133090158247}
+  - component: {fileID: 7485557303199373979}
   m_Layer: 17
   m_Name: shin_l
   m_TagString: Ragdoll
@@ -9383,6 +9398,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7485557303199373979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951998650391908604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &3072518810930609926
 GameObject:
   m_ObjectHideFlags: 0
@@ -11075,6 +11102,7 @@ GameObject:
   - component: {fileID: 3468074936809150491}
   - component: {fileID: 3017958220951289932}
   - component: {fileID: 2468561901454041771}
+  - component: {fileID: 8551928862455708984}
   m_Layer: 17
   m_Name: forearm_l
   m_TagString: Ragdoll
@@ -11194,6 +11222,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8551928862455708984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399369626553992131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &3416036321495476874
 GameObject:
   m_ObjectHideFlags: 0
@@ -14793,6 +14833,7 @@ GameObject:
   - component: {fileID: 6082919513653800772}
   - component: {fileID: 6078516487343478524}
   - component: {fileID: 3991971664569554675}
+  - component: {fileID: 6677871153417034274}
   m_Layer: 17
   m_Name: shin_r
   m_TagString: Ragdoll
@@ -14912,6 +14953,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6677871153417034274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146339475921602605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &4258405590604573759
 GameObject:
   m_ObjectHideFlags: 0
@@ -16177,6 +16230,7 @@ GameObject:
   - component: {fileID: 6457535735070369624}
   - component: {fileID: 1791966895220535455}
   - component: {fileID: 3026142167422672452}
+  - component: {fileID: 3566114391532201423}
   m_Layer: 17
   m_Name: forearm_r
   m_TagString: Ragdoll
@@ -16296,6 +16350,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3566114391532201423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657964779956508848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &4699442726772844574
 GameObject:
   m_ObjectHideFlags: 0
@@ -22952,6 +23018,7 @@ GameObject:
   - component: {fileID: 8257634682521086153}
   - component: {fileID: 2299197342122734387}
   - component: {fileID: 3966279878068401024}
+  - component: {fileID: 6443183931430439505}
   m_Layer: 17
   m_Name: upperarm_l
   m_TagString: Ragdoll
@@ -23071,6 +23138,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6443183931430439505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779225032913379998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &6793104935903943897
 GameObject:
   m_ObjectHideFlags: 0
@@ -25690,6 +25769,7 @@ GameObject:
   - component: {fileID: 5474239081494528856}
   - component: {fileID: 938474654365049699}
   - component: {fileID: 6659097000756364710}
+  - component: {fileID: 8694652902944553840}
   m_Layer: 17
   m_Name: upperleg_l
   m_TagString: Ragdoll
@@ -25809,6 +25889,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8694652902944553840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245862052587060622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &7252979852178393694
 GameObject:
   m_ObjectHideFlags: 0
@@ -27117,6 +27209,7 @@ GameObject:
   - component: {fileID: 3229463201154440603}
   - component: {fileID: 2287054003040419726}
   - component: {fileID: 4607713542976064557}
+  - component: {fileID: 2152570277232629431}
   m_Layer: 17
   m_Name: spine_02
   m_TagString: Ragdoll
@@ -27234,6 +27327,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2152570277232629431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574876958921931880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &7589675416435537300
 GameObject:
   m_ObjectHideFlags: 0
@@ -29344,6 +29449,7 @@ GameObject:
   - component: {fileID: 1002282840140409682}
   - component: {fileID: 8885761172986397398}
   - component: {fileID: 676903063876005573}
+  - component: {fileID: 1612842297545311348}
   m_Layer: 17
   m_Name: head
   m_TagString: Ragdoll
@@ -29460,6 +29566,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1612842297545311348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066254759106072053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &8120062786391806802
 GameObject:
   m_ObjectHideFlags: 0
@@ -30610,6 +30728,7 @@ GameObject:
   - component: {fileID: 1010129521132057559}
   - component: {fileID: 5453145863899602284}
   - component: {fileID: 7309553998514586212}
+  - component: {fileID: 8023779394925682862}
   m_Layer: 0
   m_Name: Enemy_Knight
   m_TagString: Untagged
@@ -30724,11 +30843,12 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1399500102797626306}
   <Agent>k__BackingField: {fileID: 462188476824625444}
   <ForceReceiver>k__BackingField: {fileID: 850302749901976499}
-  <WeaponLogic>k__BackingField: {fileID: 0}
+  <WeaponHandler>k__BackingField: {fileID: 8289068019230873502}
   <Health>k__BackingField: {fileID: 8948619198940738731}
   <Target>k__BackingField: {fileID: 1489080454529048964}
   <Ragdoll>k__BackingField: {fileID: 6220000539674333914}
   <EnemyConfigSo>k__BackingField: {fileID: 11400000, guid: 8be944500e5f5404d83dfb2b4abb5035, type: 2}
+  <FieldOfView>k__BackingField: {fileID: 8023779394925682862}
   bufferMax: 4
   buffersForChase: []
   buffersForAttack: []
@@ -30796,7 +30916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatAndTraversalSystem.Player.Combat.WeaponHandler
   currentWeaponRoot: {fileID: 6071552481850001027}
-  currentWeaponData: {fileID: 0}
+  currentWeaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
 --- !u!114 &2730870844075521475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30858,6 +30978,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDefinition
   surfaceType: 6
+--- !u!114 &8023779394925682862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620151814516302203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e19a2ae8a34f5b94335af62b8ae559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Enemy_Sensor.EnemySensor
+  distance: 7.71
+  angle: 72.69
+  height: 1.65
+  meshColor: {r: 1, g: 0, b: 0.90707827, a: 0.41960785}
+  scanFrequency: 14.1
+  sensorMask:
+    serializedVersion: 2
+    m_Bits: 65536
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 16384
+  detectedColliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8675428455682325627
 GameObject:
   m_ObjectHideFlags: 0
@@ -32323,6 +32477,7 @@ GameObject:
   - component: {fileID: 5545249485699256628}
   - component: {fileID: 5245185428844702099}
   - component: {fileID: 1347409034506422835}
+  - component: {fileID: 629918589746335962}
   m_Layer: 17
   m_Name: upperarm_r
   m_TagString: Ragdoll
@@ -32442,6 +32597,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &629918589746335962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055819321284939040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256d939579394cfb9d3e578c65c07f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.EnemyHitbox
 --- !u!1 &9086404020320116783
 GameObject:
   m_ObjectHideFlags: 0

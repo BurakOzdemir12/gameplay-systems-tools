@@ -6,7 +6,6 @@ using _Project.Systems._Core.GroundCheck;
 using _Project.Systems._Core.Health;
 using _Project.Systems._Core.HitboxLogic;
 using _Project.Systems._Core.Pickup_Drop;
-using _Project.Systems._Core.ScriptableObjects.Characters;
 using _Project.Systems._Core.Weapon_Tool_Handlers;
 using _Project.Systems.ClimbingSystem.LedgeClimbing;
 using _Project.Systems.ClimbingSystem.ScriptableObjects;

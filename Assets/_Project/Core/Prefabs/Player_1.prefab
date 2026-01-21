@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 136151100788829259}
   - component: {fileID: 4351512616412126175}
   - component: {fileID: 4916314940310210331}
+  - component: {fileID: 6645499641637837839}
   m_Layer: 17
   m_Name: Elbow_L
   m_TagString: Ragdoll
@@ -131,6 +132,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6645499641637837839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22097336762724300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &210080244209902667
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +939,7 @@ GameObject:
   - component: {fileID: 9187119553158755138}
   - component: {fileID: 1188661510152965213}
   - component: {fileID: 8648420141173536941}
+  - component: {fileID: 2405425161482850113}
   m_Layer: 17
   m_Name: Hip_R
   m_TagString: Ragdoll
@@ -1045,6 +1059,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2405425161482850113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888735232530561482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &2155948510529397570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +1793,7 @@ GameObject:
   - component: {fileID: 1332782835038124807}
   - component: {fileID: 7065064617846981017}
   - component: {fileID: 585278131834119707}
+  - component: {fileID: 1089612543443353776}
   m_Layer: 17
   m_Name: Spine1_M
   m_TagString: Ragdoll
@@ -1884,6 +1911,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1089612543443353776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124080437628707236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &3146163701350995059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,7 +2197,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.82
   m_Radius: 0.41
   m_SlopeLimit: 50
   m_StepOffset: 0.49
@@ -2207,12 +2246,13 @@ MonoBehaviour:
   <WeaponHandler>k__BackingField: {fileID: 1696577841307748841}
   <ToolLogic>k__BackingField: {fileID: 3230147036981596509}
   <Health>k__BackingField: {fileID: 4012206463086136716}
+  <PlayerHurtbox>k__BackingField: {fileID: 0}
   <Ragdoll>k__BackingField: {fileID: 659125055065736114}
   <ClimbController>k__BackingField: {fileID: 5642012791297687812}
   <GatheringController>k__BackingField: {fileID: 8042790108091311836}
   <GroundChecker>k__BackingField: {fileID: 2893544232811707756}
   <PlayerConfigSo>k__BackingField: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
-  <Inventory>k__BackingField: {fileID: 0}
+  <InventoryManager>k__BackingField: {fileID: 0}
   <PickupController>k__BackingField: {fileID: 1161334348759645509}
   isWeaponEquipped: 0
   upperBodyLayerWeight: 1
@@ -2350,15 +2390,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatAndTraversalSystem.Player.GroundChecker
   groundCheckDistance: 0.4
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.09
   groundLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  offset: {x: 0, y: 0.38, z: 0}
+  offset: {x: 0, y: 0.3, z: 0}
+  leftOffset: {x: 0, y: 0.09, z: 0}
+  rightOffset: {x: 0, y: 0.09, z: 0}
   isGrounded: 1
-  distanceToGround: 0.1599998
-  groundNormal: {x: 0, y: 1, z: 0.0000003973643}
+  distanceToGround: 0.10622072
+  groundNormal: {x: 0, y: 1, z: 0}
   useCapsule: 0
+  leftFoot: {fileID: 4932053319364266276}
+  rightFoot: {fileID: 7622455845694629989}
   maxSlopeAngle: 45
 --- !u!114 &1832478404789337025
 MonoBehaviour:
@@ -2480,7 +2524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a956e012540b482f868bade91986e483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Pickup_Drop.PickupController
-  <Inventory>k__BackingField: {fileID: 0}
+  <InventoryManager>k__BackingField: {fileID: 0}
   pickUpRange: 3
   pickupableLayer:
     serializedVersion: 2
@@ -2590,6 +2634,7 @@ GameObject:
   - component: {fileID: 8561389116972852179}
   - component: {fileID: 4401593488548289710}
   - component: {fileID: 9034264337700831880}
+  - component: {fileID: 2093472267765494292}
   m_Layer: 17
   m_Name: Knee_L
   m_TagString: Ragdoll
@@ -2709,6 +2754,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2093472267765494292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3324903455694181200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &3364567218007443092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4176,6 +4233,7 @@ GameObject:
   - component: {fileID: 6534469061251410610}
   - component: {fileID: 1465969576347490387}
   - component: {fileID: 3130636612378464399}
+  - component: {fileID: 2175309830855661673}
   m_Layer: 17
   m_Name: Elbow_R
   m_TagString: Ragdoll
@@ -4295,6 +4353,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2175309830855661673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015715021702418458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &5557935686217806745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4731,6 +4801,7 @@ GameObject:
   - component: {fileID: 542930307309833523}
   - component: {fileID: 1907280779362934057}
   - component: {fileID: 4328552489303678890}
+  - component: {fileID: 7043928504579591531}
   m_Layer: 17
   m_Name: Head_M
   m_TagString: Ragdoll
@@ -4776,8 +4847,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.10037601
-  m_Center: {x: -0.10037601, y: 0, z: 0}
+  m_Radius: 0.13
+  m_Center: {x: -0.10037601, y: 0.06, z: 0}
 --- !u!54 &1907280779362934057
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4851,6 +4922,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7043928504579591531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887479520720858507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &5994910171469201449
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,6 +6269,7 @@ GameObject:
   - component: {fileID: 8670263148344796863}
   - component: {fileID: 329097694185339493}
   - component: {fileID: 1828209748065121054}
+  - component: {fileID: 7641244248202437615}
   m_Layer: 17
   m_Name: Knee_R
   m_TagString: Ragdoll
@@ -6305,6 +6389,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7641244248202437615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613603533881505631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &7727904921762514368
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,6 +6671,7 @@ GameObject:
   - component: {fileID: 2173148365111259859}
   - component: {fileID: 7183307898402198079}
   - component: {fileID: 6260019638221591892}
+  - component: {fileID: 6577809864379868033}
   m_Layer: 17
   m_Name: Shoulder_R
   m_TagString: Ragdoll
@@ -6694,6 +6791,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &6577809864379868033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069652006242169480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &8139323392426438779
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,6 +7206,7 @@ GameObject:
   - component: {fileID: 4375409658653477852}
   - component: {fileID: 7635083303874934033}
   - component: {fileID: 370604562222303729}
+  - component: {fileID: 7311904418988557195}
   m_Layer: 17
   m_Name: Shoulder_L
   m_TagString: Ragdoll
@@ -7216,6 +7326,18 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7311904418988557195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856530649655520255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
 --- !u!1 &9011941240714004690
 GameObject:
   m_ObjectHideFlags: 0
@@ -7541,6 +7663,7 @@ GameObject:
   - component: {fileID: 9201308972882362373}
   - component: {fileID: 7000253478609432966}
   - component: {fileID: 6420416249421103361}
+  - component: {fileID: 3320157316026384700}
   m_Layer: 17
   m_Name: Hip_L
   m_TagString: Ragdoll
@@ -7660,3 +7783,15 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3320157316026384700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204366508996343204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
