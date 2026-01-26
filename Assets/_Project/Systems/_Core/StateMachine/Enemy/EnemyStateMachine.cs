@@ -30,12 +30,19 @@ namespace _Project.Systems._Core.StateMachine.Enemy
 
         public int BufferMax => bufferMax;
 
+        [Header("Blocking Settings")] [field: SerializeField]
+        public float blockLayerWeight = 0;
+
         public GameObject Player { get; set; }
-        public Collider[] buffersForChase;
-        public Collider[] buffersForAttack;
+
+        public HashSet<Collider> BuffersForChase;
+        public HashSet<Collider> BuffersForAttack;
+        public List<Collider> debugBuffersForChase;
+        public List<Collider> debugBuffersForAttack;
 
         public Vector3 firstSpawnPoint;
-
+        public int BlockingLayerIndex { get; private set; }
+        
         // public readonly int AttackBlendTreeHash = Animator.StringToHash("CombatBlendTree");
         public readonly int CombatIdleHash = Animator.StringToHash("EnemyCombatIdle");
         public readonly int EnemyAttack1RHash = Animator.StringToHash("EnemyAttack1R");
@@ -56,8 +63,11 @@ namespace _Project.Systems._Core.StateMachine.Enemy
             firstSpawnPoint = transform.position;
             Controller = GetComponent<CharacterController>();
 
-            buffersForChase = new Collider[bufferMax];
-            buffersForAttack = new Collider[bufferMax];
+            BuffersForChase = new HashSet<Collider>(bufferMax);
+            BuffersForAttack = new HashSet<Collider>(bufferMax);
+
+            BlockingLayerIndex = Animator.GetLayerIndex("Block Layer");
+
             SwitchState(new EnemyIdleState(this));
         }
 
