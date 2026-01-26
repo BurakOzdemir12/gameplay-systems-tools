@@ -2151,6 +2151,7 @@ GameObject:
   - component: {fileID: 846696441787821084}
   - component: {fileID: 9209191874352922218}
   - component: {fileID: 1161334348759645509}
+  - component: {fileID: 432588134373363906}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -2246,7 +2247,6 @@ MonoBehaviour:
   <WeaponHandler>k__BackingField: {fileID: 1696577841307748841}
   <ToolLogic>k__BackingField: {fileID: 3230147036981596509}
   <Health>k__BackingField: {fileID: 4012206463086136716}
-  <PlayerHurtbox>k__BackingField: {fileID: 0}
   <Ragdoll>k__BackingField: {fileID: 659125055065736114}
   <ClimbController>k__BackingField: {fileID: 5642012791297687812}
   <GatheringController>k__BackingField: {fileID: 8042790108091311836}
@@ -2254,6 +2254,7 @@ MonoBehaviour:
   <PlayerConfigSo>k__BackingField: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
   <InventoryManager>k__BackingField: {fileID: 0}
   <PickupController>k__BackingField: {fileID: 1161334348759645509}
+  <PlayerAttackSignal>k__BackingField: {fileID: 432588134373363906}
   isWeaponEquipped: 0
   upperBodyLayerWeight: 1
   armedLayerWeight: 1
@@ -2525,10 +2526,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Pickup_Drop.PickupController
   <InventoryManager>k__BackingField: {fileID: 0}
-  pickUpRange: 3
+  pickUpRange: 5
   pickupableLayer:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &432588134373363906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e4b98d8144c10838838f935729093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatSystem.Player.PlayerAttackSignal
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0

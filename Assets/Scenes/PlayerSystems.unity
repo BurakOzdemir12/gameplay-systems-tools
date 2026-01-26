@@ -16842,28 +16842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDefinition
   surfaceType: 0
---- !u!114 &1693630059 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1010129521132057559, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-  m_PrefabInstance: {fileID: 2353344019068429505}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a2f964a2e14dab8ce5fb5940d4c7e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDetection
---- !u!114 &1693630061 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8289068019230873502, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-  m_PrefabInstance: {fileID: 2353344019068429505}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63a0ad8ed7808d4ea98fae65047f544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatAndTraversalSystem.Player.Combat.WeaponHandler
 --- !u!1 &1694313426
 GameObject:
   m_ObjectHideFlags: 0
@@ -21930,41 +21908,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 462188476824625444, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_Radius
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 462188476824625444, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462188476824625444, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_Acceleration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462188476824625444, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 462188476824625444, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_WalkableMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 462188476824625444, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2730870844075521475, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: weaponHandler
-      value: 
-      objectReference: {fileID: 1693630061}
-    - target: {fileID: 2730870844075521475, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: surfaceDetection
-      value: 
-      objectReference: {fileID: 1693630059}
     - target: {fileID: 4102740525890604085, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.788294
+      value: 10.788294
       objectReference: {fileID: 0}
     - target: {fileID: 4102740525890604085, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22002,34 +21948,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: angle
-      value: 60.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: height
-      value: 2.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: distance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: scanFrequency
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: 'detectedColliders.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1514801322}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: 'detectedColliders.Array.data[1]'
-      value: 
-      objectReference: {fileID: 7592064798264560496}
-    - target: {fileID: 8023779394925682862, guid: bb76e20fe84a62d458e817d029307798, type: 3}
-      propertyPath: 'detectedColliders.Array.data[2]'
-      value: 
-      objectReference: {fileID: 7592064798264560496}
     - target: {fileID: 8620151814516302203, guid: bb76e20fe84a62d458e817d029307798, type: 3}
       propertyPath: m_Name
       value: Enemy_Knight
@@ -22179,10 +22097,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 493942653}
-    - target: {fileID: 1161334348759645509, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-      propertyPath: pickUpRange
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1161334348759645509, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
       propertyPath: <InventoryManager>k__BackingField
       value: 
@@ -22891,11 +22805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6762150c7b51be1469b84a2ecc2f8bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Core.Scripts.PlayerInputHandler
---- !u!143 &7592064798264560496 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 9114488106413501971, guid: af0ba1b30c98b0446a1b147c2ab2bdfc, type: 3}
-  m_PrefabInstance: {fileID: 5945324169093147246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
