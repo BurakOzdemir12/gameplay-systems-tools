@@ -24890,6 +24890,7 @@ GameObject:
   - component: {fileID: 2774253158902739832}
   - component: {fileID: 3129725131979978395}
   - component: {fileID: 7573237154315543625}
+  - component: {fileID: 2403457845576274799}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -24977,6 +24978,19 @@ MonoBehaviour:
   enemyRoot: {fileID: 4102740525890604085}
   frontDotThreshold: 0.2
   characterOwnCollider: {fileID: 683239997657024839}
+--- !u!114 &2403457845576274799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7106619770408240119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e8e9c4eaca49b4b05b78775b319208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Components.SurfaceDefinition
+  surfaceType: 3
 --- !u!1 &7132180295679928683
 GameObject:
   m_ObjectHideFlags: 0
@@ -31194,7 +31208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatSystem.Enemy.EnemyDefenceBrain
   stateMachine: {fileID: 2737522746775145766}
-  canBlockAttack: 0
+  canBlockAttack: 1
 --- !u!1 &8675428455682325627
 GameObject:
   m_ObjectHideFlags: 0
