@@ -79,6 +79,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Parry",
+                    "type": "Button",
+                    "id": "0755a5c4-ee74-4529-b6b9-baa0b5399b25",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Roll",
                     "type": "Button",
                     "id": "61f27d98-612d-4a7e-a6b0-7d8ab19bdb24",
@@ -758,6 +767,17 @@
                     "processors": "",
                     "groups": ";Mouse & Keyboard",
                     "action": "MouseWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6128bc7f-af93-4223-a24f-b45e08c4711a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse & Keyboard",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

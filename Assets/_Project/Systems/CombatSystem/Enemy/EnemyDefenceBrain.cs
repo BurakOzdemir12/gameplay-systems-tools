@@ -66,7 +66,7 @@ namespace _Project.Systems.CombatSystem.Enemy
 
             canBlockAttack = Random.value < blockChance;
 
-            // Debug.Log($"Block Chance: {blockChance} and Can block: => {canBlockAttack}");
+            Debug.Log($"Block Chance: {blockChance} and Can block: => {canBlockAttack}");
 
             //Parry Calculation
             float parryScore = brainData.parryAttackScore;
@@ -76,7 +76,7 @@ namespace _Project.Systems.CombatSystem.Enemy
 
             canParryAttack = Random.value < parryChance;
 
-            Debug.Log($"Parry Chance: {parryChance} and Can block: => {canParryAttack}");
+            Debug.Log($"Parry Chance: {parryChance} and Can Parry: => {canParryAttack}");
 
             SetEnemyState();
             //TODO Level Factor for the future

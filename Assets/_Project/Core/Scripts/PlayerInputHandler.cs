@@ -21,6 +21,7 @@ namespace _Project.Core.Scripts
         public event Action InteractEvent;
         public event Action DrawSheathEvent;
         public event Action InventoryEvent;
+        public event Action ParryEvent;
         public bool IsAttacking { get; private set; }
         public bool IsBlocking { get; private set; }
         public bool IsSprinting { get; private set; }
@@ -40,6 +41,7 @@ namespace _Project.Core.Scripts
         // public event Action Hotbar8Event;
         // public event Action Hotbar9Event;
         // public event Action Hotbar00Event;
+
         #endregion
 
         // public bool JumpPressed { get; private set; }
@@ -146,6 +148,16 @@ namespace _Project.Core.Scripts
             if (context.canceled)
             {
                 IsBlocking = false;
+            }
+        }
+
+        public void OnParry(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            if (IsBlocking)
+            {
+                ParryEvent?.Invoke();
             }
         }
 
@@ -269,7 +281,7 @@ namespace _Project.Core.Scripts
         public void OnMouseWheel(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            
+
             float value = context.ReadValue<float>();
             if (Mathf.Abs(value) < 0.01f) return;
             HotbarScrollEvent?.Invoke(value > 0 ? -1 : +1);
