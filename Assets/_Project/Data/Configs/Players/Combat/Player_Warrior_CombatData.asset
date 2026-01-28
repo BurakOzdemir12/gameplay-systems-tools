@@ -20,10 +20,16 @@ MonoBehaviour:
   drawAnimName: Draw A Great Sword 1
   sheatAnimName: Sheath A Great Sword 1
   combatIdleAnimName: WeaponHold2H
+  stunnedAnimName: Stunned
   blockAnimName: 
+  blockImpactAnimName: 
+  blockPairAnimName: 
   isBlockingParamName: isBlocking
   sheatAnimHash: -462947730
   drawAnimHash: -1954270173
   combatIdleAnimHash: 1564588203
   blockAnimHash: 0
+  blockImpactAnimHash: 0
+  blockParryAnimHash: 0
   isBlockingParamHash: -2076059216
+  stunnedAnimParamHash: -449490811

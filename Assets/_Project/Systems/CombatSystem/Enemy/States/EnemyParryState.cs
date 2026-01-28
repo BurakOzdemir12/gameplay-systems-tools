@@ -61,8 +61,6 @@ namespace _Project.Systems.CombatSystem.Enemy.States
         private void HandleParry(BlockContext ctx)
         {
             GameObject attackerGo = ctx.AttackerRoot.gameObject;
-            if (attackerGo.TryGetComponent<IStunnable>(out var stunnable))
-                stunnable.ApplyStun(stateMachine.ShieldHandler.CurrentShieldData.shieldStunPower);
 
             var damageable = attackerGo.GetComponentInChildren<IDamageable>();
             damageable?.ApplyDamage(stateMachine.ShieldHandler.CurrentShieldData.shieldDamage);
@@ -74,20 +72,8 @@ namespace _Project.Systems.CombatSystem.Enemy.States
                 knock.ApplyKnockback(stateMachine.ShieldHandler.CurrentShieldData.shieldKnockbackForce, dir.normalized);
             }
 
-            if (stunnable == null)
-            {
-                Debug.LogWarning("stunnable Empty");
-            }
-
-            if (damageable == null)
-            {
-                Debug.LogWarning("dmg Empty");
-            }
-
-            if (knock == null)
-            {
-                Debug.LogWarning("knock Empty");
-            }
+            var stunnable = attackerGo.GetComponentInChildren<IStunnable>(true);
+            stunnable?.ApplyStun(stateMachine.ShieldHandler.CurrentShieldData.shieldStunPower);
         }
     }
 }

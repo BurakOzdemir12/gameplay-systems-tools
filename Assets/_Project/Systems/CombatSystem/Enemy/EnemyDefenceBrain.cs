@@ -50,7 +50,6 @@ namespace _Project.Systems.CombatSystem.Enemy
             }
 
             if (!attackerInBuffer) return;
-            Debug.Log("Attacker in buffer");
             DecideDefenceAction(attackData);
         }
 

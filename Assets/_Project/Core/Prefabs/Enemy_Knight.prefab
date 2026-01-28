@@ -5924,6 +5924,7 @@ MonoBehaviour:
   weaponModel: {fileID: 0}
   weaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
   characterOwnCollider: {fileID: 683239997657024839}
+  characterOwnTransform: {fileID: 0}
   useNormalRaycast: 1
   normalRayDistance: 0.25
   normalRayMask:
@@ -31005,7 +31006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatSystem.Enemy.EnemyDefenceBrain
   stateMachine: {fileID: 2737522746775145766}
-  canBlockAttack: 1
+  canBlockAttack: 0
+  canParryAttack: 0
 --- !u!1 &8675428455682325627
 GameObject:
   m_ObjectHideFlags: 0
