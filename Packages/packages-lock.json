@@ -9,6 +9,12 @@
       },
       "hash": "b866a4cc421fa6df82d65f539be7edf79021fbd7"
     },
+    "com.tripolygon.umodeler-x": {
+      "version": "file:com.tripolygon.umodeler-x-1.1.33+pro.f1/com.tripolygon.umodeler-x-1.1.33+pro.f1.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
+    },
     "com.unity.2d.common": {
       "version": "12.0.1",
       "depth": 1,
