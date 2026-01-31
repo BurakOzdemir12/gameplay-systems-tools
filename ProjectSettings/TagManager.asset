@@ -38,7 +38,7 @@ TagManager:
   - Snow
   - Water
   - 
-  - 
+  - SnowDeformation
   m_SortingLayers:
   - name: Default
     uniqueID: 0
