@@ -6,6 +6,8 @@ using _Project.Systems._Core.Feedback;
 using _Project.Systems.EnvironmentSystem.ScriptableObjects;
 using _Project.Systems.EnvironmentSystem.Time.Enums;
 using _Project.Systems.EnvironmentSystem.Time.Events;
+using _Project.Systems.EnvironmentSystem.Weather.Enums;
+using _Project.Systems.EnvironmentSystem.Weather.Events;
 using UnityEngine;
 
 namespace _Project.Systems._Core.Effects.Audio
@@ -27,6 +29,7 @@ namespace _Project.Systems._Core.Effects.Audio
         #region Time Events
 
         private EventBinding<TimeChangedEvent> timeChangedBinding;
+        private EventBinding<WeatherChangedEvent> weatherChangedBinding;
 
         #endregion
 
@@ -69,6 +72,9 @@ namespace _Project.Systems._Core.Effects.Audio
             timeChangedBinding = new EventBinding<TimeChangedEvent>(HandleTimeChangedEvent);
             EventBus<TimeChangedEvent>.Subscribe(timeChangedBinding);
 
+            weatherChangedBinding = new EventBinding<WeatherChangedEvent>(HandleWeatherChangedEvent);
+            EventBus<WeatherChangedEvent>.Subscribe(weatherChangedBinding);
+
             #endregion
         }
 
@@ -81,6 +87,7 @@ namespace _Project.Systems._Core.Effects.Audio
             EventBus<WeaponImpactActionEvent>.Unsubscribe(weaponImpactBinding);
             EventBus<ToolImpactActionEvent>.Unsubscribe(toolImpactBinding);
             EventBus<TimeChangedEvent>.Unsubscribe(timeChangedBinding);
+            EventBus<WeatherChangedEvent>.Unsubscribe(weatherChangedBinding);
         }
 
         private void Start()
@@ -205,6 +212,25 @@ namespace _Project.Systems._Core.Effects.Audio
                 default:
                     ambientAudioSource.loop = false;
                     ambientAudioSource.Stop();
+                    break;
+            }
+
+            PlayAmbientSound(clipToPlay);
+        }
+
+        private void HandleWeatherChangedEvent(WeatherChangedEvent evt)
+        {
+            AudioClip clipToPlay = null;
+            switch (evt.CurrentWeatherType)
+            {
+                case WeatherType.Rainy:
+                    clipToPlay = visualData.rainSound;
+                    break;
+                case WeatherType.Snowy:
+                    clipToPlay = visualData.snowSound;
+                    break;
+                default:
+                    clipToPlay = visualData.daySound;
                     break;
             }
 
