@@ -18,13 +18,9 @@ namespace _Project.Systems.EnvironmentSystem.ScriptableObjects
         public AudioClip[] lightAmbientTracks;
         public AudioClip[] actionAmbientTracks;
 
-        public void PlayRandomAmbientTrack(DivisionsOfDay divisionOfDay)
+        //TODO Continue to Random ambient sounds by time of day and type of live combat, normal etc.
+        public void GetRandomAmbientSound(DivisionsOfDay divisionOfDay)
         {
-            switch (divisionOfDay)
-            {
-                case DivisionsOfDay.Morning:
-                    break;
-            }
         }
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   nightSound: {fileID: 8300000, guid: 21538f6160ff48040a8488deb4ed6d5e, type: 3}
   rainSound: {fileID: 8300000, guid: d6cb6466a567b4e47a2f8ae99e882edc, type: 3}
   hardRainSound: {fileID: 8300000, guid: 3a9e52985b9e3c54c9979718b76095ac, type: 3}
-  snowSound: {fileID: 0}
+  snowSound: {fileID: 8300000, guid: 079df0609381f5b4c85e2041ab773adf, type: 3}
   indoorSound: {fileID: 0}
   forestSound: {fileID: 0}
   caveSound: {fileID: 8300000, guid: c080a43439910fd4187301b9c4a240d1, type: 3}
