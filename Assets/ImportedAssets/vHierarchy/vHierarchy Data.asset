@@ -31,15 +31,15 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1694313426-0
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-347986424-0
         values:
-        - colorIndex: 0
+        - colorIndex: 7
           iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
-        - colorIndex: 0
+        - colorIndex: 7
           iconNameOrGuid: Camera Icon
           isIconRecursive: 0
           isColorRecursive: 0
-        - colorIndex: 0
+        - colorIndex: 7
           iconNameOrGuid: PreMatCube
           isIconRecursive: 0
           isColorRecursive: 0
