@@ -1450,7 +1450,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "036de25e129f420c8e67405ae06bfdcb",
     "m_Id": 0,
-    "m_DisplayName": "Amount",
+    "m_DisplayName": "SnowAmount",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -5032,7 +5032,7 @@
     "m_Title": "Sparkle",
     "m_Position": {
         "x": -2023.0,
-        "y": 639.9998779296875
+        "y": 640.0
     }
 }
 
@@ -5831,7 +5831,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "7f43e78d995f4af0ae7f905632e55f5d",
     "m_Id": 0,
-    "m_DisplayName": "Amount",
+    "m_DisplayName": "SnowAmount",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -8518,8 +8518,8 @@
     "m_ObjectId": "cd539b6c308445998be8d9a2a66ae03b",
     "m_Title": "Snow Accumulation",
     "m_Position": {
-        "x": -2108.999755859375,
-        "y": -1545.9998779296875
+        "x": -2109.0,
+        "y": -1546.0
     }
 }
 
@@ -8936,22 +8936,22 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "Amount",
+    "m_Name": "SnowAmount",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Amount",
-    "m_DefaultReferenceName": "_Amount",
+    "m_RefNameGeneratedByDisplayName": "SnowAmount",
+    "m_DefaultReferenceName": "_SnowAmount",
     "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
+    "m_GeneratePropertyBlock": false,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_DismissedVersion": 0,
     "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
+    "overrideHLSLDeclaration": true,
+    "hlslDeclarationOverride": 2,
     "m_Hidden": false,
     "m_PerRendererData": false,
     "m_customAttributes": [],
-    "m_Value": 0.800000011920929,
+    "m_Value": 0.0,
     "m_FloatType": 1,
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
