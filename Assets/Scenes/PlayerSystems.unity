@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82329294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -34798,12 +34798,159 @@ MonoBehaviour:
   nightAmbientLight: {r: 0.24390353, g: 0.28681406, b: 0.5943396, a: 0}
   volume: {fileID: 4393107}
   colorAdjustments: {fileID: 0}
-  skyboxMaterial: {fileID: 2100000, guid: e44231ae22e5f1345b737aaa886f4ec8, type: 2}
   particlesContainer: {fileID: 1624439870}
   snowParticles: {fileID: 446379492675456006, guid: 446c95c9c43991245b4a7f9b536ffac6, type: 3}
-  snowAccumulationSpeed: 0.3
-  snowMeltSpeed: 0.3
+  snowAccumulationSpeed: 0.15
+  snowMeltSpeed: 0.15
   rainParticles: {fileID: 0}
+  skyboxMaterial: {fileID: 2100000, guid: 088a0fd8ea718a34c98f29e16a49ad9d, type: 2}
+  sunSize: 0.15
+  sunHaze: 0.1
+  dayTimeAtmosphereThickness: 0.5
+  nightTimeAtmosphereThickness: 1
+  skyColorGradient:
+    serializedVersion: 2
+    key0: {r: 0.043137256, g: 0.11764706, b: 0.3019608, a: 1}
+    key1: {r: 1, g: 0.76862746, b: 0.4392157, a: 1}
+    key2: {r: 0.39215687, g: 0.7058824, b: 1, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 19661
+    ctime1: 32768
+    ctime2: 45875
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 33092
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 3
+  horizonColorGradient:
+    serializedVersion: 2
+    key0: {r: 0.011764706, g: 0.050980393, b: 0.14117648, a: 1}
+    key1: {r: 1, g: 0.4862745, b: 0.4117647, a: 1}
+    key2: {r: 0.8156863, g: 0.91764706, b: 1, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 19661
+    ctime1: 32768
+    ctime2: 45875
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  groundColorGradient:
+    serializedVersion: 2
+    key0: {r: 0.011764706, g: 0.050980393, b: 0.14117648, a: 1}
+    key1: {r: 0.36862746, g: 0.101960786, b: 0.047058824, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 19661
+    ctime1: 32768
+    ctime2: 45875
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  daySkyExposure: 1
+  nightSkyExposure: 0.5
+  daySkySaturation: 1.25
+  nightSkySaturation: 1
+  dayHorizonHeight: 0
+  nightHorizonHeight: 1
+  dayHorizonSharpness: 0.5
+  nightHorizonSharpness: 0.25
+  moonTexture: {fileID: 2800000, guid: 16ef5f435c3ec004ab32a8a2cefb19ed, type: 3}
+  enableMoon: 0
+  moonSize: 0.15
+  enableStars: 0
+  starSeed: 465
+  starDensity: 150
+  starIntensity: 0.2
+  cloudTintGradient:
+    serializedVersion: 2
+    key0: {r: 0.28235295, g: 0.27450982, b: 0.25882354, a: 1}
+    key1: {r: 0.85882354, g: 0.7764706, b: 0.57254905, a: 0.99607843}
+    key2: {r: 1, g: 1, b: 1, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 16384
+    ctime1: 32768
+    ctime2: 49151
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 32573
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 3
+  cloudSeed: 83
+  cloudRotationY: 303
+  cloudCoverage: 1
+  cloudSoftness: 0.5
+  cloudScale: 1.5
+  cloudBaseHeight: 0.15
+  cloudWindDirection: {x: 1, y: 0, z: 0}
+  cloudSpeed: 0.09
 --- !u!1001 &1939200420
 PrefabInstance:
   m_ObjectHideFlags: 0
