@@ -30,7 +30,6 @@ namespace _Project.Systems.EnvironmentSystem
         [SerializeField] private Color nightAmbientLight;
         [SerializeField] private Volume volume;
         [SerializeField] private ColorAdjustments colorAdjustments;
-        [Space(2)] [SerializeField] private Material skyboxMaterial;
 
         [Space(10)] [SerializeField] private GameObject particlesContainer;
 
@@ -49,7 +48,61 @@ namespace _Project.Systems.EnvironmentSystem
         private EventBinding<WeatherChangedEvent> weatherChangedBinding;
         [Header("Current Weather")] private WeatherType currentWeatherType;
 
-        [SerializeField] private Material testMat;
+        [Space(2)] [Header("Skybox Settings")] [Tooltip("Material used for Skybox Blending")] [SerializeField]
+        private Material skyboxMaterial;
+
+        #region Shader Properties
+
+        // Sun Settings
+        private static readonly int SUN_SIZE_ID = Shader.PropertyToID("_SunSize");
+
+        private static readonly int SUN_HAZE_ID = Shader.PropertyToID("_SunHaze");
+
+        // Atmosphere & Colors
+        private static readonly int ATMOSPHERE_THICKNESS_ID = Shader.PropertyToID("_AtmosphereThickness");
+        private static readonly int ZENITH_COLOR_ID = Shader.PropertyToID("_ZenithColor");
+        private static readonly int HORIZON_COLOR_ID = Shader.PropertyToID("_HorizonColor");
+        private static readonly int GROUND_COLOR_ID = Shader.PropertyToID("_GroundColor");
+        private static readonly int SKY_EXPOSURE_ID = Shader.PropertyToID("_SkyExposure");
+
+        private static readonly int SKY_SATURATION_ID = Shader.PropertyToID("_SkySaturation");
+
+        // Horizon Settings
+        private static readonly int HORIZON_HEIGHT_ID = Shader.PropertyToID("_HorizonHeight");
+
+        private static readonly int HORIZON_SHARPNESS_ID = Shader.PropertyToID("_HorizonSharpness");
+
+        // Moon Settings
+        private static readonly int ENABLE_MOON_ID = Shader.PropertyToID("_EnableMoon");
+        private static readonly int MOON_TEX_ID = Shader.PropertyToID("_MoonTex");
+
+        private static readonly int MOON_SIZE_ID = Shader.PropertyToID("_MoonSize");
+
+        // Stars Settings
+        private static readonly int ENABLE_STARS_ID = Shader.PropertyToID("_EnableStars");
+        private static readonly int STAR_SEED_ID = Shader.PropertyToID("_StarSeed");
+        private static readonly int STAR_DENSITY_ID = Shader.PropertyToID("_StarDensity");
+
+        private static readonly int STAR_INTENSITY_ID = Shader.PropertyToID("_StarIntensity");
+
+        // Cloud Settings
+        private static readonly int CLOUD_TINT_ID = Shader.PropertyToID("_CloudTint");
+        private static readonly int CLOUD_SEED_ID = Shader.PropertyToID("_CloudSeed");
+        private static readonly int CLOUD_ROTATION_Y_ID = Shader.PropertyToID("_CloudRotationY");
+        private static readonly int CLOUD_COVERAGE_ID = Shader.PropertyToID("_CloudCoverage");
+        private static readonly int CLOUD_SOFTNESS_ID = Shader.PropertyToID("_CloudSoftness");
+        private static readonly int CLOUD_SCALE_ID = Shader.PropertyToID("_CloudScale");
+        private static readonly int CLOUD_BASE_HEIGHT_ID = Shader.PropertyToID("_CloudBaseHeight");
+        private static readonly int CLOUD_WIND_DIRECTION_ID = Shader.PropertyToID("_CloudWindDirection");
+        private static readonly int CLOUD_SPEED_ID = Shader.PropertyToID("_CloudSpeed");
+
+        [Header("Day/Night Sky Colors")]
+        [SerializeField] private Color daySkyColor;
+        [SerializeField] private Color nightSkyColor;
+        [SerializeField] private float dayAtmosphere = 0.5f;
+        [SerializeField] private float nightAtmosphere = 1;
+        
+        #endregion
 
         //Time Service
         private TimeService timeService;
@@ -107,8 +160,10 @@ namespace _Project.Systems.EnvironmentSystem
             UpdateUI();
             HandleParticlePosition();
             HandleWeatherShaderValues();
-            Debug.Log($"Global Snow Amount: {currentSnowAmount}");
+            HandleSkyBoxBlend();
+            // Debug.Log($"Global Snow Amount: {currentSnowAmount}");
         }
+
 
         private void HandleWeatherShaderValues()
         {
@@ -119,8 +174,7 @@ namespace _Project.Systems.EnvironmentSystem
 
             currentSnowAmount = Mathf.MoveTowards(currentSnowAmount, targetSnowAmount,
                 targetSpeed * UnityEngine.Time.deltaTime);
-            // testMat.SetFloat(SNOW_AMOUNT_ID, currentSnowAmount);
-            Shader.SetGlobalFloat("_SnowAmount",currentSnowAmount);
+            Shader.SetGlobalFloat(SNOW_AMOUNT_ID, currentSnowAmount);
         }
 
 
@@ -159,6 +213,13 @@ namespace _Project.Systems.EnvironmentSystem
             Vector3 targetPos = mainCamera.transform.position;
             targetPos.y += 10;
             particlesContainer.transform.position = targetPos;
+        }
+
+        private void HandleSkyBoxBlend()
+        {
+            if (!skyboxMaterial) return;
+            float targetAtmosphereThickness = Mathf.Lerp();
+            skyboxMaterial.SetFloat(SUN_SIZE_ID, targetAtmosphereThickness);
         }
 
         private void UpdateWeather(WeatherType weatherType)

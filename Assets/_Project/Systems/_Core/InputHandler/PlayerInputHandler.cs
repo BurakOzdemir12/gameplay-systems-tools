@@ -1,10 +1,9 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
-namespace _Project.Core.Scripts
+namespace _Project.Systems._Core.InputHandler
 {
     public class PlayerInputHandler : MonoBehaviour, PlayerInputActions.IPlayerActions
     {

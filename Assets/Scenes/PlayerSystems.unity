@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.20425418, g: 0.237226, b: 0.3207547, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: e44231ae22e5f1345b737aaa886f4ec8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 088a0fd8ea718a34c98f29e16a49ad9d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -7946,7 +7946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019737287021190652, guid: 13c1a476a6735164aa7f33b4cf772796, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.082737945
+      value: -0.085
       objectReference: {fileID: 0}
     - target: {fileID: 4019737287021190652, guid: 13c1a476a6735164aa7f33b4cf772796, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34801,10 +34801,9 @@ MonoBehaviour:
   skyboxMaterial: {fileID: 2100000, guid: e44231ae22e5f1345b737aaa886f4ec8, type: 2}
   particlesContainer: {fileID: 1624439870}
   snowParticles: {fileID: 446379492675456006, guid: 446c95c9c43991245b4a7f9b536ffac6, type: 3}
-  snowAccumulationSpeed: 1
-  snowMeltSpeed: 0.5
+  snowAccumulationSpeed: 0.3
+  snowMeltSpeed: 0.3
   rainParticles: {fileID: 0}
-  testMat: {fileID: 2100000, guid: b20396b4a8fc9ea4598cbb3f8d4ff60d, type: 2}
 --- !u!1001 &1939200420
 PrefabInstance:
   m_ObjectHideFlags: 0
