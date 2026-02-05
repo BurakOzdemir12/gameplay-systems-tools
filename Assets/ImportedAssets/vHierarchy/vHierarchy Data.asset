@@ -31,6 +31,14 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1694313426-0
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-347986424-0
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1422608974-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-718646417-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1801928136-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-224237586-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-363092130-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1141451498-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-407116614-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1935702141-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1657766309-0
         values:
         - colorIndex: 7
           iconNameOrGuid: Settings Icon
@@ -82,6 +90,38 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 7
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Settings Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

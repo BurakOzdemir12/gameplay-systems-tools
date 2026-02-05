@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 446379492675456006}
   - component: {fileID: 7630817152808877547}
   m_Layer: 0
-  m_Name: Global Snow
+  m_Name: Global_Snow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

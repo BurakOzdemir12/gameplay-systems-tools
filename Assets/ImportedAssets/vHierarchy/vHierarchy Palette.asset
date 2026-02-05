@@ -84,5 +84,9 @@ MonoBehaviour:
     - NavMeshData Icon
     enabled: 1
   - builtinIcons: []
+    customIcons:
+    - GameManager Icon
+    enabled: 1
+  - builtinIcons: []
     customIcons: []
     enabled: 1
