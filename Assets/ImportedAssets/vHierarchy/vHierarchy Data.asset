@@ -30,6 +30,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-4795111400295502-0
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1694313426-0
         - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-347986424-0
+        - globalObjectIdString: GlobalObjectId_V1-2-1cfac99a69c06f941aa09e0a0e71654c-1422608974-0
         values:
         - colorIndex: 7
           iconNameOrGuid: Settings Icon
@@ -77,6 +78,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 8
           iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 7
+          iconNameOrGuid: Canvas Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

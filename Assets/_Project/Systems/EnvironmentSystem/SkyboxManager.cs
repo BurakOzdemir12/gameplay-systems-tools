@@ -12,12 +12,8 @@ using UnityEngine.Rendering.Universal;
 
 namespace _Project.Systems.EnvironmentSystem
 {
-    public class VisualEnvManager : MonoBehaviour
+    public class SkyboxManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI timeText;
-        [SerializeField] private WeathersConfigSo weatherData;
-        [SerializeField] private Camera mainCamera;
-
         [Header("Lights")] [SerializeField] private Light sun;
         [SerializeField] private Light moon;
 
@@ -32,22 +28,6 @@ namespace _Project.Systems.EnvironmentSystem
         [SerializeField] private Volume volume;
         [SerializeField] private ColorAdjustments colorAdjustments;
 
-        [Space(10)] [SerializeField] private GameObject particlesContainer;
-
-        [Header("Snow Weather Settings")] [SerializeField]
-        private ParticleSystem snowParticles;
-
-        private static readonly int SNOW_AMOUNT_ID = Shader.PropertyToID("_SnowAmount");
-        [SerializeField] private float snowAccumulationSpeed = 0.1f;
-        [SerializeField] private float snowMeltSpeed = 0.1f;
-        private float currentSnowAmount = 0f;
-
-        [Header("Rainy Weather Settings")] [SerializeField]
-        private ParticleSystem rainParticles;
-        //TODO create Wetness property id
-
-        private EventBinding<WeatherChangedEvent> weatherChangedBinding;
-        [Header("Current Weather")] private WeatherType currentWeatherType;
 
         [Space(2)] [Header("Skybox Settings")] [Tooltip("Material used for Skybox Blending")] [SerializeField]
         private Material skyboxMaterial;
@@ -195,54 +175,15 @@ namespace _Project.Systems.EnvironmentSystem
         //Time Service
         private TimeService timeService;
 
-        //Coroutines
-        private Coroutine snowAccumulationCoroutine;
-        private Coroutine rainAccumulationCoroutine;
-
-        private void Awake()
-        {
-            if (weatherData.rainParticlePrefab != null)
-            {
-                rainParticles = Instantiate(weatherData.rainParticlePrefab, particlesContainer.transform);
-                rainParticles.transform.position = particlesContainer.transform.position;
-                rainParticles.Stop();
-            }
-
-            if (weatherData.snowParticlePrefab != null)
-            {
-                snowParticles = Instantiate(weatherData.snowParticlePrefab, particlesContainer.transform);
-                snowParticles.transform.position = particlesContainer.transform.position;
-                snowParticles.Stop();
-            }
-        }
-
-        private void OnEnable()
-        {
-            weatherChangedBinding = new EventBinding<WeatherChangedEvent>(HandleWeatherChangedEvent);
-            EventBus<WeatherChangedEvent>.Subscribe(weatherChangedBinding);
-        }
-
-
-        private void OnDisable()
-        {
-            EventBus<WeatherChangedEvent>.Unsubscribe(weatherChangedBinding);
-        }
-
         private void Start()
         {
-            // _timeService = ServiceLocator.Get<TimeService>();
             if (TimeManager.Instance != null)
             {
                 timeService = TimeManager.Instance.TimeService;
             }
 
-            timeText.text = timeService.CurrentTime.ToString("HH:mm");
-
             volume.profile.TryGet(out colorAdjustments);
 
-            mainCamera = Camera.main;
-            currentWeatherType = WeatherType.Clear;
-            currentSnowAmount = 0;
             if (moonTexture != null)
             {
                 skyboxMaterial.SetTexture(MOON_TEX_ID, moonTexture);
@@ -255,47 +196,7 @@ namespace _Project.Systems.EnvironmentSystem
         {
             RotateSunAndMoon();
             UpdateLightSetting();
-            UpdateUI();
-            HandleParticlePosition();
             HandleSkyBoxBlend();
-            // Debug.Log($"Global Snow Amount: {currentSnowAmount}");
-        }
-
-
-        private void HandleWeatherChangedEvent(WeatherChangedEvent evt)
-        {
-            UpdateWeather(evt.CurrentWeatherType);
-            HandleWeatherShaderValues(evt.CurrentWeatherType);
-        }
-
-        private void HandleWeatherShaderValues(WeatherType targetWeather)
-        {
-            float targetSpeed = (targetWeather == WeatherType.Snowy)
-                ? snowAccumulationSpeed
-                : snowMeltSpeed;
-            float targetSnowAmount = (targetWeather == WeatherType.Snowy) ? 1f : 0f;
-
-            if (snowAccumulationCoroutine != null)
-            {
-                StopCoroutine(snowAccumulationCoroutine);
-            }
-
-            snowAccumulationCoroutine = StartCoroutine(SnowProcessRoutine(targetSnowAmount, targetSpeed));
-        }
-
-        private IEnumerator SnowProcessRoutine(float targetSnowAmount, float targetSpeed)
-        {
-            while (!Mathf.Approximately(currentSnowAmount, targetSnowAmount))
-            {
-                currentSnowAmount = Mathf.MoveTowards(currentSnowAmount, targetSnowAmount,
-                    targetSpeed * UnityEngine.Time.deltaTime);
-                Shader.SetGlobalFloat(SNOW_AMOUNT_ID, currentSnowAmount);
-                yield return null;
-            }
-
-            currentSnowAmount = targetSnowAmount;
-            Shader.SetGlobalFloat(SNOW_AMOUNT_ID, currentSnowAmount);
-            snowAccumulationCoroutine=null;
         }
 
         private void RotateSunAndMoon()
@@ -315,19 +216,6 @@ namespace _Project.Systems.EnvironmentSystem
             if (colorAdjustments == null) return;
             colorAdjustments.colorFilter.value = Color.Lerp(nightAmbientLight, dayAmbientLight,
                 lightIntensityCurve.Evaluate(sunDot));
-        }
-
-        private void UpdateUI()
-        {
-            timeText.text = timeService.CurrentTime.ToString("hh:mm");
-        }
-
-        private void HandleParticlePosition()
-        {
-            if (!mainCamera) return;
-            Vector3 targetPos = mainCamera.transform.position;
-            targetPos.y += 10;
-            particlesContainer.transform.position = targetPos;
         }
 
         private void HandleSkyBoxBlend()
@@ -410,26 +298,6 @@ namespace _Project.Systems.EnvironmentSystem
             skyboxMaterial.SetVector(CLOUD_WIND_DIRECTION_ID, cloudWindDirection);
             // Cloud Speed
             skyboxMaterial.SetFloat(CLOUD_SPEED_ID, cloudSpeed);
-        }
-
-        private void UpdateWeather(WeatherType weatherType)
-        {
-            currentWeatherType = weatherType;
-            switch (weatherType)
-            {
-                case WeatherType.Rainy:
-                    if (rainParticles != null) rainParticles.Play();
-                    if (snowParticles.isPlaying) snowParticles.Stop();
-                    break;
-                case WeatherType.Snowy:
-                    if (snowParticles != null) snowParticles.Play();
-                    if (rainParticles.isPlaying) rainParticles.Stop();
-                    break;
-                case WeatherType.Clear:
-                    if (rainParticles != null && rainParticles.isPlaying) rainParticles.Stop();
-                    if (snowParticles != null && snowParticles.isPlaying) snowParticles.Stop();
-                    break;
-            }
         }
     }
 }
