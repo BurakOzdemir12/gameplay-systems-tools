@@ -2153,6 +2153,7 @@ GameObject:
   - component: {fileID: 9209191874352922218}
   - component: {fileID: 1161334348759645509}
   - component: {fileID: 432588134373363906}
+  - component: {fileID: 8430059993941884776}
   m_Layer: 16
   m_Name: Player_1
   m_TagString: Player
@@ -2179,6 +2180,7 @@ Transform:
   - {fileID: 8895673549144615789}
   - {fileID: 7189200354987705044}
   - {fileID: 2867926391521273885}
+  - {fileID: 3190810699781633089}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &9114488106413501971
@@ -2257,6 +2259,7 @@ MonoBehaviour:
   <InventoryManager>k__BackingField: {fileID: 0}
   <PickupController>k__BackingField: {fileID: 1161334348759645509}
   <PlayerAttackSignal>k__BackingField: {fileID: 432588134373363906}
+  <NoiseEmitter>k__BackingField: {fileID: 8430059993941884776}
   isWeaponEquipped: 0
   upperBodyLayerWeight: 1
   armedLayerWeight: 1
@@ -2552,6 +2555,7 @@ MonoBehaviour:
   pickupableLayer:
     serializedVersion: 2
     m_Bits: 4096
+  dropOffset: {x: 0, y: 1.33, z: 2.37}
 --- !u!114 &432588134373363906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2564,6 +2568,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908e4b98d8144c10838838f935729093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems.CombatSystem.Player.PlayerAttackSignal
+--- !u!114 &8430059993941884776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9ce341089d42eab70a95d6175ea1f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Project.Gameplay::_Project.Systems.PerceptionSystem.NoiseEmitter
+  listenerLayers:
+    serializedVersion: 2
+    m_Bits: 8192
+  emissionPoint: {x: 0, y: 0, z: 0}
+  emissionRadius: 16
+  bufferMax: 4
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0
@@ -7863,6 +7885,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2486af174204a7da9de47603833e3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.HitboxLogic.PlayerHitbox
+--- !u!1001 &835035426122524617
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1382339109780263433}
+    m_Modifications:
+    - target: {fileID: 518108843707221025, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_Name
+      value: Snow Deformation Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 518108843707221025, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585355315234023108, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: orthographic size
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585355315234023108, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2147483648
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+--- !u!4 &3190810699781633089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2872923994201887624, guid: 74d33ea500922d84a9eaa298c4317c0a, type: 3}
+  m_PrefabInstance: {fileID: 835035426122524617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4237503773766971074
 PrefabInstance:
   m_ObjectHideFlags: 0

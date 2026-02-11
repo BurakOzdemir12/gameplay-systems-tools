@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using _Project.Systems.EnemyPerceptionSystem.Field_of_View;
+using _Project.Systems.PerceptionSystem.Field_of_View;
+using _Project.Systems.PerceptionSystem.Noise_Sensor;
+using _Project.Systems.PerceptionSystem.Structs;
 using _Project.Systems.SharedGameplay.BaseScriptableObjects.Characters;
 using UnityEngine;
 
-namespace _Project.Systems.EnemyPerceptionSystem
+namespace _Project.Systems.PerceptionSystem
 {
     public class EnemyPerceptionController : MonoBehaviour
     {
@@ -16,13 +18,11 @@ namespace _Project.Systems.EnemyPerceptionSystem
         [Tooltip("Chase and Attack detect buffer length")] [SerializeField]
         private int bufferMax = 4;
 
-        //Collider Buffers
-        private HashSet<Collider> bufferSetForChase;
-        private HashSet<Collider> bufferSetForAttack;
-        private HashSet<Collider> bufferSetForLockTarget;
+        [Header("Enemy Properties")] [Tooltip("Is enemy deaf")] [SerializeField]
+        private bool isDeaf = false;
 
-        //Dynamic collider array
-        private readonly Collider[] attackBuffer = new Collider[10];
+        [Tooltip("Is enemy blind")] [SerializeField]
+        private bool isBlind = false;
 
         [Header("Collider Buffers For detection")]
 #if UNITY_EDITOR
@@ -35,6 +35,17 @@ namespace _Project.Systems.EnemyPerceptionSystem
         public bool IsTargetInAttackRange { get; private set; }
         public bool IsTargetInChaseRange { get; private set; }
 
+        //Collider Buffers
+        private HashSet<Collider> bufferSetForChase;
+        private HashSet<Collider> bufferSetForAttack;
+        private HashSet<Collider> bufferSetForLockTarget;
+
+        //Dynamic collider array
+        private readonly Collider[] attackBuffer = new Collider[10];
+
+        {
+            noiseSensor.OnNoiseHeard += HandleNoiseHeard;
+        }
 
         private void Start()
         {
@@ -46,18 +57,25 @@ namespace _Project.Systems.EnemyPerceptionSystem
         private void Update()
         {
             if (!enemyConfig) return;
-            IsInChaseRange();
-            IsInAttackRange();
+            if (!isBlind)
+            {
+                CheckChaseRange();
+            }
+
+            CheckAttackRange();
         }
 
-        public void Initialize(GameObject owner, EnemyConfigSo configData, FieldOfView fov)
+        public void Initialize(GameObject owner, EnemyConfigSo configData, FieldOfView fov, NoiseSensor noiseSensor)
         {
             this.ownerGameObject = owner;
             this.enemyConfig = configData;
             this.fieldOfView = fov;
+            this.noiseSensor = noiseSensor;
         }
 
-        private void IsInAttackRange()
+        //? Attack Range Check
+        //TODO refactor for range attacks, arrow, magic, etc.
+        private void CheckAttackRange()
         {
             Vector3 attackPos =
                 ownerGameObject.transform.TransformPoint(enemyConfig.CombatData.AttackPositionOffset);
@@ -94,29 +112,11 @@ namespace _Project.Systems.EnemyPerceptionSystem
             IsTargetInAttackRange = closestTarget != null && closestTarget == CurrentTarget;
         }
 
-        private void IsInChaseRange()
+        private void CheckChaseRange()
         {
             bufferSetForChase.Clear();
-            // Locked On Target Check -> if get hit enemy chase that target
-            if (bufferSetForLockTarget.Count > 0)
-            {
-                // İf Target is dead remove it from lock target list
-                bufferSetForLockTarget.RemoveWhere(col => col == null || !col.enabled);
-#if UNITY_EDITOR
-                debugBuffersForLockTarget.Clear();
-                debugBuffersForLockTarget = bufferSetForLockTarget.ToList();
-#endif
-                // İf Target is alive then add it to chase Buffer Hashset
-                if (bufferSetForLockTarget.Count > 0)
-                {
-                    bufferSetForChase.UnionWith(bufferSetForLockTarget);
-
-                    GameObject closestLockedTarget = FindClosestTarget(bufferSetForLockTarget);
-                    CurrentTarget = closestLockedTarget;
-                    IsTargetInChaseRange = closestLockedTarget != null;
-                    return;
-                }
-            }
+            // ! If enemy gets triggered by player then chase that player regardless of Range 
+            if (HandleLockedTargetChase()) return;
 
             //Field Of View Check (FOV) -< If no locked target, checks FOV
             var targets = fieldOfView.Targets;
@@ -150,7 +150,35 @@ namespace _Project.Systems.EnemyPerceptionSystem
 #endif
         }
 
+        //? If enemy gets hit by player, it will chase that target regardless of FOV and Range,
+        //?, and if that target is dead it will be removed from chase buffer
+        private bool HandleLockedTargetChase()
+        {
+            // Locked On Target Check -> if get hit enemy chase that target
+            if (bufferSetForLockTarget.Count > 0)
+            {
+                // İf Target is dead remove it from lock target list
+                bufferSetForLockTarget.RemoveWhere(col => col == null || !col.enabled);
+#if UNITY_EDITOR
+                debugBuffersForLockTarget.Clear();
+                debugBuffersForLockTarget = bufferSetForLockTarget.ToList();
+#endif
+                // İf Target is alive then add it to chase Buffer Hashset
+                if (bufferSetForLockTarget.Count > 0)
+                {
+                    bufferSetForChase.UnionWith(bufferSetForLockTarget);
 
+                    GameObject closestLockedTarget = FindClosestTarget(bufferSetForLockTarget);
+                    CurrentTarget = closestLockedTarget;
+                    IsTargetInChaseRange = closestLockedTarget != null;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        //? Finds the closest target in HashSet
         private GameObject FindClosestTarget(HashSet<Collider> targets)
         {
             if (targets.Count == 0) return null;
@@ -180,6 +208,7 @@ namespace _Project.Systems.EnemyPerceptionSystem
             return closestTarget;
         }
 
+        //? For Enemy Brain decision, it's answer to, "is it the same target that enemy is currently perceiving?"
         public bool IsPerceivingTarget(GameObject target)
         {
             if (target == null) return false;
