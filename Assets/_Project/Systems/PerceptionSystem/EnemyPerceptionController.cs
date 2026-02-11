@@ -13,6 +13,7 @@ namespace _Project.Systems.PerceptionSystem
     {
         [SerializeField] private EnemyConfigSo enemyConfig;
         [SerializeField] private FieldOfView fieldOfView;
+        [SerializeField] private NoiseSensor noiseSensor;
         [SerializeField] private GameObject ownerGameObject;
 
         [Tooltip("Chase and Attack detect buffer length")] [SerializeField]
@@ -43,6 +44,7 @@ namespace _Project.Systems.PerceptionSystem
         //Dynamic collider array
         private readonly Collider[] attackBuffer = new Collider[10];
 
+        private void OnEnable()
         {
             noiseSensor.OnNoiseHeard += HandleNoiseHeard;
         }
@@ -251,11 +253,28 @@ namespace _Project.Systems.PerceptionSystem
             debugBuffersForLockTarget.Clear();
         }
 
+        private void HandleNoiseHeard(NoiseData noiseData)
+        {
+            if (noiseData.Source == null || isDeaf) return;
+
+            Debug.Log($"Noise heard from {noiseData.Source.name}");
+            noiseData.Source.TryGetComponent<Collider>(out var col);
+            bufferSetForLockTarget.Add(col);
+#if UNITY_EDITOR
+            debugBuffersForLockTarget.Add(col);
+#endif
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.darkRed;
             Gizmos.DrawWireSphere(ownerGameObject.transform.TransformPoint(enemyConfig.CombatData.AttackPositionOffset),
                 enemyConfig.CombatData.AttackRange);
+        }
+
+        private void OnDisable()
+        {
+            noiseSensor.OnNoiseHeard -= HandleNoiseHeard;
         }
     }
 }
