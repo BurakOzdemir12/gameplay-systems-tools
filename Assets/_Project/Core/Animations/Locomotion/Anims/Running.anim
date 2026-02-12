@@ -37265,14 +37265,14 @@ AnimationClip:
   m_Events:
   - time: 0.26666668
     functionName: OnTraversalAnimEvent
-    data: Footstep:Run:Left
+    data: Run::Left
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
     functionName: OnTraversalAnimEvent
-    data: Footstep:Run:Right
+    data: Run::Right
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
