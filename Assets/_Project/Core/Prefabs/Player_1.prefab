@@ -2584,8 +2584,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   emissionPoint: {x: 0, y: 0, z: 0}
-  emissionRadius: 16
+  emissionRadius: 10
   bufferMax: 4
+  walkNoiseIntensity: 0.5
+  runNoiseIntensity: 0.6
+  sprintNoiseIntensity: 0.8
+  jumpNoiseIntensity: 1
+  landNoiseIntensity: 0.5
+  swimNoiseIntensity: 0.3
+  calculatedIntensity: 1
 --- !u!1 &3275251072340694737
 GameObject:
   m_ObjectHideFlags: 0

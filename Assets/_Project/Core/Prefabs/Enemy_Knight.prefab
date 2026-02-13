@@ -31034,6 +31034,9 @@ MonoBehaviour:
   debugBuffersForChase: []
   debugBuffersForAttack: []
   debugBuffersForLockTarget: []
+  targetPersistenceMemory: 8
+  noiseHearingDelay: 2
+  debugTimer: 0
 --- !u!114 &2000018165021794317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31046,6 +31049,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5070034b774686af2bd15e1328e794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Project.Gameplay::_Project.Systems.PerceptionSystem.Noise_Sensor.NoiseSensor
+  linecastOffset: {x: 0, y: 1.67, z: 0}
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 16384
+  ignoredOcclusionTags: []
+  defaultOcclusionDamping: 0.5
 --- !u!1 &8675428455682325627
 GameObject:
   m_ObjectHideFlags: 0
