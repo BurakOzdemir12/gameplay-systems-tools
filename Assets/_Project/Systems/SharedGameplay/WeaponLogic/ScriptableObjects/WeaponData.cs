@@ -6,7 +6,7 @@ using UnityEngine;
 namespace _Project.Systems.SharedGameplay.WeaponLogic.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Weapon/Weapon Data")]
-    public class WeaponDataSo : ItemDataSo
+    public class WeaponData : ItemData
     {
         public WeaponImpactFeedbackProfile weaponImpactFeedbackProfile;
         public WeaponType weaponType;
