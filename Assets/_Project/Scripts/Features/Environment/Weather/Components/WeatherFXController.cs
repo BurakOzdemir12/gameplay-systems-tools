@@ -1,14 +1,12 @@
-﻿using System;
+using System;
 using System.Collections;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Weather.Enums;
-using _Project.Systems.EnvironmentSystem.Weather.Events;
-using _Project.Systems.EnvironmentSystem.Weather.ScriptableObjects;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Weather
+namespace GameplaySystemsAndTools.Features.Environment.Weather
 {
-    public class WeatherFXManager : MonoBehaviour
+    public class WeatherFXController : MonoBehaviour
     {
         [SerializeField] private WeathersConfigSo weatherData;
         [SerializeField] private Camera mainCamera;

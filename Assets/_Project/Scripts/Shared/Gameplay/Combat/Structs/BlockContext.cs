@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Shield_Logic.Structs
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public readonly struct BlockContext
     {

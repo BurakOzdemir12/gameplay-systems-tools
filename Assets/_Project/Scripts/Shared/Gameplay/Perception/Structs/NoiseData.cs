@@ -1,7 +1,6 @@
-﻿using _Project.Systems.PerceptionSystem.Enums;
 using UnityEngine;
 
-namespace _Project.Systems.PerceptionSystem.Structs
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
     public struct NoiseData
     {

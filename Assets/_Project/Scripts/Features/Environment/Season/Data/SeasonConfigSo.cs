@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using _Project.Systems.EnvironmentSystem.Weather.Enums;
+using System.Collections.Generic;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Season.ScriptableObjects
+namespace GameplaySystemsAndTools.Features.Environment.Season
 {
     [CreateAssetMenu(fileName = "SeasonDataSo", menuName = "Scriptable Objects/Season/Season Config")]
     public class SeasonConfigSo : ScriptableObject

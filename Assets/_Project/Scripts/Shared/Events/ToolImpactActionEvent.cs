@@ -1,9 +1,8 @@
-﻿using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus.Interfaces;
-using _Project.Systems.SharedGameplay.ToolLogic.ScriptableObjects;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 using UnityEngine;
 
-namespace _Project.Systems._Core.EventBus.Events
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public struct ToolImpactActionEvent : IEvent
     {

@@ -1,13 +1,14 @@
-﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.UI.EnemyHud
+namespace GameplaySystemsAndTools.Features.Enemy
 {
+    /// <summary>
+    /// Pre-warmed pool of enemy HUD widgets shared by every EnemyUIController.
+    /// Registered in the GameplayLifetimeScope and injected — no static Instance.
+    /// </summary>
     public class EnemyHUDPool : MonoBehaviour
     {
-        public static EnemyHUDPool Instance { get; private set; }
-
         [Header("Settings")] [SerializeField] private EnemyHUDView hudPrefab;
         [SerializeField] private Transform hudParent;
         [SerializeField] private int initialPoolSize = 20;
@@ -16,9 +17,6 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyHud
 
         private void Awake()
         {
-            if (Instance == null) Instance = this;
-            else Destroy(this.gameObject);
-
             InitializePool();
         }
 

@@ -1,9 +1,8 @@
-﻿using _Project.Systems.CombatSystem.ScriptableObjects.Combat;
-using _Project.Systems.CombatSystem.ScriptableObjects.Combat.Dodge_Roll;
-using _Project.Systems.MovementSystem.ScriptableObjects;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.BaseScriptableObjects.Characters
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     [CreateAssetMenu(fileName = "EnemyConfig", menuName = "Scriptable Objects/Characters/Enemy Config")]
     public class EnemyConfigSo : ScriptableObject

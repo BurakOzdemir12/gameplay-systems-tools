@@ -1,14 +1,16 @@
-﻿using System;
 using System.Collections;
-using _Project.Systems.HealthSystem.Health;
-using _Project.Systems.HealthSystem.Structs;
-using _Project.Systems.PerceptionSystem;
-using _Project.Systems.PerceptionSystem.Enums;
-using _Project.Systems.SharedGameplay.UI.EnemyHud;
+using GameplaySystemsAndTools.Shared.Gameplay.Health;
+using GameplaySystemsAndTools.Shared.Gameplay.Perception;
 using UnityEngine;
+using VContainer;
 
-namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
+namespace GameplaySystemsAndTools.Features.Enemy
 {
+    /// <summary>
+    /// Per-enemy HUD presenter: rents a HUD widget from the injected EnemyHUDPool,
+    /// tracks the enemy's head position on screen and mirrors health/alert state.
+    /// The pool arrives via VContainer (GameplayLifetimeScope injects every instance).
+    /// </summary>
     public class EnemyUIController : MonoBehaviour
     {
         [Header("References")] [SerializeField]
@@ -34,6 +36,14 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
 
         private bool isDead;
 
+        private EnemyHUDPool hudPool;
+
+        [Inject]
+        public void Construct(EnemyHUDPool pool)
+        {
+            hudPool = pool;
+        }
+
         private void Awake()
         {
             mainCamera = Camera.main;
@@ -41,10 +51,7 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
 
         private void OnEnable()
         {
-            if (EnemyHUDPool.Instance != null)
-            {
-                InitHUD();
-            }
+            InitHUD();
 
             enemyHealth.OnTakeDamage += HandleTakeDamage;
             enemyHealth.OnDeath += HandleDeath;
@@ -55,10 +62,8 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
         {
             showRangeSqr = showRange * showRange;
 
-            if (currentHud == null && EnemyHUDPool.Instance != null)
-            {
-                InitHUD();
-            }
+            // Injection happens after OnEnable for scene objects, so retry here once.
+            InitHUD();
         }
 
         private void LateUpdate()
@@ -79,9 +84,9 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
         private void InitHUD()
         {
             if (currentHud != null) return;
-            if (EnemyHUDPool.Instance == null) return;
+            if (hudPool == null) return;
 
-            currentHud = EnemyHUDPool.Instance.GetHUD();
+            currentHud = hudPool.GetHUD();
             if (currentHud != null)
             {
                 currentHud.ResetHUD();
@@ -91,11 +96,7 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
 
         private void HandleTakeDamage(DamageInfo evt)
         {
-            if (currentHud == null)
-            {
-                Debug.LogError("Current HUD is NULL!");
-                return;
-            }
+            if (currentHud == null) return;
 
             currentHud.SetHealth(enemyHealth.CurrentHealth, enemyHealth.MaxHealth);
         }
@@ -103,7 +104,7 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
         private void HandleDeath()
         {
             isDead = true;
-            if (currentHud && EnemyHUDPool.Instance)
+            if (currentHud && hudPool)
             {
                 currentHud.SetAlertState(false, 0);
                 currentHud.SetSuspiciousState(false, 0);
@@ -135,10 +136,11 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
 
         private IEnumerator DeathRoutine()
         {
+            // Keep the HUD around briefly after death so the player sees the state change.
             yield return deathWait;
-            if (currentHud && EnemyHUDPool.Instance)
+            if (currentHud && hudPool)
             {
-                EnemyHUDPool.Instance.ReturnHUD(currentHud);
+                hudPool.ReturnHUD(currentHud);
                 currentHud = null;
             }
         }
@@ -148,6 +150,7 @@ namespace _Project.Systems.SharedGameplay.UI.EnemyControllers
         {
             enemyHealth.OnTakeDamage -= HandleTakeDamage;
             enemyHealth.OnDeath -= HandleDeath;
+            perception.OnPerceptionChanged -= HandlePerceptionChange;
         }
     }
 }

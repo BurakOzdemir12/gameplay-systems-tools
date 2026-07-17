@@ -1,8 +1,8 @@
-﻿using _Project.Systems.EnvironmentSystem.ScriptableObjects;
-using _Project.Systems.EnvironmentSystem.Time.Enums;
+using GameplaySystemsAndTools.Shared.Audio;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Time.ScriptableObjects
+namespace GameplaySystemsAndTools.Features.Environment.TimeOfDay
 {
     [CreateAssetMenu(fileName = "NewTimeConfig", menuName = "Scriptable Objects/Time/Time Config")]
     public class TimeConfigSo : ScriptableObject

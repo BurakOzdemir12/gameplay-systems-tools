@@ -1,27 +1,34 @@
-﻿using _Project.Systems.PerceptionSystem.Enums;
-using _Project.Systems.PerceptionSystem.Interfaces;
-using _Project.Systems.PerceptionSystem.Structs;
+using GameplaySystemsAndTools.Shared.Events;
 using UnityEngine;
 
-namespace _Project.Systems.PerceptionSystem.Noise_Manager
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
-    public class NoiseManager : MonoBehaviour
+    /// <summary>
+    /// Turns gameplay noises into perception stimuli: listens to NoiseEmittedEvent,
+    /// overlaps the noise radius and notifies every INoiseListener hit.
+    /// Scene service registered in the GameplayLifetimeScope (no more static Instance).
+    /// </summary>
+    public class NoiseService : MonoBehaviour
     {
-        public static NoiseManager Instance { get; private set; }
-
-        // [SerializeField] private LayerMask listenerLayers;
+        // Non-alloc buffer: noise bursts happen often, so avoid per-call allocations.
         private readonly Collider[] hitBuffer = new Collider[10];
 
-        private void Awake()
+        private EventBinding<NoiseEmittedEvent> noiseBinding;
+
+        private void OnEnable()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else if (Instance != this)
-            {
-                Destroy(gameObject);
-            }
+            noiseBinding = new EventBinding<NoiseEmittedEvent>(HandleNoiseEmitted);
+            EventBus<NoiseEmittedEvent>.Subscribe(noiseBinding);
+        }
+
+        private void OnDisable()
+        {
+            EventBus<NoiseEmittedEvent>.Unsubscribe(noiseBinding);
+        }
+
+        private void HandleNoiseEmitted(NoiseEmittedEvent evt)
+        {
+            EmitNoise(evt.Position, evt.Radius, evt.Source, evt.ListenerLayers);
         }
 
         public void EmitNoise(Vector3 position, float radius, GameObject source, LayerMask listenerLayers)

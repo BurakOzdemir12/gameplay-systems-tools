@@ -1,21 +1,23 @@
-﻿using System;
-using _Project.Systems.CombatSystem.Enemy.States;
-using _Project.Systems.CombatSystem.Player;
-using _Project.Systems.CombatSystem.ScriptableObjects.Combat;
-using _Project.Systems.SharedGameplay.StateMachine.Enemy;
-using Unity.VisualScripting;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace _Project.Systems.CombatSystem.Enemy
+namespace GameplaySystemsAndTools.Features.Enemy
 {
+    /// <summary>
+    /// Decides whether this enemy blocks or parries an incoming player attack.
+    /// Listens to PlayerAttackStartedEvent on the EventBus (no direct player reference)
+    /// and scores block/parry chances from the enemy's AI brain data vs. the attack data.
+    /// </summary>
     public class EnemyDefenceBrain : MonoBehaviour
     {
         [SerializeField] private EnemyStateMachine stateMachine;
 
-
         public bool canBlockAttack = false;
         public bool canParryAttack = false;
+
+        private EventBinding<PlayerAttackStartedEvent> attackStartedBinding;
 
         private void Awake()
         {
@@ -27,32 +29,24 @@ namespace _Project.Systems.CombatSystem.Enemy
 
         private void OnEnable()
         {
-            PlayerAttackSignal.AttackStarted += OnPlayerAttackStarted;
+            attackStartedBinding = new EventBinding<PlayerAttackStartedEvent>(OnPlayerAttackStarted);
+            EventBus<PlayerAttackStartedEvent>.Subscribe(attackStartedBinding);
         }
 
-        private void OnPlayerAttackStarted(GameObject attacker, GameObject target, AttackDataSo attackData
-        )
+        private void OnDisable()
         {
-            if (!attacker) return;
-            // Collider attackerCollider = attacker.GetComponent<Collider>();
-            // Transform attackerRoot = attacker.transform.root;
-            // bool attackerInBuffer = false;
-            
-            // foreach (var col in stateMachine.EnemyPerceptionController.BufferSetForChase)
-            // {
-            //     if (!col) continue;
-            //
-            //     if (col.transform.root == attackerRoot)
-            //     {
-            //         attackerInBuffer = true;
-            //         break;
-            //     }
-            // }
-            bool isPerceived = stateMachine.EnemyPerceptionController.IsPerceivingTarget(attacker);
-            
+            EventBus<PlayerAttackStartedEvent>.Unsubscribe(attackStartedBinding);
+        }
+
+        private void OnPlayerAttackStarted(PlayerAttackStartedEvent evt)
+        {
+            if (!evt.Attacker) return;
+
+            // Only react if this enemy is actually aware of the attacker.
+            bool isPerceived = stateMachine.EnemyPerceptionController.IsPerceivingTarget(evt.Attacker);
             if (!isPerceived) return;
-            // if (!attackerInBuffer) return;
-            DecideDefenceAction(attackData);
+
+            DecideDefenceAction(evt.AttackData);
         }
 
         private void DecideDefenceAction(AttackDataSo attackData)
@@ -67,42 +61,20 @@ namespace _Project.Systems.CombatSystem.Enemy
             float attackScore = attackData.attackScore;
             EnemyAIBrainDataSo brainData = stateMachine.EnemyConfigSo.AIBrainData;
 
-            // Block Calculation
+            // Chance formula: defence score vs attack score, clamped to [0,1].
             float blockScore = brainData.blockAttackScore;
-
-            float blockChance = blockScore / (blockScore + attackScore);
-            blockChance = Mathf.Clamp01(blockChance);
-
+            float blockChance = Mathf.Clamp01(blockScore / (blockScore + attackScore));
             canBlockAttack = Random.value < blockChance;
 
-            Debug.Log($"Block Chance: {blockChance} and Can block: => {canBlockAttack}");
-
-            //Parry Calculation
             float parryScore = brainData.parryAttackScore;
-
-            float parryChance = parryScore / (parryScore + attackScore);
-            parryChance = Mathf.Clamp01(parryChance);
-
+            float parryChance = Mathf.Clamp01(parryScore / (parryScore + attackScore));
             canParryAttack = Random.value < parryChance;
 
-            Debug.Log($"Parry Chance: {parryChance} and Can Parry: => {canParryAttack}");
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Debug.Log($"Block chance: {blockChance} -> {canBlockAttack} | Parry chance: {parryChance} -> {canParryAttack}");
+#endif
 
             SetEnemyState();
-            //TODO Level Factor for the future
-
-            // float levelFactor = enemyLevel / (float)playerLevel;
-            // float adjustedDefence = defenceScore * levelFactor;
-            // float blockChance = adjustedDefence / (adjustedDefence + attackScore);
-
-            //TODO Difficulty Factor for the future
-
-            // Easy = 0.7
-            // Normal = 1.0
-            // Hard = 1.3
-            //float difficultyMultiplier;
-
-            // float adjustedDefence = defenceScore * difficultyMultiplier;
-            // float blockChance = adjustedDefence / (adjustedDefence + attackScore);
         }
 
         private void SetEnemyState()
@@ -120,11 +92,6 @@ namespace _Project.Systems.CombatSystem.Enemy
             {
                 stateMachine.SwitchState(new EnemyParryState(stateMachine));
             }
-        }
-
-        private void OnDisable()
-        {
-            PlayerAttackSignal.AttackStarted -= OnPlayerAttackStarted;
         }
     }
 }

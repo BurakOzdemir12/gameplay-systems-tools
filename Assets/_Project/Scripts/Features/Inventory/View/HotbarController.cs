@@ -1,13 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using _Project.Systems._Core;
-using _Project.Systems._Core.InputHandler;
-using _Project.Systems.InventorySystem.UI;
+using GameplaySystemsAndTools.Shared.Input;
 using UnityEngine;
 
-namespace _Project.Systems.InventorySystem
+namespace GameplaySystemsAndTools.Features.Inventory
 {
-    public class HotbarManager : MonoBehaviour
+    public class HotbarController : MonoBehaviour
     {
         [field: SerializeField] public PlayerInputHandler InputHandler { get; private set; }
         [SerializeField] private GameObject hotbarParent;
@@ -52,6 +50,7 @@ namespace _Project.Systems.InventorySystem
         private void OnDisable()
         {
             InputHandler.HotbarSelectEvent -= HandleHotbarSelection;
+            InputHandler.HotbarScrollEvent -= HandleScroll;
         }
     }
 }

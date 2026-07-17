@@ -1,10 +1,8 @@
-﻿using _Project.Systems.CombatSystem.Enemy.States;
-using _Project.Systems.MovementSystem.ScriptableObjects;
-using _Project.Systems.PerceptionSystem;
-using _Project.Systems.SharedGameplay.StateMachine.Enemy;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Gameplay.Perception;
 using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.Enemy.States
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyIdleState : EnemyBaseState
     {

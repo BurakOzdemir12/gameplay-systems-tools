@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.LedgeClimbing
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     public class LedgeValidator : MonoBehaviour
     {

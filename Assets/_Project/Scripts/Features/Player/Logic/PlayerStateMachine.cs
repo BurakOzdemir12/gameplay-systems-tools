@@ -1,28 +1,22 @@
-using _Project.Systems._Core.GravityForce;
-using _Project.Systems._Core.GroundCheck;
-using _Project.Systems._Core.InputHandler;
-using _Project.Systems._Core.StateMachine;
-using _Project.Systems.ClimbingSystem.LedgeClimbing;
-using _Project.Systems.CombatSystem.Player;
-using _Project.Systems.CombatSystem.Player.States;
-using _Project.Systems.CombatSystem.Targeting;
-using _Project.Systems.GatheringSystem.Detector_Controller;
-using _Project.Systems.HealthSystem.Health;
-using _Project.Systems.HealthSystem.Ragdoll;
-using _Project.Systems.HealthSystem.Structs;
-using _Project.Systems.InventorySystem;
-using _Project.Systems.InventorySystem.Core;
-using _Project.Systems.InventorySystem.UI;
-using _Project.Systems.MovementSystem.Player.States.RootStates;
-using _Project.Systems.PerceptionSystem;
-using _Project.Systems.SharedGameplay.BaseScriptableObjects.Characters;
-using _Project.Systems.SharedGameplay.Pickup_Drop;
-using _Project.Systems.SharedGameplay.Weapon_Tool_Handlers;
+using GameplaySystemsAndTools.Shared.Gameplay;
+using GameplaySystemsAndTools.Shared.Input;
+using GameplaySystemsAndTools.Shared.Gameplay.StateMachine;
+using GameplaySystemsAndTools.Shared.Gameplay.Climbing;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
+using GameplaySystemsAndTools.Shared.Gameplay.Gathering;
+using GameplaySystemsAndTools.Shared.Gameplay.Health;
+using GameplaySystemsAndTools.Shared.Gameplay.Perception;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.StateMachine.Player
+namespace GameplaySystemsAndTools.Features.Player
 {
-    public class PlayerStateMachine : _Core.StateMachine.StateMachine
+    /// <summary>
+    /// Hub of the player's hierarchical FSM: exposes every component the states need
+    /// and reacts to health/input events by switching states. Inventory concerns are
+    /// intentionally NOT referenced here — the Inventory feature listens to input on
+    /// its own (feature isolation rule).
+    /// </summary>
+    public class PlayerStateMachine : StateMachineBase
     {
         [field: SerializeField] public PlayerInputHandler InputHandler { get; private set; }
         [field: SerializeField] public CharacterController Controller { get; private set; }
@@ -31,15 +25,13 @@ namespace _Project.Systems.SharedGameplay.StateMachine.Player
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public WeaponHandler WeaponHandler { get; private set; }
         [field: SerializeField] public ShieldHandler ShieldHandler { get; private set; }
-        [field: SerializeField] public ToolLogic.ToolLogic ToolLogic { get; private set; }
+        [field: SerializeField] public ToolLogic ToolLogic { get; private set; }
         [field: SerializeField] public PlayerHealth Health { get; private set; }
         [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
         [field: SerializeField] public ClimbController ClimbController { get; private set; }
         [field: SerializeField] public GatheringController GatheringController { get; private set; }
         [field: SerializeField] public GroundChecker GroundChecker { get; private set; }
         [field: SerializeField] public PlayerConfigSo PlayerConfigSo { get; private set; }
-        [field: SerializeField] public InventoryComponent InventoryComponent { get; private set; }
-        [field: SerializeField] public PickupController PickupController { get; private set; }
         [field: SerializeField] public PlayerAttackSignal PlayerAttackSignal { get; private set; }
         [field: SerializeField] public NoiseEmitter NoiseEmitter { get; private set; }
 
@@ -105,7 +97,7 @@ namespace _Project.Systems.SharedGameplay.StateMachine.Player
         public Transform MainCameraTransform { get; private set; }
 
         private PlayerGroundedState CurrentGrounded => CurrentState as PlayerGroundedState;
-        public State CurrentSubState => (CurrentState as State)?.GetSubState();
+        public StateBase CurrentSubState => (CurrentState as StateBase)?.GetSubState();
 
         [Space(10)] [Header("Ground Check Settings")] [Tooltip("Grounded Grace Period")] [SerializeField]
         private float groundedGrace = 0.1f;
@@ -134,8 +126,6 @@ namespace _Project.Systems.SharedGameplay.StateMachine.Player
         [Tooltip("In Combat or alert mode, its gonna roll but in normal mode jump will work ")] [SerializeField]
         private bool inAlertMode = false;
 
-        private Camera camera1;
-
         public bool IsInAlertMode
         {
             get => inAlertMode;
@@ -157,47 +147,27 @@ namespace _Project.Systems.SharedGameplay.StateMachine.Player
             Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDeath += HandleDeath;
             Health.OnStunned += HandleStunned;
-            InputHandler.InventoryEvent += HandleInventoryToggle;
-            InputHandler.InteractEvent += HandleInteract;
         }
 
 
         private void Start()
         {
-            camera1 = Camera.main;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            if (UnityEngine.Camera.main == null) Debug.LogError("No main camera found!");
-            if (UnityEngine.Camera.main != null) MainCameraTransform = UnityEngine.Camera.main.transform;
-            // if (WeaponHandler != null)
-            //     WeaponHandler.CurrentWeaponLogic.Initialize(GetComponent<CharacterController>());
+            if (Camera.main == null) Debug.LogError("No main camera found!");
+            if (Camera.main != null) MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerGroundedState(this));
         }
 
-        private void HandleInteract()
-        {
-            PickupController.TryPickup();
-        }
-
-        private void HandleInventoryToggle()
-        {
-            InventoryComponent.ToggleInventoryVisibility();
-        }
-
+        // Damage/death/stun override whatever the FSM is doing, so they switch the
+        // root state directly instead of going through sub-state transitions.
         private void HandleTakeDamage(DamageInfo damageInfo)
         {
-            //Override States dont use switchSubstate
-
-            // CurrentGrounded.SwitchSubState(new PlayerImpactState(this));
-
             SwitchState(new PlayerImpactState(this));
         }
 
         private void HandleDeath()
         {
-            //Override States dont use switchSubstate
-            // CurrentGrounded.SwitchSubState(new PlayerDeadState(this));
-
             SwitchState(new PlayerDeadState(this));
         }
 
@@ -241,8 +211,6 @@ namespace _Project.Systems.SharedGameplay.StateMachine.Player
             Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDeath -= HandleDeath;
             Health.OnStunned -= HandleStunned;
-            InputHandler.InventoryEvent -= HandleInventoryToggle;
-            InputHandler.InteractEvent -= HandleInteract;
         }
     }
 }

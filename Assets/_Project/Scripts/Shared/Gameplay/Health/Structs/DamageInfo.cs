@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.HealthSystem.Structs
+namespace GameplaySystemsAndTools.Shared.Gameplay.Health
 {
     public struct DamageInfo
     {

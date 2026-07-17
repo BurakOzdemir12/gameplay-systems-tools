@@ -1,9 +1,6 @@
-﻿using _Project.Systems.HealthSystem.Health;
-using _Project.Systems.HealthSystem.Health.Interfaces;
-using _Project.Systems.HealthSystem.Structs;
 using UnityEngine;
 
-namespace _Project.Systems.HealthSystem.HurtboxLogic
+namespace GameplaySystemsAndTools.Shared.Gameplay.Health
 {
     public abstract class HurtboxBase : MonoBehaviour, IDamageable
     {

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Features.Player
 {
     [CreateAssetMenu(fileName = "FallingLandingDataSo",
         menuName = "Scriptable Objects/Fall-Land System/Falling Landing Data")]
@@ -13,13 +13,13 @@ namespace _Project.Systems.MovementSystem.ScriptableObjects
         [SerializeField] private string landingHeavyAnimName;
 
 
-        [Tooltip("Falling State Start Velocity")] [SerializeField]
+        [Tooltip("Falling StateBase Start Velocity")] [SerializeField]
         private float fallingHeightThreshold;
 
         public float FallingHeightThreshold => fallingHeightThreshold;
 
 
-        [Tooltip("Landing State Start Heightens")] [SerializeField]
+        [Tooltip("Landing StateBase Start Heightens")] [SerializeField]
         private float landingHeightThreshold;
 
         public float LandingHeightThreshold => landingHeightThreshold;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-namespace _Project.Systems._Core.GroundCheck
+namespace GameplaySystemsAndTools.Shared.Gameplay
 {
     public class GroundChecker : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace _Project.Systems._Core.GroundCheck
         [SerializeField] private Vector3 leftOffset = new Vector3(0, 0.1f, 0);
         [SerializeField] private Vector3 rightOffset = new Vector3(0, 0.1f, 0);
 
-        [Header("State")] [SerializeField] private bool isGrounded;
+        [Header("StateBase")] [SerializeField] private bool isGrounded;
         [SerializeField] private float distanceToGround;
         [SerializeField] private Vector3 groundNormal;
 

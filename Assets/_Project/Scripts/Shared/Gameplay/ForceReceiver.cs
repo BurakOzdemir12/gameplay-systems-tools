@@ -1,7 +1,6 @@
-using _Project.Systems._Core.GravityForce.Interfaces;
 using UnityEngine;
 
-namespace _Project.Systems._Core.GravityForce
+namespace GameplaySystemsAndTools.Shared.Gameplay
 {
     public class ForceReceiver : MonoBehaviour, IKnockable
     {

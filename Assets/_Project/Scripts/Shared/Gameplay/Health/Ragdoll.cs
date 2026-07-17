@@ -1,7 +1,7 @@
-﻿using System.Linq;
+using System.Linq;
 using UnityEngine;
 
-namespace _Project.Systems.HealthSystem.Ragdoll
+namespace GameplaySystemsAndTools.Shared.Gameplay.Health
 {
     public class Ragdoll : MonoBehaviour
     {

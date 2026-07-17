@@ -1,14 +1,11 @@
-﻿using System;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Season.Enums;
-using _Project.Systems.EnvironmentSystem.Season.Events;
-using _Project.Systems.EnvironmentSystem.Season.ScriptableObjects;
-using _Project.Systems.EnvironmentSystem.Time.Events;
+using System;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Season
+namespace GameplaySystemsAndTools.Features.Environment.Season
 {
-    public class SeasonManager : MonoBehaviour
+    public class SeasonController : MonoBehaviour
     {
         [SerializeField] private SeasonConfigSo seasonData;
         private EventBinding<DayChangedEvent> dayChangedBinding;
@@ -51,7 +48,6 @@ namespace _Project.Systems.EnvironmentSystem.Season
         {
             int nextSeasonIndex = ((int)currentSeasonType + 1) % 4;
             currentSeasonType = (SeasonType)nextSeasonIndex;
-            Debug.Log("Season Changed to: " + currentSeasonType);
             EventBus<SeasonChangedEvent>.Publish(new SeasonChangedEvent(currentSeasonType));
         }
     }

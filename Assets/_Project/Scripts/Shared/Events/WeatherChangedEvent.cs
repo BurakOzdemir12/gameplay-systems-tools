@@ -1,7 +1,6 @@
-﻿using _Project.Systems._Core.EventBus.Interfaces;
-using _Project.Systems.EnvironmentSystem.Weather.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 
-namespace _Project.Systems.EnvironmentSystem.Weather.Events
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public struct WeatherChangedEvent : IEvent
     {

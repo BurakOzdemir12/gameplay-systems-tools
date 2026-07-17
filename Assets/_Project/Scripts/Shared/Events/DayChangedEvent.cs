@@ -1,6 +1,5 @@
-﻿using _Project.Systems._Core.EventBus.Interfaces;
 
-namespace _Project.Systems.EnvironmentSystem.Time.Events
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public struct DayChangedEvent : IEvent
     {

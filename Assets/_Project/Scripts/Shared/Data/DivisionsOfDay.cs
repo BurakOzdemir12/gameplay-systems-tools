@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.EnvironmentSystem.Time.Enums
+namespace GameplaySystemsAndTools.Shared.Data
 {
     public enum DivisionsOfDay
     {

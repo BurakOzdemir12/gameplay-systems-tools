@@ -1,21 +1,23 @@
-﻿using System;
-using _Project.Systems.PerceptionSystem.Interfaces;
-using _Project.Systems.PerceptionSystem.Noise_Manager;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Gameplay.Perception;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay
+namespace GameplaySystemsAndTools.Shared.Gameplay
 {
+    /// <summary>
+    /// A physics prop that makes noise on impact (e.g. a thrown rock used to distract
+    /// enemies). Publishes NoiseEmittedEvent instead of calling a singleton, because
+    /// throwables are spawned at runtime and must not rely on scene injection.
+    /// </summary>
     public class Throwable : MonoBehaviour
     {
-        //TODO Create Scriptable Object for objects so we can change the noise radius, layers and other settings
-        //TODO Create Base monobehaviour for collision control and noise - Sound fx generation
-        [Header("Settings")] [Tooltip("Who is gonna heard the noise => enemy")] [SerializeField]
+        [Header("Settings")] [Tooltip("Who is gonna hear the noise => enemy")] [SerializeField]
         private LayerMask listenerLayers;
 
-        [Tooltip("Noise radius when rock hit")] [SerializeField]
+        [Tooltip("Noise radius when the object hits something")] [SerializeField]
         private float baseNoiseRadius = 5f;
 
-        [Tooltip("needs to minimum velocity for make sound")] [SerializeField]
+        [Tooltip("Minimum impact velocity required to make a sound")] [SerializeField]
         private float minVelocityToMakeNoise = 1f;
 
         [Tooltip("Object will be destroyed after this time")] [SerializeField]
@@ -23,7 +25,6 @@ namespace _Project.Systems.SharedGameplay
 
         private Vector3 debugFirstContactPoint;
         private bool hasAlreadyCollided = false;
-        private float timer;
 
         private void Start()
         {
@@ -38,32 +39,27 @@ namespace _Project.Systems.SharedGameplay
 
             if (velocity > minVelocityToMakeNoise)
             {
+                // Louder throws are heard farther away, clamped so it stays sane.
                 float finalRadius = baseNoiseRadius * Mathf.Clamp(velocity * 0.5f, 0.5f, 2f);
 
-                NoiseManager.Instance.EmitNoise(collision.contacts[0].point, finalRadius, gameObject, listenerLayers);
+                EventBus<NoiseEmittedEvent>.Publish(
+                    new NoiseEmittedEvent(collision.contacts[0].point, finalRadius, gameObject, listenerLayers));
 #if UNITY_EDITOR
                 debugFirstContactPoint = collision.contacts[0].point;
 #endif
                 hasAlreadyCollided = true;
-                // Debug.Log($"{gameObject.name} voice ! Radius: {finalRadius}");
             }
 
             CheckInteraction(collision.collider);
         }
 
-        // private void OnTriggerEnter(Collider other)
-        // {
-        //     if (hasAlreadyCollided) return;
-        //
-        //     CheckInteraction(other);
-        // }
-
-        //? if it is encountered with any Character that has IListener, it'll destroy itself
+        // If it touches any character that can hear noise, the prop consumed its purpose
+        // (the distraction landed) and removes itself.
         private void CheckInteraction(Collider other)
         {
             if (((1 << other.gameObject.layer) & listenerLayers) == 0) return;
             Transform rootTarget = other.transform.root;
-            if (rootTarget.TryGetComponent<INoiseListener>(out var listener))
+            if (rootTarget.TryGetComponent<INoiseListener>(out _))
             {
                 Destroy(this.gameObject);
             }

@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Season.Enums;
-using _Project.Systems.EnvironmentSystem.Season.Events;
-using _Project.Systems.EnvironmentSystem.Season.ScriptableObjects;
-using _Project.Systems.EnvironmentSystem.Time.Events;
-using _Project.Systems.EnvironmentSystem.Weather.Enums;
-using _Project.Systems.EnvironmentSystem.Weather.Events;
+using System.Collections.Generic;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Features.Environment.Season;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Systems.EnvironmentSystem.Weather
+namespace GameplaySystemsAndTools.Features.Environment.Weather
 {
-    public class WeatherManager : MonoBehaviour
+    public class WeatherController : MonoBehaviour
     {
         [SerializeField] private SeasonConfigSo seasonData;
 
@@ -125,7 +121,6 @@ namespace _Project.Systems.EnvironmentSystem.Weather
             {
                 currentWeatherType = newWeather;
                 currentWeatherDuration = 0;
-                Debug.Log($"Weather Changed: {currentWeatherType}");
                 EventBus<WeatherChangedEvent>.Publish(new WeatherChangedEvent(currentWeatherType));
             }
         }
@@ -140,7 +135,6 @@ namespace _Project.Systems.EnvironmentSystem.Weather
             if (currentWeatherType != newWeather)
             {
                 currentWeatherType = newWeather;
-                Debug.Log($"Weather Changed: {currentWeatherType}");
 
                 EventBus<WeatherChangedEvent>.Publish(new WeatherChangedEvent(currentWeatherType));
             }

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Systems._Core.ScriptableObjects.Animator_Profile
+namespace GameplaySystemsAndTools.Shared.Data
 {
     [CreateAssetMenu(fileName = "AnimationProfileData",
         menuName = "Scriptable Objects/Characters/Animation Profile/Animation Profile So")]

@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.ScriptableObjects
+using GameplaySystemsAndTools.Shared.Data;
+
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     [CreateAssetMenu(fileName = "EnemyMovementData", menuName = "Scriptable Objects/Movement/Enemy Movement Data")]
     public class EnemyMovementDataSo : MovementDataSo

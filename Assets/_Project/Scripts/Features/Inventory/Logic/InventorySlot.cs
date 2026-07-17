@@ -1,7 +1,8 @@
-﻿using _Project.Systems.InventorySystem.ScriptableObjects;
 using UnityEngine;
 
-namespace _Project.Systems.InventorySystem.Core
+using GameplaySystemsAndTools.Shared.Gameplay.Items;
+
+namespace GameplaySystemsAndTools.Features.Inventory
 {
     [System.Serializable]
     public class InventorySlot

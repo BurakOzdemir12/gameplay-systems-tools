@@ -1,9 +1,7 @@
-﻿using _Project.Systems.InventorySystem.Enums;
-using _Project.Systems.InventorySystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace _Project.Systems.InventorySystem
+namespace GameplaySystemsAndTools.Shared.Gameplay.Items
 {
     public class Item : MonoBehaviour
     {

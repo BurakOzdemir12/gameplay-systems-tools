@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.InventorySystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Items
 {
     public class ItemData : ScriptableObject
     {

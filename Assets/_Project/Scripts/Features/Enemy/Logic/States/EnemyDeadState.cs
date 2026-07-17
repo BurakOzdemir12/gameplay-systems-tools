@@ -1,7 +1,6 @@
-﻿using _Project.Systems.SharedGameplay.StateMachine.Enemy;
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.Enemy.States
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyDeadState : EnemyBaseState
     {

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.GatheringSystem.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay.Gathering
 {
     public interface IGatherable
     {

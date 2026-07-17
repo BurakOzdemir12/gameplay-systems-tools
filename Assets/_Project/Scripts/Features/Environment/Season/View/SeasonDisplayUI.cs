@@ -1,10 +1,9 @@
-﻿using System;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Season.Events;
+using System;
+using GameplaySystemsAndTools.Shared.Events;
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Season.UI
+namespace GameplaySystemsAndTools.Features.Environment.Season
 {
     public class SeasonDisplayUI : MonoBehaviour
     {

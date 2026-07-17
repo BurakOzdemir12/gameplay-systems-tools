@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems._Core.EventBus.Events;
-using _Project.Systems.CombatSystem.Events;
+using System.Collections.Generic;
+using GameplaySystemsAndTools.Shared.Events;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class TrailSystem : MonoBehaviour
     {

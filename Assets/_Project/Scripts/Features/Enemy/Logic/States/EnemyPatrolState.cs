@@ -1,9 +1,8 @@
-﻿using _Project.Systems.MovementSystem.ScriptableObjects;
-using _Project.Systems.SharedGameplay.StateMachine.Enemy;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace _Project.Systems.MovementSystem.Enemy.States
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyPatrolState : EnemyBaseState
     {

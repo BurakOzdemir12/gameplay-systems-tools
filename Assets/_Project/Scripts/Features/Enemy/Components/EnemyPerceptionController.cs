@@ -1,15 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using _Project.Systems.MovementSystem.ScriptableObjects;
-using _Project.Systems.PerceptionSystem.Enums;
-using _Project.Systems.PerceptionSystem.Field_of_View;
-using _Project.Systems.PerceptionSystem.Noise_Sensor;
-using _Project.Systems.PerceptionSystem.Structs;
-using _Project.Systems.SharedGameplay.BaseScriptableObjects.Characters;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Gameplay.Perception;
 using UnityEngine;
 
-namespace _Project.Systems.PerceptionSystem
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyPerceptionController : MonoBehaviour
     {

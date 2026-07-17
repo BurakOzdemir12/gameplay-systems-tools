@@ -1,9 +1,7 @@
-﻿using System;
-using _Project.Systems.GatheringSystem.Interfaces;
-using Unity.XR.OpenVR;
+using System;
 using UnityEngine;
 
-namespace _Project.Systems.GatheringSystem.Detector_Controller
+namespace GameplaySystemsAndTools.Shared.Gameplay.Gathering
 {
     public class GatheringValidator : MonoBehaviour
     {
@@ -98,12 +96,13 @@ namespace _Project.Systems.GatheringSystem.Detector_Controller
             Gizmos.DrawWireSphere(transform.position + rayOffset, rayRadius);
         }
     }
-}
 
-public struct GatherTargetData
-{
-    public bool HasTarget;
-    public IGatherable Target;
-    public Transform TargetTransform;
-    public Vector3 InteractPoint;
+    // Result snapshot of a gather scan; lives in the Gathering namespace (was global).
+    public struct GatherTargetData
+    {
+        public bool HasTarget;
+        public IGatherable Target;
+        public Transform TargetTransform;
+        public Vector3 InteractPoint;
+    }
 }

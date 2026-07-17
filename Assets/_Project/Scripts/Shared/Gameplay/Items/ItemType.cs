@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.InventorySystem.Enums
+namespace GameplaySystemsAndTools.Shared.Gameplay.Items
 {
     public enum ItemType
     {

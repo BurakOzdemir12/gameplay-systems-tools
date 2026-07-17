@@ -1,10 +1,7 @@
-﻿using _Project.Systems.MovementSystem.Player.Enums;
-using _Project.Systems.MovementSystem.Player.States.RootStates;
-using _Project.Systems.MovementSystem.ScriptableObjects;
-using _Project.Systems.SharedGameplay.StateMachine.Player;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.Player.States
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerJumpingState : PlayerBaseState
     {

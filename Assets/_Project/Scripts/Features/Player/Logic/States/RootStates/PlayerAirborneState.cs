@@ -1,7 +1,5 @@
-﻿using _Project.Systems.MovementSystem.Player.Enums;
-using _Project.Systems.SharedGameplay.StateMachine.Player;
 
-namespace _Project.Systems.MovementSystem.Player.States.RootStates
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerAirborneState : PlayerBaseState
     {

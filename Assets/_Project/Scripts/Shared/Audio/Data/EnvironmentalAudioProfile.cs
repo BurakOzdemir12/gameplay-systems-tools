@@ -1,8 +1,7 @@
-﻿using _Project.Systems.EnvironmentSystem.Time.Enums;
-using _Project.Systems.EnvironmentSystem.Weather.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Audio
 {
     [CreateAssetMenu(fileName = "AudioProfile", menuName = "Scriptable Objects/Audio Profile/Env Audio Profile")]
     public class EnvironmentalAudioProfile : ScriptableObject

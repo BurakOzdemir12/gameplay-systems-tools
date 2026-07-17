@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class ToolHandler : MonoBehaviour
     {
@@ -11,13 +11,13 @@ namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
         [Header("ToolLogic ")] private GameObject currentToolHitbox;
         public GameObject CurrentToolHitBox => currentToolHitbox;
 
-        private SharedGameplay.ToolLogic.ToolLogic currentToolLogic;
+        private ToolLogic currentToolLogic;
 
-        public SharedGameplay.ToolLogic.ToolLogic CurrentToolLogic => currentToolLogic;
+        public ToolLogic CurrentToolLogic => currentToolLogic;
 
         private void Start()
         {
-            SharedGameplay.ToolLogic.ToolLogic toolLogic = currentToolRoot.GetComponentInChildren<SharedGameplay.ToolLogic.ToolLogic>(true);
+            ToolLogic toolLogic = currentToolRoot.GetComponentInChildren<ToolLogic>(true);
             if (toolLogic == null)
             {
                 Debug.LogError($"{name}: ToolLogic couldn't find in the children!", this);

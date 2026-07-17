@@ -1,8 +1,7 @@
-﻿using System;
-using _Project.Systems._Core.EventBus.Interfaces;
-using _Project.Systems.EnvironmentSystem.Time.Enums;
+using System;
+using GameplaySystemsAndTools.Shared.Data;
 
-namespace _Project.Systems.EnvironmentSystem.Time.Events
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public struct TimeChangedEvent : IEvent
     {

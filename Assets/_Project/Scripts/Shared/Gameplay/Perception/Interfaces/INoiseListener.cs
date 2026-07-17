@@ -1,6 +1,5 @@
-﻿using _Project.Systems.PerceptionSystem.Structs;
 
-namespace _Project.Systems.PerceptionSystem.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
     public interface INoiseListener
     {

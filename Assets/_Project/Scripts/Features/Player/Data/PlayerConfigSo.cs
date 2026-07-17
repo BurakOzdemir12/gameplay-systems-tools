@@ -1,11 +1,10 @@
-﻿using _Project.Systems.ClimbingSystem.ScriptableObjects;
-using _Project.Systems.CombatSystem.ScriptableObjects.Combat;
-using _Project.Systems.CombatSystem.ScriptableObjects.Combat.Dodge_Roll;
-using _Project.Systems.GatheringSystem.ScriptableObjects;
-using _Project.Systems.MovementSystem.ScriptableObjects;
+using GameplaySystemsAndTools.Shared.Gameplay.Climbing;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
+using GameplaySystemsAndTools.Shared.Gameplay.Gathering;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.BaseScriptableObjects.Characters
+namespace GameplaySystemsAndTools.Features.Player
 {
     [CreateAssetMenu(fileName = "PlayerConfig", menuName = "Scriptable Objects/Characters/Player Config")]
     public class PlayerConfigSo : ScriptableObject

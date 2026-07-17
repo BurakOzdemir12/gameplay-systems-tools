@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Data
 {
     [CreateAssetMenu(fileName = "MovementData", menuName = "Scriptable Objects/Movement/Movement Data")]
     public class MovementDataSo : ScriptableObject

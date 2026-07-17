@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems._Core.Enums
+namespace GameplaySystemsAndTools.Shared.Data
 {
     public enum SurfaceType
     {

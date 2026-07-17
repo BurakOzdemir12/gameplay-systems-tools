@@ -1,7 +1,7 @@
-﻿using _Project.Systems._Core.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems._Core.Components
+namespace GameplaySystemsAndTools.Shared.Gameplay.Surfaces
 {
     public class SurfaceDefinition : MonoBehaviour
     {

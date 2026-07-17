@@ -1,15 +1,20 @@
 using UnityEngine;
 
-namespace _Project.Systems._Core.StateMachine
+namespace GameplaySystemsAndTools.Shared.Gameplay.StateMachine
 {
-    public abstract class State
+    /// <summary>
+    /// Base node of the hierarchical FSM: Enter/Tick/Exit plus nested sub-states
+    /// (SetSubState) and root switching (SwitchRootState). Actor-agnostic by design —
+    /// each actor derives its own base state (PlayerBaseState, EnemyBaseState).
+    /// </summary>
+    public abstract class StateBase
     {
-        protected readonly StateMachine stateMachine;
+        protected readonly StateMachineBase stateMachine;
 
-        protected State superState;
-        protected State subState;
+        protected StateBase superState;
+        protected StateBase subState;
 
-        protected State(StateMachine stateMachine)
+        protected StateBase(StateMachineBase stateMachine)
         {
             this.stateMachine = stateMachine;
         }
@@ -26,15 +31,15 @@ namespace _Project.Systems._Core.StateMachine
             subState?.UpdateStates(deltaTime);
         }
 
-        public State GetLeafState()
+        public StateBase GetLeafState()
         {
-            State s = this;
+            StateBase s = this;
             while (s.subState != null) s = s.subState;
             return s;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        protected void SetSubState(State newSubState)
+        protected void SetSubState(StateBase newSubState)
         {
             if (subState != null)
             {
@@ -57,13 +62,13 @@ namespace _Project.Systems._Core.StateMachine
             subState = null;
         }
 
-        protected void SwitchRootState(State newRootState)
+        protected void SwitchRootState(StateBase newRootState)
         {
             stateMachine.SwitchState(newRootState);
         }
 
-        public State GetSubState() => subState;
-        public State GetSuperState() => superState;
+        public StateBase GetSubState() => subState;
+        public StateBase GetSuperState() => superState;
 
         protected float GetNormalizedTime(Animator animator, int layerIndex, string tag)
         {

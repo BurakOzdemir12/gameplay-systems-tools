@@ -1,6 +1,5 @@
-using _Project.Systems.HealthSystem.Structs;
 
-namespace _Project.Systems.HealthSystem.Health.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay.Health
 {
     public interface IDamageable
     {

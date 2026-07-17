@@ -1,6 +1,5 @@
-﻿using _Project.Systems.InventorySystem.ScriptableObjects;
 
-namespace _Project.Systems.SharedGameplay.Pickup_Drop.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay.Items
 {
     public interface IPickupable
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.Targeting
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class Target : MonoBehaviour
     {

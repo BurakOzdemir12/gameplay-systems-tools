@@ -1,9 +1,7 @@
-﻿using System;
-using _Project.Systems.HealthSystem.Structs;
-using _Project.Systems.HealthSystem.Stun.Interfaces;
+using System;
 using UnityEngine;
 
-namespace _Project.Systems.HealthSystem.Health
+namespace GameplaySystemsAndTools.Shared.Gameplay.Health
 {
     public abstract class HealthBase : MonoBehaviour, IStunnable
     {

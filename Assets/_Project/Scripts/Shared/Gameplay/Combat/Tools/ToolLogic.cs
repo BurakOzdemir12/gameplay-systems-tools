@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using _Project.Systems._Core.Components;
-using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems._Core.EventBus.Events;
-using _Project.Systems._Core.GravityForce.Interfaces;
-using _Project.Systems.HealthSystem.Health.Interfaces;
-using _Project.Systems.HealthSystem.Structs;
-using _Project.Systems.SharedGameplay.ToolLogic.ScriptableObjects;
+using System.Collections.Generic;
+using GameplaySystemsAndTools.Shared.Gameplay.Surfaces;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Gameplay;
+using GameplaySystemsAndTools.Shared.Gameplay.Health;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.ToolLogic
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class ToolLogic : MonoBehaviour
     {

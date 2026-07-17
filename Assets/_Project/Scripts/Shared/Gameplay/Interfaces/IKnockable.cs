@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems._Core.GravityForce.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay
 {
     public interface IKnockable
     {

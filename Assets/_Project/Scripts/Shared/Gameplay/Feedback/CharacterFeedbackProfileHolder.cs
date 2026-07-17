@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Feedback
+namespace GameplaySystemsAndTools.Shared.Gameplay.Feedback
 {
     public class CharacterFeedbackProfileHolder : MonoBehaviour
     {

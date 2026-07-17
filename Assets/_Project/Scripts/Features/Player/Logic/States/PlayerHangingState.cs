@@ -1,7 +1,5 @@
-﻿using _Project.Systems.ClimbingSystem.States.RootStates;
-using _Project.Systems.SharedGameplay.StateMachine.Player;
 
-namespace _Project.Systems.ClimbingSystem.States
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerHangingState : PlayerBaseState
     {

@@ -1,31 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems._Core.EventBus.Events;
-using _Project.Systems.CombatSystem.Events;
-using _Project.Systems.EnvironmentSystem.ScriptableObjects;
-using _Project.Systems.EnvironmentSystem.Time.Enums;
-using _Project.Systems.EnvironmentSystem.Time.Events;
-using _Project.Systems.EnvironmentSystem.Weather.Enums;
-using _Project.Systems.EnvironmentSystem.Weather.Events;
-using _Project.Systems.MovementSystem.Events;
-using _Project.Systems.SharedGameplay.Feedback;
-using _Project.Systems.SharedGameplay.Managers.Effects.Audio.Enums;
-using _Project.Systems.SharedGameplay.Managers.Effects.Audio.Structs;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Gameplay.Feedback;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Pool;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
+namespace GameplaySystemsAndTools.Shared.Audio
 {
-    public class SoundManager : MonoBehaviour
+    /// <summary>
+    /// Central audio playback engine: pooled 3D sound emitters, ambient + music tracks.
+    /// Fully event-driven — reacts to gameplay/feedback events and SoundPlayRequestedEvent
+    /// on the EventBus. Registered as IAudioService in the GameplayLifetimeScope for
+    /// systems that prefer direct injection.
+    /// </summary>
+    public class AudioService : MonoBehaviour, IAudioService
     {
-        public static SoundManager Instance { get; private set; }
-
-
         [Header("Audio Mixer Groups")] [SerializeField]
         private AudioMixer mainMixer;
 
@@ -89,21 +82,22 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
         [Space(2)] [SerializeField] private EnvironmentalAudioProfile envAudioProfile;
         [SerializeField] private GameMusicProfile musicAudioProfile;
 
-        [Header("Current State")] private DivisionsOfDay currentDivision = DivisionsOfDay.Morning;
+        [Header("Current StateBase")] private DivisionsOfDay currentDivision = DivisionsOfDay.Morning;
         private WeatherType currentWeather = WeatherType.Clear;
+
+        private EventBinding<SoundPlayRequestedEvent> soundRequestBinding;
 
         private void Awake()
         {
-            if (Instance != null && Instance != this) Destroy(this.gameObject);
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-
             InitializePool();
         }
 
 
         private void OnEnable()
         {
+            soundRequestBinding = new EventBinding<SoundPlayRequestedEvent>(HandleSoundPlayRequested);
+            EventBus<SoundPlayRequestedEvent>.Subscribe(soundRequestBinding);
+
             #region Impact Events
 
             interactionBinding = new EventBinding<CharacterTraversalEvent>(HandleTraversalEvent);
@@ -137,6 +131,7 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
 
         private void OnDisable()
         {
+            EventBus<SoundPlayRequestedEvent>.Unsubscribe(soundRequestBinding);
             EventBus<CharacterTraversalEvent>.Unsubscribe(interactionBinding);
             EventBus<CharacterCombatActionEvent>.Unsubscribe(combatBinding);
             EventBus<CharacterGatheringActionEvent>.Unsubscribe(gatheringBinding);
@@ -151,22 +146,12 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
             PlayAmbientSound(envAudioProfile.GetEnvAudio(currentDivision, currentWeather));
             PlayMusicTrack(musicAudioProfile.GetMusicTrack(false, currentDivision));
         }
-        // public SoundBuilder CreateSoundBuilder() => new SoundBuilder(this);
-        //
-        // public bool CanPlaySound(SoundData data) {
-        //     if (!data.FrequentSound) return true;
-        //
-        //     if (FrequentSoundEmitters.Count >= maxSoundInstances) {
-        //         try {
-        //             FrequentSoundEmitters.First.Value.Stop();
-        //             return true;
-        //         } catch {
-        //             Debug.Log("SoundEmitter is already released");
-        //         }
-        //         return false;
-        //     }
-        //     return true;
-        // }
+
+        // Entry point for decoupled one-shot requests published from gameplay code.
+        private void HandleSoundPlayRequested(SoundPlayRequestedEvent evt)
+        {
+            PlayGeneric3DSound(evt.Clip, evt.Position, evt.Channel, evt.Volume, evt.IsFrequent, evt.IsLoop);
+        }
 
         public SoundEmitter GetSoundEmitter()
         {
@@ -426,8 +411,7 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
 
         #endregion
 
-        #region Singleton Function Calls
-
+        // Public API (also exposed through IAudioService for injected consumers).
         public void PlayGeneric3DSound(AudioClip clip, Vector3 position, SoundChannel channel, float volume = 1f,
             bool isFrequent = true,
             bool isLoop = false)
@@ -438,8 +422,6 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
                 FrequentSound = isFrequent, Loop = isLoop, MixerGroup = GetMixerGroup(channel)
             });
         }
-
-        #endregion
 
         private void PlayAmbientSound(AudioClip clip)
         {

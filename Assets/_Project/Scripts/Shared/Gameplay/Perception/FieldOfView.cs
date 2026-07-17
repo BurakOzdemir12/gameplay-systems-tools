@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Systems.PerceptionSystem.Field_of_View
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
     // [ExecuteInEditMode] 
     public class FieldOfView : MonoBehaviour

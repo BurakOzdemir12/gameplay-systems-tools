@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 7589260353863405627}
   - component: {fileID: 6599822052735133493}
   - component: {fileID: 8104637315065186446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SwordModel_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,6 +2151,7 @@ GameObject:
   - component: {fileID: 8042790108091311836}
   - component: {fileID: 846696441787821084}
   - component: {fileID: 9209191874352922218}
+  - component: {fileID: 7820179414807695696}
   - component: {fileID: 1161334348759645509}
   - component: {fileID: 432588134373363906}
   - component: {fileID: 8430059993941884776}
@@ -2256,8 +2257,6 @@ MonoBehaviour:
   <GatheringController>k__BackingField: {fileID: 8042790108091311836}
   <GroundChecker>k__BackingField: {fileID: 2893544232811707756}
   <PlayerConfigSo>k__BackingField: {fileID: 11400000, guid: e761657431f061d47885c4d8da7562ee, type: 2}
-  <InventoryManager>k__BackingField: {fileID: 0}
-  <PickupController>k__BackingField: {fileID: 1161334348759645509}
   <PlayerAttackSignal>k__BackingField: {fileID: 432588134373363906}
   <NoiseEmitter>k__BackingField: {fileID: 8430059993941884776}
   isWeaponEquipped: 0
@@ -2326,6 +2325,8 @@ MonoBehaviour:
   currentWeaponLogic: {fileID: 0}
   currentWeaponModel: {fileID: 0}
   currentWeaponData: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
+  rockPrefab: {fileID: 8073549024103402389, guid: b01ccfae9f4f92c449a798ca6a6676fb, type: 3}
+  throwPower: 500
 --- !u!114 &3273700151103219963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2476,7 +2477,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   rayDistance: 1.2
-  upOffset: 0.2
   fallback: 0
 --- !u!114 &4139987776407903548
 MonoBehaviour:
@@ -2538,6 +2538,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Weapon_Tool_Handlers.TrailSystem
   weaponHandler: {fileID: 1696577841307748841}
   toolHandler: {fileID: 3241780020237557232}
+--- !u!114 &7820179414807695696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3265072938367938632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bcf8353ce548e39b2a91737ec64edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Project.Systems.Inventory::_Project.Systems.InventorySystem.Core.InventoryComponent
+  swordItem: {fileID: 11400000, guid: f90c3bcec7d69a146a0282ba3cc8610a, type: 2}
+  pickaxeItem: {fileID: 11400000, guid: aca350d52c0dae7498bfbdc36f5b47bb, type: 2}
+  maxSlots: 40
+  slots: []
+  maxWeight: 100
 --- !u!114 &1161334348759645509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2550,7 +2567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a956e012540b482f868bade91986e483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Systems._Core.Pickup_Drop.PickupController
-  <InventoryManager>k__BackingField: {fileID: 0}
+  <InventoryComponent>k__BackingField: {fileID: 7820179414807695696}
   pickUpRange: 5
   pickupableLayer:
     serializedVersion: 2

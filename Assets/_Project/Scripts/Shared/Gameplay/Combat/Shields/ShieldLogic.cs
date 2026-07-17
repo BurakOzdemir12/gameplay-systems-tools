@@ -1,11 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using _Project.Systems.SharedGameplay.Shield_Logic.Interfaces;
-using _Project.Systems.SharedGameplay.Shield_Logic.ScriptableObjects;
-using _Project.Systems.SharedGameplay.Shield_Logic.Structs;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Shield_Logic
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class ShieldLogic : MonoBehaviour, IBlocker
     {

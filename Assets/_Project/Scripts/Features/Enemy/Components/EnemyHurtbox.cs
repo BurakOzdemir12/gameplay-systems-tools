@@ -1,4 +1,6 @@
-﻿namespace _Project.Systems.HealthSystem.HurtboxLogic
+using GameplaySystemsAndTools.Shared.Gameplay.Health;
+
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyHurtbox : HurtboxBase
     {

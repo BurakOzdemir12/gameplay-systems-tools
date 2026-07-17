@@ -1,13 +1,12 @@
-﻿using _Project.Systems._Core.StateMachine;
-using _Project.Systems.CombatSystem.Player.States;
-using _Project.Systems.CombatSystem.Targeting;
+using GameplaySystemsAndTools.Shared.Gameplay.StateMachine;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.StateMachine.Player
+namespace GameplaySystemsAndTools.Features.Player
 {
-    public abstract class PlayerBaseState : State
+    public abstract class PlayerBaseState : StateBase
     {
-        protected readonly PlayerStateMachine stateMachine;
+        protected new readonly PlayerStateMachine stateMachine;
 
 
         protected PlayerBaseState(PlayerStateMachine stateMachine) : base(stateMachine)

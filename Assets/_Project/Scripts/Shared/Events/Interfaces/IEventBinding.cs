@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace _Project.Systems._Core.EventBus.Interfaces
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public interface IEventBinding<T>
     {

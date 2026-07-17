@@ -1,10 +1,8 @@
-﻿using _Project.Systems._Core.EventBus;
-using _Project.Systems._Core.EventBus.Events;
-using _Project.Systems.CombatSystem.Events;
+using GameplaySystemsAndTools.Shared.Events;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.CameraShaker
+namespace GameplaySystemsAndTools.Shared.Visuals
 {
     public class CineMachineShake : MonoBehaviour
     {

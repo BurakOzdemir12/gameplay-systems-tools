@@ -1,33 +1,32 @@
-﻿using System;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Time.Enums;
-using _Project.Systems.EnvironmentSystem.Time.Events;
-using _Project.Systems.EnvironmentSystem.Time.ScriptableObjects;
+using System;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Events;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Time
+namespace GameplaySystemsAndTools.Features.Environment.TimeOfDay
 {
-    public class TimeService
+    /// <summary>
+    /// Pure C# day/night clock. Advances an in-game DateTime, computes sun/moon angles
+    /// and publishes TimeChangedEvent / DayChangedEvent on the EventBus when the hour
+    /// or day rolls over. Ticked by TimeOfDayController; consumed via ITimeOfDayService.
+    /// </summary>
+    public class TimeService : ITimeOfDayService
     {
         private readonly TimeConfigSo timeData;
 
         private DateTime currentTime;
         public DateTime CurrentTime => currentTime;
 
-        readonly TimeSpan sunriseTime;
-        readonly TimeSpan sunsetTime;
+        private readonly TimeSpan sunriseTime;
+        private readonly TimeSpan sunsetTime;
 
         private bool isDayTime;
         private int currentHour;
 
-        //Cached Variables
+        // Cached values so change events only fire on real transitions.
         private DivisionsOfDay lastDivision;
         private int lastHour;
         private int lastDay;
-
-        // private readonly Observer<bool> isDayTime;
-        // private readonly Observer<int> currentHour;
-        // private readonly Observer<int> lastDay;
 
         public TimeService(TimeConfigSo timeData)
         {
@@ -42,34 +41,11 @@ namespace _Project.Systems.EnvironmentSystem.Time
             lastHour = currentTime.Hour;
 
             lastDivision = CalculateCurrentDivision();
-
-            // isDayTime = new Observer<bool>(IsDayTime());
-            // currentHour = new Observer<int>(currentTime.Hour);
-
-            // DivisionsOfDay currentDivision = CalculateCurrentDivision();
-            // bool hasDivisionChanged = currentDivision != lastDivision;
-
-            //Hour Changed Events With Observer But it doesnt necessary
-
-            // currentHour.AddListener((hour) =>
-            // {
-            //     var evt = new TimeChangedEvent(currentTime, currentDivision,
-            //         hasDivisionChanged);
-            //     EventBus<TimeChangedEvent>.Publish(evt);
-            //
-            //     lastDivision = currentDivision;
-            // });
-            //Day Changed Events
         }
-
 
         public void UpdateTime(float deltaTime)
         {
             currentTime = currentTime.AddSeconds(deltaTime * timeData.timeMultiplier);
-
-            //Observers Set
-            // isDayTime.Value = IsDayTime();
-            // currentHour.Value = currentTime.Hour;
 
             isDayTime = IsDayTime();
             currentHour = currentTime.Hour;
@@ -80,16 +56,14 @@ namespace _Project.Systems.EnvironmentSystem.Time
                 EventBus<DayChangedEvent>.Publish(new DayChangedEvent(lastDay));
             }
 
-
             if (lastHour != currentHour)
             {
                 DivisionsOfDay currentDivision = CalculateCurrentDivision();
                 bool hasDivisionChanged = currentDivision != lastDivision;
 
                 lastHour = currentHour;
-                var evt = new TimeChangedEvent(currentTime, currentDivision,
-                    hasDivisionChanged);
-                EventBus<TimeChangedEvent>.Publish(evt);
+                EventBus<TimeChangedEvent>.Publish(
+                    new TimeChangedEvent(currentTime, currentDivision, hasDivisionChanged));
 
                 lastDivision = currentDivision;
             }
@@ -101,10 +75,11 @@ namespace _Project.Systems.EnvironmentSystem.Time
         {
             TimeSpan totalTime = CalculateDifference(start, end);
             TimeSpan elapsedTime = CalculateDifference(start, currentTime.TimeOfDay);
-           
+
             return (float)(elapsedTime.TotalMinutes / totalTime.TotalMinutes);
         }
 
+        // Sun sweeps 0-180 degrees during the day, 180-360 at night (below horizon).
         public float GetSunRotation()
         {
             if (isDayTime)
@@ -133,10 +108,11 @@ namespace _Project.Systems.EnvironmentSystem.Time
             }
         }
 
-        TimeSpan CalculateDifference(TimeSpan from, TimeSpan to)
+        private TimeSpan CalculateDifference(TimeSpan from, TimeSpan to)
         {
             TimeSpan difference = to - from;
 
+            // Wrap across midnight so "22:00 -> 06:00" is 8 hours, not negative.
             return difference.TotalHours < 0 ? difference + TimeSpan.FromDays(1) : difference;
         }
 

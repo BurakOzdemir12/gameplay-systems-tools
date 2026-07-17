@@ -1,10 +1,7 @@
-﻿using _Project.Systems.CombatSystem.ScriptableObjects.Combat.Dodge_Roll;
-using _Project.Systems.MovementSystem.Player.States;
-using _Project.Systems.MovementSystem.Player.States.RootStates;
-using _Project.Systems.SharedGameplay.StateMachine.Player;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.Player.States
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerDodgeState : PlayerBaseState
     {

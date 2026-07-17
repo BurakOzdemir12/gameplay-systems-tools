@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.ScriptableObjects.Combat
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
+
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     [CreateAssetMenu(fileName = "EnemyCombatData", menuName = "Scriptable Objects/Combat/Enemy Combat Data")]
     public class EnemyCombatDataSo : CombatDataSo

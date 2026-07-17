@@ -1,12 +1,11 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Project.Systems.SharedGameplay.Managers.Effects.Audio.Structs;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
-namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio
+namespace GameplaySystemsAndTools.Shared.Audio
 {
     [RequireComponent(typeof(AudioSource))]
     public class SoundEmitter : MonoBehaviour

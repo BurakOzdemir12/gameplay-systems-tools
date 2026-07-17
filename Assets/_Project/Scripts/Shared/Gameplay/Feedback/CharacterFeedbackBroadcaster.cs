@@ -1,13 +1,10 @@
-using _Project.Systems._Core.Components;
-using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems._Core.EventBus.Events;
-using _Project.Systems.CombatSystem.Events;
-using _Project.Systems.MovementSystem.Events;
-using _Project.Systems.SharedGameplay.Weapon_Tool_Handlers;
+using GameplaySystemsAndTools.Shared.Gameplay.Surfaces;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Feedback
+namespace GameplaySystemsAndTools.Shared.Gameplay.Feedback
 {
     [RequireComponent(typeof(SurfaceDetection))]
     public class CharacterFeedbackBroadcaster : MonoBehaviour

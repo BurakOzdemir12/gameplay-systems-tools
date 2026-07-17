@@ -1,6 +1,5 @@
-﻿using _Project.Systems.SharedGameplay.StateMachine.Player;
 
-namespace _Project.Systems.CombatSystem.Player.States
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerDeadState : PlayerBaseState
     {

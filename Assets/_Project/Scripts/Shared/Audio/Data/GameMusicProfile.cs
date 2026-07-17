@@ -1,7 +1,7 @@
-﻿using _Project.Systems.EnvironmentSystem.Time.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Audio
 {
     [CreateAssetMenu(fileName = "GameMusicProfile", menuName = "Scriptable Objects/Audio Profile/Game Music Profile")]
     public class GameMusicProfile : ScriptableObject
@@ -9,7 +9,7 @@ namespace _Project.Systems.EnvironmentSystem.ScriptableObjects
         [Header("Ambient Tracks by place")] public AudioClip[] dayVillageTracks;
         [Header("Exploration Ambient Tracks")] public AudioClip[] dayExplorationTracks;
         public AudioClip[] nightExplorationTracks;
-        [Header("State tracks")] public AudioClip[] dangerTracks;
+        [Header("StateBase tracks")] public AudioClip[] dangerTracks;
         public AudioClip[] bossTracks;
 
         public AudioClip GetMusicTrack(bool isDanger, DivisionsOfDay time)

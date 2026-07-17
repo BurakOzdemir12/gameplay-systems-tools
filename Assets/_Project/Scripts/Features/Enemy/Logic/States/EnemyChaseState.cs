@@ -1,11 +1,8 @@
-using _Project.Systems.CombatSystem.Enemy.States;
-using _Project.Systems.MovementSystem.ScriptableObjects;
-using _Project.Systems.SharedGameplay.Managers.Effects.Audio;
-using _Project.Systems.SharedGameplay.Managers.Effects.Audio.Enums;
-using _Project.Systems.SharedGameplay.StateMachine.Enemy;
+using GameplaySystemsAndTools.Shared.Audio;
+using GameplaySystemsAndTools.Shared.Events;
 using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.Enemy.States
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyChaseState : EnemyBaseState
     {
@@ -26,9 +23,10 @@ namespace _Project.Systems.MovementSystem.Enemy.States
 
             if (data.AlertAudioClips != null)
             {
+                // Decoupled audio: publish a request instead of touching the audio system directly.
                 AudioClip toPlay = data.AlertAudioClips[Random.Range(0, data.AlertAudioClips.Length)];
-                SoundManager.Instance.PlayGeneric3DSound(toPlay, stateMachine.transform.position,
-                    SoundChannel.CombatVocal, data.VoiceVolume, true, false);
+                EventBus<SoundPlayRequestedEvent>.Publish(new SoundPlayRequestedEvent(
+                    toPlay, stateMachine.transform.position, SoundChannel.CombatVocal, data.VoiceVolume));
             }
 
             stateMachine.Agent.isStopped = false;

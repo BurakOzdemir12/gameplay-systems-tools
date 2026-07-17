@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.MovementSystem.Player.Enums
+namespace GameplaySystemsAndTools.Features.Player
 {
     public enum JumpVariant
     {

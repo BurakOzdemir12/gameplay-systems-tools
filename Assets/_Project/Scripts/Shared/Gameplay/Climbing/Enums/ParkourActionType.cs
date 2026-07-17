@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.ClimbingSystem.Enums
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     public enum ParkourActionType
     {

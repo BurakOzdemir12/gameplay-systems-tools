@@ -1,13 +1,12 @@
-﻿using _Project.Systems._Core.EventBus.Interfaces;
-using _Project.Systems.EnvironmentSystem.Season.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 
-namespace _Project.Systems.EnvironmentSystem.Season.Events
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public struct SeasonChangedEvent : IEvent
     {
         public SeasonType CurrentSeasonType;
 
-        public SeasonChangedEvent(Enums.SeasonType currentSeasonType)
+        public SeasonChangedEvent(SeasonType currentSeasonType)
         {
             CurrentSeasonType = currentSeasonType;
         }

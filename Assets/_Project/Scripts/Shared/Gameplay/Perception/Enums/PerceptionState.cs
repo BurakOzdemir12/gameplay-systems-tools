@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.PerceptionSystem.Enums
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
     public enum PerceptionState
     {

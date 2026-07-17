@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.ScriptableObjects.Combat.Dodge_Roll
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     [CreateAssetMenu(fileName = "DodgeData", menuName = "Scriptable Objects/Combat/Dodge Data")]
     public class DodgeDataSo : ScriptableObject

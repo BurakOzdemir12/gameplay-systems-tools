@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.ScriptableObjects.Combat
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     [CreateAssetMenu (fileName = "AIBrainData", menuName ="Scriptable Objects/AI/AI Brain Data" )]
     public class EnemyAIBrainDataSo : ScriptableObject

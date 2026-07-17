@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     public abstract class VaultBaseSo : ClimbTypeDataSo
     {

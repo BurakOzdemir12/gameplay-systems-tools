@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.HealthSystem.Stun.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay.Health
 {
     public interface IStunnable
     {

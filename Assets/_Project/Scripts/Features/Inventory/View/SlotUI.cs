@@ -1,11 +1,11 @@
-﻿using _Project.Systems.InventorySystem.Core;
-using _Project.Systems.InventorySystem.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace _Project.Systems.InventorySystem.UI
+using GameplaySystemsAndTools.Shared.Gameplay.Items;
+
+namespace GameplaySystemsAndTools.Features.Inventory
 {
     public class SlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

@@ -1,7 +1,6 @@
-﻿using _Project.Systems.ClimbingSystem.Structs;
 using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     [CreateAssetMenu(fileName = "Vault_Center", menuName = "Scriptable Objects/Climb System/Vault/CenterVaultSo")]
     public class CenterVaultSo : VaultBaseSo

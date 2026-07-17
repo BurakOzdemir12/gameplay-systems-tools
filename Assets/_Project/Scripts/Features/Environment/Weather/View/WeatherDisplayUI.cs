@@ -1,10 +1,9 @@
-﻿using System;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Weather.Events;
+using System;
+using GameplaySystemsAndTools.Shared.Events;
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Weather.UI
+namespace GameplaySystemsAndTools.Features.Environment.Weather
 {
     public class WeatherDisplayUI : MonoBehaviour
     {

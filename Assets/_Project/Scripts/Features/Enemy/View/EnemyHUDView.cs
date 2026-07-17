@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Systems.SharedGameplay.UI.EnemyHud
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyHUDView : MonoBehaviour
     {

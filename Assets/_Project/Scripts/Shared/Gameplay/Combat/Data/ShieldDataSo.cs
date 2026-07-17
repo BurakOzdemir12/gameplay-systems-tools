@@ -1,8 +1,8 @@
-﻿using _Project.Systems._Core.Enums;
-using _Project.Systems.SharedGameplay.Feedback.Tools_Weapons;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Gameplay.Feedback;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Shield_Logic.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     [CreateAssetMenu(fileName = "ShieldData", menuName = "Scriptable Objects/Shield/Shield Data")]
     public class ShieldDataSo : ScriptableObject

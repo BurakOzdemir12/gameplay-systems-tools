@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.EnvironmentSystem.Weather.Enums
+namespace GameplaySystemsAndTools.Shared.Data
 {
     public enum WeatherType
     {

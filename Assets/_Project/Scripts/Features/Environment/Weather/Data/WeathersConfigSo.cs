@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.EnvironmentSystem.Weather.ScriptableObjects
+namespace GameplaySystemsAndTools.Features.Environment.Weather
 {
     [CreateAssetMenu(fileName = "WeatherDataSo", menuName = "Scriptable Objects/Weather/WEather Config")]
     public class WeathersConfigSo : ScriptableObject
     {
         public ParticleSystem rainParticlePrefab;
         public ParticleSystem snowParticlePrefab;
-        
-        public Skybox skybox;
+
+        // Fully qualified: the Features.Environment.Skybox namespace shadows UnityEngine.Skybox here.
+        public UnityEngine.Skybox skybox;
     }
 }

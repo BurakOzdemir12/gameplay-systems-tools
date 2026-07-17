@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.Structs
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     public readonly struct ParkourDecision
     {

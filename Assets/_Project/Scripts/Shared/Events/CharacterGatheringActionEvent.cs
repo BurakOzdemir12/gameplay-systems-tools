@@ -1,8 +1,7 @@
-﻿using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus.Interfaces;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems._Core.EventBus.Events
+namespace GameplaySystemsAndTools.Shared.Events
 {
     public struct CharacterGatheringActionEvent : IEvent
     {

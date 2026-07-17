@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
-using _Project.Systems._Core.StateMachine;
-using _Project.Systems.CombatSystem.Enemy.States;
+using GameplaySystemsAndTools.Shared.Gameplay.StateMachine;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.StateMachine.Enemy
+namespace GameplaySystemsAndTools.Features.Enemy
 {
-    public abstract class EnemyBaseState : State
+    public abstract class EnemyBaseState : StateBase
     {
-        protected readonly EnemyStateMachine stateMachine;
+        protected new readonly EnemyStateMachine stateMachine;
 
         protected EnemyBaseState(EnemyStateMachine stateMachine) : base(stateMachine)
         {

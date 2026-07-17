@@ -1,34 +1,31 @@
-﻿using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems._Core.EventBus.Events;
-using _Project.Systems.CombatSystem.Events;
-using _Project.Systems.MovementSystem.Events;
-using _Project.Systems.SharedGameplay.Feedback;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Events;
+using GameplaySystemsAndTools.Shared.Gameplay.Feedback;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Managers.Effects.Vfx
+namespace GameplaySystemsAndTools.Shared.Visuals
 {
-    public class EffectManager : MonoBehaviour
+    /// <summary>
+    /// Spawns one-shot visual effects for gameplay feedback. Fully event-driven —
+    /// listens to feedback events plus VfxPlayRequestedEvent on the EventBus.
+    /// Scene service registered in the GameplayLifetimeScope (no more static Instance).
+    /// </summary>
+    public class VfxService : MonoBehaviour
     {
-        public static EffectManager Instance { get; private set; }
-
         private EventBinding<CharacterTraversalEvent> interactionBinding;
         private EventBinding<CharacterCombatActionEvent> combatBinding;
         private EventBinding<CharacterGatheringActionEvent> gatheringBinding;
         private EventBinding<WeaponImpactActionEvent> weaponImpactBinding;
         private EventBinding<ToolImpactActionEvent> toolImpactBinding;
+        private EventBinding<VfxPlayRequestedEvent> vfxRequestBinding;
 
         [SerializeField] private Transform vfxParent;
 
-        private void Awake()
-        {
-            if (Instance != null && Instance != this) Destroy(this.gameObject);
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-
         private void OnEnable()
         {
+            vfxRequestBinding = new EventBinding<VfxPlayRequestedEvent>(HandleVfxPlayRequested);
+            EventBus<VfxPlayRequestedEvent>.Subscribe(vfxRequestBinding);
+
             interactionBinding = new EventBinding<CharacterTraversalEvent>(HandleTraversalEvent);
             EventBus<CharacterTraversalEvent>.Subscribe(interactionBinding);
 
@@ -48,6 +45,7 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Vfx
 
         private void OnDisable()
         {
+            EventBus<VfxPlayRequestedEvent>.Unsubscribe(vfxRequestBinding);
             EventBus<CharacterTraversalEvent>.Unsubscribe(interactionBinding);
             EventBus<CharacterCombatActionEvent>.Unsubscribe(combatBinding);
             EventBus<CharacterGatheringActionEvent>.Unsubscribe(gatheringBinding);
@@ -142,24 +140,17 @@ namespace _Project.Systems.SharedGameplay.Managers.Effects.Vfx
         #endregion
 
 
+        // Entry point for decoupled one-shot requests published from gameplay code.
+        private void HandleVfxPlayRequested(VfxPlayRequestedEvent evt)
+        {
+            SpawnVfx(evt.VfxPrefab, evt.Position, evt.Rotation);
+        }
+
         private void SpawnVfx(GameObject vfx, Vector3 position, Quaternion rotation = default)
         {
             if (vfx == null) return;
 
-            // var fx = Instantiate(vfx, position, Quaternion.identity);
-
-            // var vfxPrefab = vfx.GetComponent<ParticleSystem>();
-            // if (vfxPrefab != null)
             Instantiate(vfx, position, rotation, vfxParent);
         }
-
-        #region Singleton Function Calls
-
-        public void PlayShieldBreak(GameObject vfx, Vector3 position, Quaternion rotation = default)
-        {
-            SpawnVfx(vfx, position, rotation);
-        }
-
-        #endregion
     }
 }

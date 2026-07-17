@@ -1,10 +1,7 @@
-﻿using System;
-using _Project.Systems.PerceptionSystem.Interfaces;
-using _Project.Systems.PerceptionSystem.Structs;
-using Unity.Cinemachine;
+using System;
 using UnityEngine;
 
-namespace _Project.Systems.PerceptionSystem.Noise_Sensor
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
     public class NoiseSensor : MonoBehaviour, INoiseListener
     {

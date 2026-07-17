@@ -1,14 +1,9 @@
-﻿using _Project.Systems._Core.GravityForce.Interfaces;
-using _Project.Systems.HealthSystem.Health.Interfaces;
-using _Project.Systems.HealthSystem.Structs;
-using _Project.Systems.HealthSystem.Stun.Interfaces;
-using _Project.Systems.MovementSystem.Player.States;
-using _Project.Systems.MovementSystem.Player.States.RootStates;
-using _Project.Systems.SharedGameplay.Shield_Logic.Structs;
-using _Project.Systems.SharedGameplay.StateMachine.Player;
+using GameplaySystemsAndTools.Shared.Gameplay;
+using GameplaySystemsAndTools.Shared.Gameplay.Health;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.Player.States
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerParryState : PlayerBaseState
     {

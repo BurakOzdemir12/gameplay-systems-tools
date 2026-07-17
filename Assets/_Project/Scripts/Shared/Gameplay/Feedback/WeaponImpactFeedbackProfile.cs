@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using _Project.Systems._Core.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Feedback.Tools_Weapons
+namespace GameplaySystemsAndTools.Shared.Gameplay.Feedback
 {
     [CreateAssetMenu(fileName = "NewWeaponImpactProfile", menuName = "Scriptable Objects/Impact Feedback/Weapon Impact Profile")]
     public class WeaponImpactFeedbackProfile : ScriptableObject

@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio.Enums
+namespace GameplaySystemsAndTools.Shared.Audio
 {
     public enum SoundChannel
     {

@@ -1,4 +1,4 @@
-﻿namespace _Project.Systems.EnvironmentSystem.Season.Enums
+namespace GameplaySystemsAndTools.Shared.Data
 {
     public enum SeasonType
     {

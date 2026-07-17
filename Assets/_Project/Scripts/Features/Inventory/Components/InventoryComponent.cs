@@ -1,12 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using _Project.Systems.InventorySystem.ScriptableObjects;
+using GameplaySystemsAndTools.Shared.Gameplay.Items;
+using GameplaySystemsAndTools.Shared.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+using VContainer;
 
-namespace _Project.Systems.InventorySystem.Core
+namespace GameplaySystemsAndTools.Features.Inventory
 {
+    /// <summary>
+    /// The inventory model: slot list, add/swap/drop operations and weight tracking.
+    /// Listens to the inventory-toggle input itself (injected PlayerInputHandler) so
+    /// the Player feature never has to know the Inventory feature exists.
+    /// </summary>
     public class InventoryComponent : MonoBehaviour
     {
         [Header("Test Items")] [SerializeField]
@@ -36,6 +42,15 @@ namespace _Project.Systems.InventorySystem.Core
         public event Action<bool> OnWeightChanged;
         public event Action<string> OnEncumbered;
 
+        private PlayerInputHandler inputHandler;
+
+        [Inject]
+        public void Construct(PlayerInputHandler input)
+        {
+            inputHandler = input;
+            inputHandler.InventoryEvent += ToggleInventoryVisibility;
+        }
+
         private void Awake()
         {
             for (int i = 0; i < maxSlots; i++)
@@ -44,8 +59,20 @@ namespace _Project.Systems.InventorySystem.Core
             }
         }
 
+        private void OnDestroy()
+        {
+            if (inputHandler != null)
+            {
+                inputHandler.InventoryEvent -= ToggleInventoryVisibility;
+            }
+        }
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        // Dev-only cheat: G/H spawn test items directly into the inventory.
         private void Update()
         {
+            if (Keyboard.current == null) return;
+
             if (Keyboard.current.gKey.wasPressedThisFrame)
             {
                 AddItem(swordItem, 1);
@@ -55,6 +82,7 @@ namespace _Project.Systems.InventorySystem.Core
                 AddItem(pickaxeItem, 1);
             }
         }
+#endif
 
         public void SwapOrMergeSlots(int fromIndex, int toIndex)
         {

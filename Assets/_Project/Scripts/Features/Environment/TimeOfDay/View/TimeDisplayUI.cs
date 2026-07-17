@@ -1,26 +1,34 @@
-﻿using System;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.EnvironmentSystem.Time.Events;
+using GameplaySystemsAndTools.Shared.Events;
 using TMPro;
 using UnityEngine;
+using VContainer;
 
-namespace _Project.Systems.EnvironmentSystem.Time.UI
+namespace GameplaySystemsAndTools.Features.Environment.TimeOfDay
 {
+    /// <summary>
+    /// HUD clock: shows the in-game time and day. Gets the clock via VContainer
+    /// injection (wired by GameplayLifetimeScope) instead of a singleton lookup.
+    /// </summary>
     public class TimeDisplayUI : MonoBehaviour
     {
-        private EventBinding<DayChangedEvent> dayChangedBinding;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI dayText;
 
-        private TimeService timeService;
+        private EventBinding<DayChangedEvent> dayChangedBinding;
+        private ITimeOfDayService timeService;
         private int lastMinute = -1;
+
+        [Inject]
+        public void Construct(ITimeOfDayService timeOfDayService)
+        {
+            timeService = timeOfDayService;
+        }
 
         private void OnEnable()
         {
             dayChangedBinding = new EventBinding<DayChangedEvent>(HandleDayChangedEvent);
             EventBus<DayChangedEvent>.Subscribe(dayChangedBinding);
         }
-
 
         private void OnDisable()
         {
@@ -29,11 +37,7 @@ namespace _Project.Systems.EnvironmentSystem.Time.UI
 
         private void Start()
         {
-            if (TimeManager.Instance != null)
-            {
-                timeService = TimeManager.Instance.TimeService;
-            }
-
+            if (timeService == null) return;
             dayText.text = $"Day: {timeService.CurrentTime.Day}";
             timeText.text = timeService.CurrentTime.ToString("HH:mm");
         }
@@ -51,6 +55,7 @@ namespace _Project.Systems.EnvironmentSystem.Time.UI
 
         private void UpdateUI()
         {
+            // Only touch the text when the displayed minute actually changes (no per-frame string churn).
             int currentMinute = timeService.CurrentTime.Minute;
             if (currentMinute == lastMinute) return;
 

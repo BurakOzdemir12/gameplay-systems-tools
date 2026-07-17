@@ -1,12 +1,7 @@
-﻿using _Project.Systems.ClimbingSystem.Enums;
-using _Project.Systems.ClimbingSystem.ObstacleScripts;
-using _Project.Systems.ClimbingSystem.ScriptableObjects;
-using _Project.Systems.ClimbingSystem.Structs;
-using _Project.Systems.MovementSystem.Player.States.RootStates;
-using _Project.Systems.SharedGameplay.StateMachine.Player;
+using GameplaySystemsAndTools.Shared.Gameplay.Climbing;
 using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.States.RootStates
+namespace GameplaySystemsAndTools.Features.Player
 {
     public class PlayerClimbState : PlayerBaseState
     {

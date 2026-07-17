@@ -1,26 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using _Project.Systems._Core.GravityForce;
-using _Project.Systems.CombatSystem.Enemy;
-using _Project.Systems.CombatSystem.Enemy.States;
-using _Project.Systems.CombatSystem.Targeting;
-using _Project.Systems.HealthSystem.Health;
-using _Project.Systems.HealthSystem.Ragdoll;
-using _Project.Systems.HealthSystem.Structs;
-using _Project.Systems.MovementSystem.Enemy.States;
-using _Project.Systems.PerceptionSystem;
-using _Project.Systems.PerceptionSystem.Field_of_View;
-using _Project.Systems.PerceptionSystem.Noise_Sensor;
-using _Project.Systems.SharedGameplay.BaseScriptableObjects.Characters;
-using _Project.Systems.SharedGameplay.Shield_Logic.Structs;
-using _Project.Systems.SharedGameplay.Weapon_Tool_Handlers;
+using GameplaySystemsAndTools.Shared.Gameplay;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
+using GameplaySystemsAndTools.Shared.Gameplay.Health;
+using GameplaySystemsAndTools.Shared.Gameplay.Perception;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace _Project.Systems.SharedGameplay.StateMachine.Enemy
+using GameplaySystemsAndTools.Shared.Gameplay.StateMachine;
+
+namespace GameplaySystemsAndTools.Features.Enemy
 {
-    public class EnemyStateMachine : _Core.StateMachine.StateMachine
+    public class EnemyStateMachine : StateMachineBase
     {
         [field: SerializeField] public CharacterController Controller { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }

@@ -1,8 +1,6 @@
-﻿using _Project.Systems.ClimbingSystem.Enums;
-using _Project.Systems.ClimbingSystem.Structs;
 using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     [CreateAssetMenu(fileName = "Vault_Normal", menuName = "Scriptable Objects/Climb System/Vault/NormalVaultSo")]
     public class NormalVaultDataSo : VaultBaseSo

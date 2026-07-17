@@ -1,8 +1,6 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Project.Systems.InventorySystem.Core;
-using _Project.Systems.InventorySystem.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,13 +8,15 @@ using UnityEngine.UI;
 using Cursor = UnityEngine.Cursor;
 using Image = UnityEngine.UI.Image;
 
-namespace _Project.Systems.InventorySystem.UI
+using GameplaySystemsAndTools.Shared.Gameplay.Items;
+
+namespace GameplaySystemsAndTools.Features.Inventory
 {
     public class InventoryUIController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler,
         IDragHandler,
         IDropHandler
     {
-        // [field: SerializeField] public HotbarManager HotbarManager { get; private set; }
+        // [field: SerializeField] public HotbarController HotbarController { get; private set; }
         [SerializeField] private InventoryComponent inventoryComponent;
 
         [SerializeField] private GameObject inventoryPanel;

@@ -1,9 +1,9 @@
-﻿using System;
-using _Project.Systems._Core.Enums;
+using System;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace _Project.Systems.GatheringSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Gathering
 {
     [CreateAssetMenu(fileName = "GatheringDataSo", menuName = "Scriptable Objects/Gathering System/GatheringDataSo")]
     public class GatheringDataSo : ScriptableObject

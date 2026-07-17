@@ -1,8 +1,8 @@
-﻿using _Project.Systems._Core.Enums;
-using _Project.Systems.SharedGameplay.Feedback.Tools_Weapons;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Gameplay.Feedback;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.ToolLogic.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     [CreateAssetMenu(fileName = "ToolData", menuName = "Scriptable Objects/Tools/Tool Data")]
     public class ToolDataSo : ScriptableObject

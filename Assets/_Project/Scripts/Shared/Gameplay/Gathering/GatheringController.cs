@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace _Project.Systems.GatheringSystem.Detector_Controller
+namespace GameplaySystemsAndTools.Shared.Gameplay.Gathering
 {
     public class GatheringController : MonoBehaviour
     {

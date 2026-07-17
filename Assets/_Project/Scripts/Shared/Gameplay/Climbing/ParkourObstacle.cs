@@ -1,7 +1,6 @@
-﻿using _Project.Systems.ClimbingSystem.Enums;
 using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.ObstacleScripts
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     public class ParkourObstacle : MonoBehaviour
     {

@@ -1,12 +1,17 @@
-﻿using System;
-using _Project.Systems.EnvironmentSystem.Time;
+using System;
+using GameplaySystemsAndTools.Features.Environment.TimeOfDay;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using VContainer;
 
-namespace _Project.Systems.EnvironmentSystem
+namespace GameplaySystemsAndTools.Features.Environment.Skybox
 {
-    public class SkyboxManager : MonoBehaviour
+    /// <summary>
+    /// Drives the visual day/night cycle: sun/moon transforms, light intensities,
+    /// ambient color grading and procedural skybox blending, all from the injected clock.
+    /// </summary>
+    public class SkyboxController : MonoBehaviour
     {
         [Header("Lights")] [SerializeField] private Light sun;
         [Header("Lights")] [SerializeField] private Light moon;
@@ -174,19 +179,20 @@ namespace _Project.Systems.EnvironmentSystem
 
         #endregion
 
-        //Time Service
-        private TimeService timeService;
+        // Clock injected by GameplayLifetimeScope; drives sun/moon angles and blending.
+        private ITimeOfDayService timeService;
         private bool lastFrameWasDay = true;
 
         private Material runtimeSkyboxMaterial;
 
+        [Inject]
+        public void Construct(ITimeOfDayService timeOfDayService)
+        {
+            timeService = timeOfDayService;
+        }
+
         private void Start()
         {
-            if (TimeManager.Instance != null)
-            {
-                timeService = TimeManager.Instance.TimeService;
-            }
-
             volume.profile.TryGet(out colorAdjustments);
             RenderSettings.sun = sun;
 
@@ -207,6 +213,7 @@ namespace _Project.Systems.EnvironmentSystem
         private void Update()
         {
             if (!Application.isPlaying) return;
+            if (timeService == null) return;
             UpdatePlanetPosition();
             UpdateLightSetting();
             HandleSkyBoxBlend();
@@ -319,6 +326,7 @@ namespace _Project.Systems.EnvironmentSystem
         {
             if (!runtimeSkyboxMaterial) return;
             if (!skyboxMaterial) return;
+            if (timeService == null) return;
 
             // Enable Stars
             enableStars = !timeService.IsDayTime();

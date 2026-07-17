@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using _Project.Systems._Core.Enums;
+using GameplaySystemsAndTools.Shared.Data;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Feedback
+namespace GameplaySystemsAndTools.Shared.Gameplay.Feedback
 {
     [CreateAssetMenu(fileName = "NewCharacterProfile", menuName = "Scriptable Objects/Feedback/Character Profile")]
     public class CharacterFeedbackProfile : ScriptableObject

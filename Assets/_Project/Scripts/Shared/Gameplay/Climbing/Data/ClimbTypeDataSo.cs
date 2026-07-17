@@ -1,9 +1,6 @@
-using _Project.Systems.ClimbingSystem.Enums;
-using _Project.Systems.ClimbingSystem.LedgeClimbing;
-using _Project.Systems.ClimbingSystem.Structs;
 using UnityEngine;
 
-namespace _Project.Systems.ClimbingSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Shared.Gameplay.Climbing
 {
     [CreateAssetMenu(fileName = "ParkourControllerSo",
         menuName = "Scriptable Objects/Climb System/ParkourControllerSO")]

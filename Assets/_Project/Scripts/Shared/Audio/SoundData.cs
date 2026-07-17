@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Audio;
 
-namespace _Project.Systems.SharedGameplay.Managers.Effects.Audio.Structs
+namespace GameplaySystemsAndTools.Shared.Audio
 {
     public struct SoundData
     {

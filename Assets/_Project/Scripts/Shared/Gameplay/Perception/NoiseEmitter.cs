@@ -1,15 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using _Project.Systems._Core.Enums;
-using _Project.Systems._Core.EventBus;
-using _Project.Systems.MovementSystem.Events;
-using _Project.Systems.PerceptionSystem.Enums;
-using _Project.Systems.PerceptionSystem.Interfaces;
-using _Project.Systems.PerceptionSystem.Structs;
+using GameplaySystemsAndTools.Shared.Data;
+using GameplaySystemsAndTools.Shared.Events;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace _Project.Systems.PerceptionSystem
+namespace GameplaySystemsAndTools.Shared.Gameplay.Perception
 {
     public class NoiseEmitter : MonoBehaviour
     {

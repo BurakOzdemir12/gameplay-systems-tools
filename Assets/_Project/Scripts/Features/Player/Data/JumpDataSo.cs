@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-namespace _Project.Systems.MovementSystem.ScriptableObjects
+namespace GameplaySystemsAndTools.Features.Player
 {
     [CreateAssetMenu(fileName = "JumpData", menuName = "Scriptable Objects/Jumping/Jump Data")]
     public class JumpDataSo : ScriptableObject

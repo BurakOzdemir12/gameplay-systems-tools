@@ -1,7 +1,6 @@
-﻿using _Project.Systems.SharedGameplay.Shield_Logic.Structs;
 using UnityEngine;
 
-namespace _Project.Systems.SharedGameplay.Shield_Logic.Interfaces
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public interface IBlocker
     {

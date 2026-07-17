@@ -1,24 +1,27 @@
 using UnityEngine;
 
-namespace _Project.Systems._Core.StateMachine
+namespace GameplaySystemsAndTools.Shared.Gameplay.StateMachine
 {
-    public abstract class StateMachine : MonoBehaviour
+    /// <summary>
+    /// MonoBehaviour host of a hierarchical FSM: holds the current root state and
+    /// ticks the whole state chain (root -> leaf) every frame.
+    /// </summary>
+    public abstract class StateMachineBase : MonoBehaviour
     {
-        private State currentState;
-        public State CurrentState => currentState;
+        private StateBase currentState;
+        public StateBase CurrentState => currentState;
 
-        private State previousState;
-        public State PreviousState => previousState;
-        public State PreviousLeafState { get; internal set; }
+        private StateBase previousState;
+        public StateBase PreviousState => previousState;
+        public StateBase PreviousLeafState { get; internal set; }
 
         void Update()
         {
-            // currentState?.Tick(Time.deltaTime);
             currentState?.UpdateStates(Time.deltaTime);
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        public void SwitchState(State newState)
+        public void SwitchState(StateBase newState)
         {
             currentState?.Exit();
             previousState = currentState;

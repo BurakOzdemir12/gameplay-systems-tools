@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
-namespace _Project.Systems._Core.InputHandler
+namespace GameplaySystemsAndTools.Shared.Input
 {
     public class PlayerInputHandler : MonoBehaviour, PlayerInputActions.IPlayerActions
     {

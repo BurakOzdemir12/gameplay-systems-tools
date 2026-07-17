@@ -1,9 +1,8 @@
 using System;
-using _Project.Systems.SharedGameplay.WeaponLogic.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class WeaponHandler : MonoBehaviour
     {
@@ -18,9 +17,9 @@ namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
         public GameObject CurrentWeaponHitBox => currentWeaponHitbox;
 
         [Header("Current Weapon Logic ")] [SerializeField]
-        private WeaponLogic.WeaponLogic currentWeaponLogic;
+        private WeaponLogic currentWeaponLogic;
 
-        public WeaponLogic.WeaponLogic CurrentWeaponLogic => currentWeaponLogic;
+        public WeaponLogic CurrentWeaponLogic => currentWeaponLogic;
 
         [Header("Current Weapon Model")] [SerializeField]
         private GameObject currentWeaponModel;
@@ -40,8 +39,8 @@ namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
 
         private void Awake()
         {
-            WeaponLogic.WeaponLogic weaponLogic =
-                currentWeaponRoot.GetComponentInChildren<WeaponLogic.WeaponLogic>(true);
+            WeaponLogic weaponLogic =
+                currentWeaponRoot.GetComponentInChildren<WeaponLogic>(true);
             if (weaponLogic == null)
             {
                 Debug.LogError($"{name}: WeaponLogic couldn't find in the children!", this);
@@ -78,8 +77,8 @@ namespace _Project.Systems.SharedGameplay.Weapon_Tool_Handlers
 
         public void SwitchWeapon(WeaponData weaponData)
         {
-            WeaponLogic.WeaponLogic newWeaponLogic = Instantiate(weaponData.itemPrefab, currentWeaponRoot.transform)
-                .GetComponentInChildren<WeaponLogic.WeaponLogic>();
+            WeaponLogic newWeaponLogic = Instantiate(weaponData.itemPrefab, currentWeaponRoot.transform)
+                .GetComponentInChildren<WeaponLogic>();
 
             currentWeaponData = weaponData;
             currentWeaponLogic = newWeaponLogic;

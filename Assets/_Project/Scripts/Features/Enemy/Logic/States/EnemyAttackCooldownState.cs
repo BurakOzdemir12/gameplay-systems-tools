@@ -1,8 +1,6 @@
-﻿using _Project.Systems.CombatSystem.ScriptableObjects.Combat;
-using _Project.Systems.MovementSystem.Enemy.States;
-using _Project.Systems.SharedGameplay.StateMachine.Enemy;
+using GameplaySystemsAndTools.Shared.Gameplay.Combat;
 
-namespace _Project.Systems.CombatSystem.Enemy.States
+namespace GameplaySystemsAndTools.Features.Enemy
 {
     public class EnemyAttackCooldownState : EnemyBaseState
     {

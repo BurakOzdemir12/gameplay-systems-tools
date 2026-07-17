@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace _Project.Systems.CombatSystem.Targeting
+namespace GameplaySystemsAndTools.Shared.Gameplay.Combat
 {
     public class Targeter : MonoBehaviour
     {
